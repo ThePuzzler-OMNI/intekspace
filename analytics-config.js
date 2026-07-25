@@ -7,6 +7,6 @@
  */
 window.SITE_ANALYTICS = {
   site: "intekspace",
-  ga4MeasurementId: "", // e.g. "G-XXXXXXXXXX"
+  ga4MeasurementId: "G-B7KK725PP3",
   anonymizeIp: true,
 };
