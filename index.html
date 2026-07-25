@@ -179,9 +179,24 @@
   </section>
 
   <footer class="border-t border-white/10 py-8">
-    <div class="max-w-5xl mx-auto px-5 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
-      <div>© <span id="y"></span> Intek Space / Intek Inc. · intekspace.com</div>
-      <div>Hosted via Vercel when project connected · source in GitHub</div>
+    <div class="max-w-5xl mx-auto px-5 space-y-4 text-sm text-slate-500">
+      <div class="flex flex-col sm:flex-row justify-between gap-2">
+        <div>© <span id="y"></span> Intek Space / Intek Inc. · intekspace.com</div>
+        <div>Hosted on Vercel · source on GitHub</div>
+      </div>
+      <p id="privacy" class="text-xs text-slate-500/90 leading-relaxed max-w-3xl">
+        <strong class="text-slate-400 font-medium">Privacy &amp; analytics.</strong>
+        This site uses <strong class="text-slate-400">Google Analytics 4</strong>
+        to understand traffic: pages viewed, approximate location/device, and referral sources (including social such as X).
+        We do not use this tag to collect names, emails, or phone numbers from contact forms.
+        Google may process data per
+        <a class="text-mark hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a>
+        and its analytics terms. Contact:
+        <a class="text-mark hover:underline" href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a>
+        · X
+        <a class="text-mark hover:underline" href="https://x.com/omni_puzzler" target="_blank" rel="noopener">@omni_puzzler</a>.
+        Sister sites: One Mission · Institute of Mature Imagination (separate analytics).
+      </p>
     </div>
   </footer>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
