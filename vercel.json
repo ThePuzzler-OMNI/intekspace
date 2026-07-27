@@ -3,6 +3,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/education", "destination": "/education.html" },
-    { "source": "/education-apply", "destination": "/education-apply.html" }
+    { "source": "/education-apply", "destination": "/education-apply.html" },
+    { "source": "/hive-king", "destination": "/hive-king.html" }
   ]
 }

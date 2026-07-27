@@ -24,6 +24,14 @@ See workspace `docs/INTEKSPACE_IDENTITY_PLAN.md` for M365 / mail path. This site
 **Steward mail:** `tharpster@intekspace.com` (change in `education-tracks.js` if needed).  
 **Sources:** Notion Education Exchange + Harpster Science and Faith docs (`docs/INTEK_DESIGN_DOCS_COMPREHENSION.md` in Grok workspace).
 
+## Hive King (R&D)
+
+| Path | Page |
+|------|------|
+| `/hive-king` | System layers · BOM summary · KiCAD checklist |
+
+**Not** a default Education SKU. SSOT design files under `One Mission\OMNI 2\Design Documents from Intek\`.
+
 ## Deploy
 
 Same Vercel flow as IMI: import repo → deploy → add domain → GoDaddy DNS.
