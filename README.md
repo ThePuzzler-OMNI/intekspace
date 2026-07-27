@@ -24,13 +24,24 @@ See workspace `docs/INTEKSPACE_IDENTITY_PLAN.md` for M365 / mail path. This site
 **Steward mail:** `tharpster@intekspace.com` (change in `education-tracks.js` if needed).  
 **Sources:** Notion Education Exchange + Harpster Science and Faith docs (`docs/INTEK_DESIGN_DOCS_COMPREHENSION.md` in Grok workspace).
 
-## Hive King (R&D)
+## Philosophy & nomenclature
 
 | Path | Page |
 |------|------|
-| `/hive-king` | System layers · BOM summary · KiCAD checklist |
+| `/philosophy` | Coherent writeup + glossary anchors (death-to-life breathe, DMAIC, sector overlays, twin extremes, refused lists, …) |
 
-**Not** a default Education SKU. SSOT design files under `One Mission\OMNI 2\Design Documents from Intek\`.
+Unusual terms on the site should hyperlink to `philosophy.html#anchor`.
+
+## Projects (substantial)
+
+| Path | Page |
+|------|------|
+| `/projects` | Hub — Hive King + Yard-to-Loop + Poop-to-Loop |
+| `/hive-king` | Starship-class apiary R&D |
+| `/yard-to-loop` | Field project · substantial cost/scope (not a toy kit) |
+| `/poop-to-loop` | Field project · peer level · hard refusals |
+
+**Hive King** is the starship. **Yard-to-Loop** and **Poop-to-Loop** are peer-level field projects (budget, sectors, proof)—not “education add-ons.” Smaller kit tracks stay under Education Exchange.
 
 ## Form backbone
 

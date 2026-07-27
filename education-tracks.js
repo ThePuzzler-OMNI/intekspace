@@ -89,10 +89,10 @@
     {
       id: 'yard-to-loop',
       name: 'Yard-to-Loop / Poop-to-Loop',
-      short: 'Prototype seats',
+      short: 'Field project seats',
       blurb:
-        'Physical yard instruments under sector overlays and DMAIC. Evidence: measurement sheet, Phase 1 build or test log, refusals listed.',
-      safetyNote: 'Outdoor / organic materials — hygiene protocols required.',
+        'Education seats into substantial field projects (peer scope/cost to Hive King R&D—not toy kits). Sector overlays, DMAIC, refused lists. Evidence: measurement sheet, Phase 1 build or test log, refusals listed. Full project pages: yard-to-loop / poop-to-loop.',
+      safetyNote: 'Outdoor / organic materials — hygiene protocols required. Hard refusals: no storm-drain fantasy; no human-food claims from uncontrolled residual.',
       guardian: false,
     },
   ];

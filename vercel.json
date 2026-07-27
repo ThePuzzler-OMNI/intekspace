@@ -4,6 +4,10 @@
   "rewrites": [
     { "source": "/education", "destination": "/education.html" },
     { "source": "/education-apply", "destination": "/education-apply.html" },
-    { "source": "/hive-king", "destination": "/hive-king.html" }
+    { "source": "/hive-king", "destination": "/hive-king.html" },
+    { "source": "/philosophy", "destination": "/philosophy.html" },
+    { "source": "/projects", "destination": "/projects.html" },
+    { "source": "/yard-to-loop", "destination": "/yard-to-loop.html" },
+    { "source": "/poop-to-loop", "destination": "/poop-to-loop.html" }
   ]
 }

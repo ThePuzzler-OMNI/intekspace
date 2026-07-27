@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Philosophy · Intek Space</title>
+  <meta name="description" content="Coherent writeup of Intek Space philosophy and nomenclature: death-to-life breathe, sector overlays, DMAIC, twin extremes, land per life." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://intekspace.com/philosophy" />
+  <script src="analytics-config.js"></script>
+  <script src="analytics.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0f14', parchment: '#e8e4d9', mark: '#0ea5e9',
+            hive: '#c4a35a', leaf: '#6b8f71', mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0a0f14; color: #e8e4d9; min-height: 100vh; }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .panel { background: rgba(14, 20, 26, 0.85); border: 1px solid rgba(196, 163, 90, 0.12); }
+    .term:target { outline: 1px solid rgba(196, 163, 90, 0.45); outline-offset: 4px; border-radius: 1rem; }
+    .rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent); }
+    a.gloss { color: #c4a35a; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(196, 163, 90, 0.4); }
+    a.gloss:hover { color: #e8e4d9; text-decoration-color: rgba(196, 163, 90, 0.8); }
+  </style>
+</head>
+<body class="antialiased">
+  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/85 backdrop-blur-md">
+    <div class="max-w-3xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-3 text-sm text-mist hover:text-parchment">
+        <span class="w-8 h-8 rounded-full border border-hive/35 flex items-center justify-center text-hive text-xs font-semibold">IS</span>
+        Intek Space
+      </a>
+      <nav class="flex gap-4 text-sm text-mist/75">
+        <a href="#glossary" class="hover:text-parchment">Glossary</a>
+        <a href="projects.html" class="hover:text-parchment">Projects</a>
+        <a href="education.html" class="hover:text-parchment">Education</a>
+        <a href="/" class="hover:text-parchment">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-5 py-12 md:py-16">
+    <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-4">Coherent writeup</p>
+    <h1 class="font-display text-4xl md:text-5xl font-semibold text-parchment leading-tight">
+      Philosophy &amp; nomenclature
+    </h1>
+    <p class="mt-5 text-mist leading-relaxed text-lg">
+      Philosophy is rarely taught as a living craft. Our sites use a few <em>atypical</em> words on purpose.
+      This page is the map: every unusual phrase on Intek Space should be clickable back here.
+    </p>
+    <div class="rule my-8"></div>
+
+    <section id="spine" class="mb-14">
+      <h2 class="font-display text-2xl text-parchment mb-4">Spine (read once)</h2>
+      <ol class="space-y-4 text-mist/90 leading-relaxed list-decimal list-inside">
+        <li><strong class="text-parchment">All great works begin with a philosophy on life.</strong> Product is downstream of meaning.</li>
+        <li>We <a class="gloss" href="#consume-death">consume death to breed life</a> under <a class="gloss" href="#stewardship">stewardship</a>—not ownership of the source.</li>
+        <li>Standing goal: <a class="gloss" href="#land-per-life">optimal land per life, per species</a>—intelligence balanced with conversion efficiency—so the <a class="gloss" href="#death-to-life-breathe">death-to-life breathe</a> does not end in extinction.</li>
+        <li>Method: philosophy → constraints → prototype → assemble · <a class="gloss" href="#dmaic">DMAIC</a> · <a class="gloss" href="#sector-overlays">sector overlays</a> · <a class="gloss" href="#twin-extremes">twin extremes</a>.</li>
+        <li>Public claims must match <a class="gloss" href="#refused-lists">refused lists</a>. Philosophy controls marketing; it is not decoration.</li>
+      </ol>
+    </section>
+
+    <section id="glossary" class="mb-10">
+      <h2 class="font-display text-2xl text-parchment mb-6">Glossary</h2>
+      <div class="space-y-8">
+
+        <article id="philosophy-on-life" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Philosophy on life</h3>
+          <p class="text-sm text-mist/90 leading-relaxed">
+            The starting claim: every serious build begins with a view of what a living being is and what life is for—
+            not with a market gap alone. Intek Space treats “philosophy first” as engineering discipline, not poetry on the side.
+          </p>
+        </article>
+
+        <article id="consume-death" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Consume death to breed life</h3>
+          <p class="text-sm text-mist/90 leading-relaxed mb-2">
+            Finite, ended things (food, fuel, matter, mortal givenness) are <em>received</em> and turned toward the generation
+            and continuation of life: body, relation, garden, household, craft.
+          </p>
+          <p class="text-sm text-mist/75 leading-relaxed">
+            Related One Mission core (candidate): form and sustain living beings who have faith in the Creator and who
+            consume death to breed life—without claiming ownership of the source.
+          </p>
+        </article>
+
+        <article id="stewardship" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Stewardship (not ownership)</h3>
+          <p class="text-sm text-mist/90 leading-relaxed">
+            We do not own the source of life. We care for systems we did not invent and cannot fully control.
+            Design that pretends total ownership becomes extractive; design under stewardship stays honest about limits.
+          </p>
+        </article>
+
+        <article id="death-to-life-breathe" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Death-to-life breathe <span class="text-mist/50 text-base font-sans">/ “the breathe”</span></h3>
+          <p class="text-sm text-mist/90 leading-relaxed mb-2">
+            A picture of conversion held in time: intake → convert → output → residual.
+            “Breathe” is not a wellness brand. It is the loop by which life is sustained without lying about cost.
+          </p>
+          <p class="text-sm text-mist/75 leading-relaxed">
+            <strong class="text-parchment">Breathe metrics</strong> measure those phases on real sites (energy, mass, labor, error correction)—
+            not only lab-ideal data. If the breathe ends in extinction or hidden waste, the design failed.
+          </p>
+        </article>
+
+        <article id="land-per-life" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Land per life (per species)</h3>
+          <p class="text-sm text-mist/90 leading-relaxed">
+            Standing goal metric: how much land (on-site and upstream feed/bran/etc.) is required to sustain life,
+            by species, honestly. Intelligence may expand only if conversion efficiency keeps the breathe from
+            eating the world empty.
+          </p>
+        </article>
+
+        <article id="conversion-system" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Conversion system</h3>
+          <p class="text-sm text-mist/90 leading-relaxed">
+            Hardware + knowledge that turns inputs (sun, waste, feed, heat, work) into outputs that sustain life,
+            while making land and energy cost <em>visible</em>. Gadgets without conversion honesty are not our product family.
+          </p>
+        </article>
+
+        <article id="sector-overlays" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Sector overlays</h3>
+          <p class="text-sm text-mist/90 leading-relaxed mb-2">
+            Site maps layered by real constraints: sun, water, wind, access, neighbor/risk, legal.
+            Every install begins with overlays—not only a BOM.
+          </p>
+          <p class="text-sm text-mist/75 leading-relaxed">
+            Hardware moves only inside green/amber intersections. Red sectors (e.g. path to storm drain, illegal placement)
+            are refusals, not “phase two.”
+          </p>
+        </article>
+
+        <article id="dmaic" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">DMAIC</h3>
+          <p class="text-sm text-mist/90 leading-relaxed mb-2">
+            Define → Measure → Analyze → Improve → Control. Industrial improvement method applied to life systems.
+          </p>
+          <ul class="text-sm text-mist/80 space-y-1.5 list-disc list-inside">
+            <li><strong class="text-parchment">D</strong> — problem boundary includes sectors and refusals before parts lists.</li>
+            <li><strong class="text-parchment">M</strong> — breathe metrics + land proxy + tagged sensors.</li>
+            <li><strong class="text-parchment">A</strong> — sector failures count (odor, splash) as much as electronics.</li>
+            <li><strong class="text-parchment">I</strong> — redesign toward twin extremes; publish updated refusals.</li>
+            <li><strong class="text-parchment">C</strong> — install packs require overlay + zone plan + datasheet; no scale-up on ideal drawings alone.</li>
+          </ul>
+        </article>
+
+        <article id="twin-extremes" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Twin extremes</h3>
+          <p class="text-sm text-mist/90 leading-relaxed mb-2">
+            We ship two poles, not the crowded middle:
+          </p>
+          <p class="text-sm text-mist/90 leading-relaxed mb-1">
+            <a class="gloss" href="#community-density">Community · high-tech density</a> — automation, shared infrastructure, dense practice.<br />
+            <a class="gloss" href="#farmer-density">Farmer · low-tech density</a> — seasonal checklists, deep field practice, less automation.
+          </p>
+          <p class="text-sm text-mist/75 leading-relaxed">
+            Same philosophy, same refused lists. The middle market is elsewhere; we do not collapse to it by default.
+          </p>
+        </article>
+
+        <article id="community-density" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Community density</h3>
+          <p class="text-sm text-mist/90 leading-relaxed">
+            High-automation, high-shared-infrastructure path. Control limits still tied to safety interlocks
+            (e.g. drain/seal). Dense human practice is expected.
+          </p>
+        </article>
+
+        <article id="farmer-density" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Farmer density</h3>
+          <p class="text-sm text-mist/90 leading-relaxed">
+            Low-automation path. Seasonal control plans, more manual intelligence, same honesty about land and residual.
+            “Low-tech” does not mean careless.
+          </p>
+        </article>
+
+        <article id="refused-lists" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Refused lists</h3>
+          <p class="text-sm text-mist/90 leading-relaxed">
+            Explicit “we will not claim / we will not place” items defined at Define stage.
+            Examples: no storm-drain discharge; no human-food claims from uncontrolled waste; no medical diagnosis claims
+            on body-signal education gear. Marketing may not override refusals.
+          </p>
+        </article>
+
+        <article id="yard-to-loop" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Yard-to-Loop</h3>
+          <p class="text-sm text-mist/90 leading-relaxed mb-2">
+            A <strong class="text-parchment">substantial field project</strong> (not a toy kit): conversion instrument for yard biomass / insect loops,
+            designed under sector overlays and DMAIC. Student prototypes may grow toward Intek manufacture/assembly.
+          </p>
+          <p class="text-sm"><a class="gloss" href="yard-to-loop.html">Full project page →</a></p>
+        </article>
+
+        <article id="poop-to-loop" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Poop-to-Loop</h3>
+          <p class="text-sm text-mist/90 leading-relaxed mb-2">
+            A <strong class="text-parchment">substantial field project</strong> (not a toy kit): conversion instrument for residual organic streams
+            under hard refusals (no drain fantasy, no food-safety theater). Same method as Yard-to-Loop; different sector risk surface.
+          </p>
+          <p class="text-sm"><a class="gloss" href="poop-to-loop.html">Full project page →</a></p>
+        </article>
+
+        <article id="hive-king" class="term panel p-5 md:p-6 scroll-mt-24">
+          <h3 class="font-display text-xl text-parchment mb-2">Hive King</h3>
+          <p class="text-sm text-mist/90 leading-relaxed mb-2">
+            Flagship instrumented apiary system (host, entrance vision, eFoundations, solar). Starship-class R&amp;D—
+            still under the same philosophy. Not a default education seat.
+          </p>
+          <p class="text-sm"><a class="gloss" href="hive-king.html">Full project page →</a></p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="panel rounded-2xl p-6 mt-8">
+      <h2 class="font-display text-xl text-parchment mb-3">How to use this on other pages</h2>
+      <p class="text-sm text-mist/85 leading-relaxed">
+        Unusual terms link here with anchors, e.g.
+        <code class="text-xs text-mist/60">philosophy.html#death-to-life-breathe</code>.
+        If you cannot follow a page, open this writeup first—then the engineering language will track.
+      </p>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 mt-8">
+    <div class="max-w-3xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-2 text-xs text-mist/45">
+      <div>© <span id="y"></span> Intek Space / Intek Inc.</div>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-mist">Home</a>
+        <a href="education.html" class="hover:text-mist">Education</a>
+        <a href="projects.html" class="hover:text-mist">Projects</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
