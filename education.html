@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Education Exchange · Intek Space</title>
+  <meta name="description" content="Intek Space Education Exchange — kit tracks, video evidence, honest energy and life learning." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://intekspace.com/education" />
+  <script src="analytics-config.js"></script>
+  <script src="analytics.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#0b1220', steel: '#94a3b8', mark: '#0ea5e9', warm: '#f59e0b' },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background: linear-gradient(180deg, #0b1220 0%, #111827 40%, #0b1220 100%);
+      min-height: 100vh;
+    }
+    .panel {
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+  </style>
+</head>
+<body class="text-slate-100 antialiased">
+  <header class="border-b border-white/10 sticky top-0 z-40 bg-ink/90 backdrop-blur">
+    <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-3 min-w-0">
+        <div class="w-9 h-9 rounded-lg bg-mark/20 border border-mark/40 flex items-center justify-center font-bold text-mark text-sm shrink-0">IS</div>
+        <div class="min-w-0">
+          <div class="font-semibold tracking-tight truncate">Intek Space</div>
+          <div class="text-[10px] text-slate-400 uppercase tracking-wider">Education Exchange</div>
+        </div>
+      </a>
+      <nav class="flex gap-3 sm:gap-5 text-sm text-slate-400 shrink-0">
+        <a href="/" class="hover:text-white">Home</a>
+        <a href="#tracks" class="hover:text-white hidden sm:inline">Tracks</a>
+        <a href="education-apply.html" class="px-3 py-1.5 rounded-lg bg-mark text-ink font-semibold text-xs sm:text-sm hover:brightness-110">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="border-b border-white/5">
+    <div class="max-w-5xl mx-auto px-5 py-14 md:py-20">
+      <p class="text-mark text-xs uppercase tracking-[0.25em] mb-4">Education Exchange</p>
+      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight max-w-2xl leading-tight">
+        Kits and project seats.<br />
+        <span class="text-slate-400">Evidence of work. Honest energy.</span>
+      </h1>
+      <p class="mt-5 text-slate-400 max-w-2xl leading-relaxed">
+        Provide a kit or project seat + protocol + mentor/Grok path.
+        Require video and graphic evidence of material use, function, energy conversion, and philosophy alignment.
+        Built for real building — not school bureaucracy as the first door.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="education-apply.html" class="px-5 py-2.5 rounded-lg bg-mark text-ink font-semibold text-sm hover:brightness-110">Apply to a track</a>
+        <a href="#exchange" class="px-5 py-2.5 rounded-lg panel text-sm text-slate-200 hover:border-mark/40">How it works</a>
+      </div>
+      <p class="mt-4 text-xs text-slate-500 max-w-xl">
+        Philosophy tags: <span class="text-slate-400">One Mission</span> (values on doing) ·
+        <span class="text-slate-400">Intekspace</span> (honest breathe) ·
+        <span class="text-slate-400">IMI</span> (biology temporary — respect elders).
+      </p>
+    </div>
+  </section>
+
+  <section id="exchange" class="max-w-5xl mx-auto px-5 py-12">
+    <h2 class="text-xl font-semibold mb-6">Exchange model</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="panel rounded-2xl p-6">
+        <h3 class="font-semibold text-mark mb-2">We provide</h3>
+        <ul class="text-sm text-slate-400 space-y-1.5 list-disc list-inside">
+          <li>Kit or project seat</li>
+          <li>Protocol and safety notes for the track</li>
+          <li>Mentor / Grok review path (not public without permission)</li>
+        </ul>
+      </div>
+      <div class="panel rounded-2xl p-6">
+        <h3 class="font-semibold text-mark mb-2">You provide evidence</h3>
+        <ul class="text-sm text-slate-400 space-y-1.5 list-disc list-inside">
+          <li>Material usage</li>
+          <li>Function (it works — or honest failure fixed)</li>
+          <li>Energy conversion named</li>
+          <li>Philosophy alignment in your own words</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="tracks" class="border-y border-white/5 bg-black/20">
+    <div class="max-w-5xl mx-auto px-5 py-14">
+      <div class="flex flex-wrap items-end justify-between gap-3 mb-8">
+        <h2 class="text-xl font-semibold">Tracks</h2>
+        <a href="education-apply.html" class="text-sm text-mark hover:underline">Apply →</a>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4" id="track-cards"></div>
+      <p class="mt-8 text-xs text-slate-500 max-w-2xl">
+        Advanced / R&amp;D (Hive King, research tools) is not a default education SKU — steward invitation only after safety and IP review.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-5 py-14">
+    <div class="panel rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-lg font-semibold">Ready to apply?</h2>
+        <p class="text-sm text-slate-400 mt-1">One form for all tracks. Guardian path for under 18. Submissions go to steward mail + downloadable packet.</p>
+      </div>
+      <a href="education-apply.html" class="shrink-0 px-5 py-2.5 rounded-lg bg-mark text-ink font-semibold text-sm text-center hover:brightness-110">Open application</a>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10 py-8">
+    <div class="max-w-5xl mx-auto px-5 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
+      <div>© <span id="y"></span> Intek Space / Intek Inc.</div>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-slate-300">Home</a>
+        <a href="https://onemissionnetworkandinstitute.org/" class="hover:text-slate-300">One Mission</a>
+      </div>
+    </div>
+  </footer>
+  <script src="education-tracks.js"></script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    var root = document.getElementById('track-cards');
+    (window.INTEK_EDU_TRACKS || []).forEach(function (t) {
+      if (t.advanced) return;
+      var a = document.createElement('a');
+      a.href = 'education-apply.html?track=' + encodeURIComponent(t.id);
+      a.className = 'panel rounded-2xl p-5 hover:border-mark/40 block transition';
+      a.innerHTML =
+        '<div class="text-[10px] uppercase tracking-wider text-slate-500 mb-1">' + t.short + '</div>' +
+        '<div class="font-semibold text-white mb-2">' + t.name + '</div>' +
+        '<p class="text-sm text-slate-400 leading-relaxed">' + t.blurb + '</p>' +
+        (t.safetyNote ? '<p class="mt-2 text-[11px] text-amber-200/80">' + t.safetyNote + '</p>' : '');
+      root.appendChild(a);
+    });
+  </script>
+</body>
+</html>

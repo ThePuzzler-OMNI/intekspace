@@ -1,27 +1,29 @@
 # Intek Space
 
-Public site for **intekspace.com** — philosophy-first engineering, manufacturing, and prototyping education.
+**Domain:** https://intekspace.com  
+**Path on PC:** `sites/intekspace/`  
+**GitHub (when created):** `ThePuzzler-OMNI/intekspace`
 
-## Thesis
+## What this is
 
-All great works begin with a philosophy on life.
+Public business front door for **Intek Inc.** engineering/manufacturing continuity. Replaces GoDaddy “Launching Soon” builder with real static HTML.
 
-Intek Space designs and builds tools under that order: philosophy → constraints → prototype → assemble.
+## Identity
 
-Technical spine: energy and matter conversions from macro hardware toward biological life.
+See workspace `docs/INTEKSPACE_IDENTITY_PLAN.md` for M365 / mail path. This site is web presence only until mail cutover.
 
-## Stack
+## Education Exchange
 
-- Static HTML + Tailwind CDN
-- Vercel deploy
-- Optional GA4 via `analytics-config.js`
+| Path | Page |
+|------|------|
+| `/education` | Track landing |
+| `/education-apply` | Unified application form |
+| `education-tracks.js` | Track catalog SSOT |
+| `education-apply.js` | Form → mailto + JSON download + localStorage log |
 
-## Local
+**Steward mail:** `tharpster@intekspace.com` (change in `education-tracks.js` if needed).  
+**Sources:** Notion Education Exchange + Harpster Science and Faith docs (`docs/INTEK_DESIGN_DOCS_COMPREHENSION.md` in Grok workspace).
 
-Open `index.html` or serve the folder statically.
+## Deploy
 
-## Network
-
-- [One Mission](https://onemissionnetworkandinstitute.org/)
-- [Institute of Mature Imagination](https://instituteofmatureimagination.org/)
-- [GitHub org](https://github.com/ThePuzzler-OMNI)
+Same Vercel flow as IMI: import repo → deploy → add domain → GoDaddy DNS.

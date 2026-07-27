@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/education", "destination": "/education.html" },
+    { "source": "/education-apply", "destination": "/education-apply.html" }
+  ]
 }

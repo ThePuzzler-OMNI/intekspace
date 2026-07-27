@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply · Education Exchange · Intek Space</title>
+  <meta name="description" content="Apply to an Intek Space Education Exchange track." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://intekspace.com/education-apply" />
+  <script src="analytics-config.js"></script>
+  <script src="analytics.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#0b1220', mark: '#0ea5e9', warm: '#f59e0b' },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background: linear-gradient(180deg, #0b1220 0%, #111827 40%, #0b1220 100%);
+      min-height: 100vh;
+    }
+    .panel {
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    label.field { display: block; margin-bottom: 1rem; }
+    label.field span.lbl {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      background: #0f172a;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      color: #e2e8f0;
+      font-size: 0.875rem;
+      min-height: 44px;
+    }
+    textarea { min-height: 5.5rem; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: rgba(14, 165, 233, 0.55);
+    }
+    .check-row {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      font-size: 0.875rem;
+      color: #cbd5e1;
+    }
+    .check-row input {
+      width: 1.15rem;
+      height: 1.15rem;
+      min-height: 0;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="text-slate-100 antialiased">
+  <header class="border-b border-white/10 sticky top-0 z-40 bg-ink/90 backdrop-blur">
+    <div class="max-w-2xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="education.html" class="text-sm text-slate-400 hover:text-white">← Education</a>
+      <div class="text-sm font-semibold">Application</div>
+      <a href="/" class="text-sm text-slate-400 hover:text-white">Home</a>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-5 py-10">
+    <h1 class="text-2xl font-semibold mb-2">Education Exchange application</h1>
+    <p class="text-sm text-slate-400 mb-6 leading-relaxed">
+      One form for all tracks. Not a school-sponsored class. Self-directed building with video evidence.
+      Work product ownership and consent language inherit the Harpster Science and Faith model (Intek).
+    </p>
+
+    <div id="status" class="hidden mb-4 rounded-xl px-4 py-3 text-sm" role="status"></div>
+
+    <form id="edu-form" class="space-y-8" novalidate>
+      <!-- A Identity -->
+      <section class="panel rounded-2xl p-5 md:p-6">
+        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">A · Identity</h2>
+        <label class="field"><span class="lbl">Full name *</span>
+          <input name="full_name" required autocomplete="name" /></label>
+        <label class="field"><span class="lbl">Preferred name</span>
+          <input name="preferred_name" /></label>
+        <label class="field"><span class="lbl">Age band *</span>
+          <select name="age_band" id="age_band" required>
+            <option value="">Select…</option>
+            <option value="under_18">Under 18</option>
+            <option value="18_plus">18+</option>
+          </select>
+        </label>
+        <label class="field"><span class="lbl">Email *</span>
+          <input name="email" type="email" required autocomplete="email" /></label>
+        <label class="field"><span class="lbl">Phone</span>
+          <input name="phone" type="tel" autocomplete="tel" /></label>
+        <label class="field"><span class="lbl">City / State</span>
+          <input name="city_state" placeholder="e.g. Westerville, OH" /></label>
+        <div id="guardian-block" class="hidden border-t border-white/10 pt-4 mt-2">
+          <p class="text-xs text-amber-200/90 mb-3">Guardian required for under 18.</p>
+          <label class="field"><span class="lbl">Guardian name *</span>
+            <input name="guardian_name" id="guardian_name" /></label>
+          <label class="field"><span class="lbl">Guardian email *</span>
+            <input name="guardian_email" id="guardian_email" type="email" /></label>
+        </div>
+        <label class="field"><span class="lbl">How you found Intekspace</span>
+          <input name="found_us" /></label>
+      </section>
+
+      <!-- B Track -->
+      <section class="panel rounded-2xl p-5 md:p-6">
+        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">B · Track selection</h2>
+        <label class="field"><span class="lbl">Primary track *</span>
+          <select name="track_primary" id="track_primary" required></select>
+        </label>
+        <div id="track-safety" class="hidden mb-4 rounded-xl border border-amber-700/40 bg-amber-950/30 px-4 py-3 text-sm text-amber-100/90"></div>
+        <label class="field"><span class="lbl">Secondary track (optional)</span>
+          <select name="track_secondary" id="track_secondary">
+            <option value="">None</option>
+          </select>
+        </label>
+        <label class="field"><span class="lbl">Density preference</span>
+          <select name="density">
+            <option value="">Not sure yet</option>
+            <option value="community">Community</option>
+            <option value="farmer">Farmer / deep build</option>
+          </select>
+        </label>
+      </section>
+
+      <!-- C Experience -->
+      <section class="panel rounded-2xl p-5 md:p-6">
+        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">C · Experience</h2>
+        <label class="field"><span class="lbl">Tech / tinkering / projects (free text)</span>
+          <textarea name="experience" placeholder="Arduino, code, shop, farm, apps…"></textarea></label>
+        <label class="field"><span class="lbl">Tools you can access</span>
+          <textarea name="tools" placeholder="Computer, phone camera, workspace…"></textarea></label>
+        <label class="field"><span class="lbl">Time availability</span>
+          <select name="availability">
+            <option value="">Select…</option>
+            <option value="after_school">After school</option>
+            <option value="weekends">Weekends</option>
+            <option value="evenings">Evenings</option>
+            <option value="flexible">Flexible / other</option>
+          </select>
+        </label>
+      </section>
+
+      <!-- D Motivation -->
+      <section class="panel rounded-2xl p-5 md:p-6">
+        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">D · Motivation</h2>
+        <label class="field"><span class="lbl">Why this track? *</span>
+          <textarea name="why_track" required></textarea></label>
+        <label class="field"><span class="lbl">What do you want to understand about energy / matter / life?</span>
+          <textarea name="want_understand"></textarea></label>
+        <label class="field"><span class="lbl">Family learning partner?</span>
+          <select name="family_partner" id="family_partner">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </label>
+        <label class="field hidden" id="family_who_wrap"><span class="lbl">Who?</span>
+          <input name="family_who" id="family_who" /></label>
+      </section>
+
+      <!-- E Commitments -->
+      <section class="panel rounded-2xl p-5 md:p-6">
+        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">E · Commitments *</h2>
+        <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+          Self-directed first (parents, peers, mentors). Organizer is higher-tier support.
+          Video documentation is central. Work product ownership to Intek unless otherwise agreed in writing.
+        </p>
+        <label class="check-row">
+          <input type="checkbox" name="c_evidence" required />
+          <span>I will submit video / graphic evidence under the track rubric (material, function, energy, philosophy).</span>
+        </label>
+        <label class="check-row">
+          <input type="checkbox" name="c_safety" required />
+          <span>I will follow safety protocols for my selected track(s).</span>
+        </label>
+        <label class="check-row" id="c_medical_wrap">
+          <input type="checkbox" name="c_medical" id="c_medical" />
+          <span>I understand body-signal / e-stethoscope work is <strong class="text-slate-200">not a medical device</strong> and not for diagnosis.</span>
+        </label>
+        <label class="check-row">
+          <input type="checkbox" name="c_review" required />
+          <span>I consent to mentor/Grok review of submitted evidence (not public without permission).</span>
+        </label>
+        <label class="check-row">
+          <input type="checkbox" name="c_ip" required />
+          <span>I understand work product created in the program is owned by Intek (Harpster/Intek model).</span>
+        </label>
+        <label class="check-row">
+          <input type="checkbox" name="c_video" required />
+          <span>I understand frequent video recording of work is required; guardians must approve for minors.</span>
+        </label>
+      </section>
+
+      <!-- F Logistics -->
+      <section class="panel rounded-2xl p-5 md:p-6">
+        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">F · Logistics</h2>
+        <label class="field"><span class="lbl">Ship-to address (if kit)</span>
+          <textarea name="ship_to" placeholder="Street, city, state, ZIP"></textarea></label>
+        <label class="field"><span class="lbl">Preference</span>
+          <select name="pref_return">
+            <option value="experience">Experience / learning</option>
+            <option value="credit">Credit / recognition</option>
+            <option value="stipend">Stipend (if available)</option>
+            <option value="kit_only">Kit / seat only</option>
+          </select>
+        </label>
+        <label class="field"><span class="lbl">Signature (type full name) *</span>
+          <input name="signature" required autocomplete="off" /></label>
+        <label class="field"><span class="lbl">Date *</span>
+          <input name="sign_date" id="sign_date" type="date" required /></label>
+      </section>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button type="submit" class="flex-1 px-5 py-3 rounded-xl bg-mark text-ink font-semibold text-sm hover:brightness-110 min-h-[48px]">
+          Submit application
+        </button>
+        <button type="button" id="btn-download" class="px-5 py-3 rounded-xl panel text-sm font-semibold text-slate-200 hover:border-mark/40 min-h-[48px]">
+          Download JSON only
+        </button>
+      </div>
+      <p class="text-[11px] text-slate-500 leading-relaxed">
+        Submit opens your email client to <span class="text-slate-400" id="mail-hint"></span>
+        with a structured packet, and downloads a JSON copy for your records. Steward also gets a browser log on this device for local review.
+      </p>
+    </form>
+  </main>
+
+  <script src="education-tracks.js"></script>
+  <script src="education-apply.js"></script>
+</body>
+</html>
