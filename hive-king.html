@@ -4,261 +4,291 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hive King · Intek Space</title>
-  <meta name="description" content="Hive King — instrumented Langstroth hive: entrance vision, eFoundations, solar power, steward compute. Intek Space R&amp;D." />
+  <meta name="description" content="Hive King — a calm instrument for a living hive. Entrance vision, foundation sensing, solar power. Intek Space R&amp;D." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://intekspace.com/hive-king" />
+  <meta property="og:title" content="Hive King · Intek Space" />
+  <meta property="og:description" content="An instrument for a living hive — vision at the door, sensing in the foundation, power from the sun." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://intekspace.com/hive-king" />
   <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { ink: '#0b1220', mark: '#0ea5e9', warm: '#f59e0b', hive: '#84cc16' },
+          colors: {
+            ink: '#0a0f14',
+            parchment: '#e8e4d9',
+            hive: '#c4a35a',
+            leaf: '#6b8f71',
+            mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
         },
       },
     };
   </script>
   <style>
     body {
-      background: linear-gradient(180deg, #0b1220 0%, #111827 45%, #0b1220 100%);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0a0f14;
+      color: #e8e4d9;
       min-height: 100vh;
     }
-    .panel {
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid rgba(148, 163, 184, 0.15);
-    }
-    .hex {
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .hero-glow {
       background:
-        radial-gradient(circle at 20% 20%, rgba(132, 204, 22, 0.08), transparent 40%),
-        radial-gradient(circle at 80% 60%, rgba(14, 165, 233, 0.06), transparent 45%);
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196, 163, 90, 0.12), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 80% 40%, rgba(107, 143, 113, 0.08), transparent 50%),
+        radial-gradient(ellipse 40% 30% at 15% 70%, rgba(139, 154, 171, 0.06), transparent 45%),
+        linear-gradient(180deg, #0a0f14 0%, #0e1419 50%, #0a0f14 100%);
     }
+    .card {
+      background: rgba(14, 20, 26, 0.85);
+      border: 1px solid rgba(196, 163, 90, 0.12);
+      backdrop-filter: blur(8px);
+    }
+    .card:hover {
+      border-color: rgba(196, 163, 90, 0.28);
+    }
+    .rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent);
+    }
+    .soft-ring {
+      box-shadow: 0 0 0 1px rgba(196, 163, 90, 0.15), 0 24px 80px -40px rgba(0, 0, 0, 0.8);
+    }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary .chev { transform: rotate(90deg); }
   </style>
 </head>
-<body class="text-slate-100 antialiased">
-  <header class="border-b border-white/10 sticky top-0 z-40 bg-ink/90 backdrop-blur">
-    <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
-      <a href="/" class="flex items-center gap-3 min-w-0">
-        <div class="w-9 h-9 rounded-lg bg-hive/15 border border-hive/40 flex items-center justify-center font-bold text-hive text-sm shrink-0">HK</div>
-        <div class="min-w-0">
-          <div class="font-semibold tracking-tight">Hive King</div>
-          <div class="text-[10px] text-slate-400 uppercase tracking-wider">Intek Space · R&amp;D</div>
-        </div>
+<body class="antialiased">
+  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/80 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-full border border-hive/30 flex items-center justify-center text-hive text-xs font-semibold tracking-widest group-hover:border-hive/60 transition">IS</div>
+        <span class="text-sm text-mist/80 group-hover:text-parchment transition">Intek Space</span>
       </a>
-      <nav class="flex gap-3 sm:gap-5 text-sm text-slate-400 shrink-0">
-        <a href="/" class="hover:text-white">Home</a>
-        <a href="education.html" class="hover:text-white">Education</a>
-        <a href="#kicad" class="hover:text-white hidden sm:inline">KiCAD</a>
-        <a href="#bom" class="hover:text-white hidden sm:inline">BOM</a>
+      <nav class="flex gap-5 text-sm text-mist/70">
+        <a href="education.html" class="hover:text-parchment transition">Education</a>
+        <a href="#still" class="hover:text-parchment transition hidden sm:inline">The work</a>
+        <a href="#contact" class="text-hive hover:text-parchment transition">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="hex border-b border-white/5">
-    <div class="max-w-5xl mx-auto px-5 py-14 md:py-20">
-      <p class="text-hive text-xs uppercase tracking-[0.25em] mb-4">Instrumented apiary · not a consumer toy</p>
-      <h1 class="text-3xl md:text-5xl font-semibold tracking-tight max-w-3xl leading-tight">
+  <!-- Calm hero ad -->
+  <section class="hero-glow">
+    <div class="max-w-4xl mx-auto px-5 pt-16 md:pt-24 pb-20 md:pb-28 text-center">
+      <p class="text-[11px] uppercase tracking-[0.35em] text-hive/90 mb-6">A project of Intek Space</p>
+      <h1 class="font-display text-5xl md:text-7xl font-semibold tracking-tight text-parchment leading-[1.05]">
         Hive King
-        <span class="block text-slate-400 text-2xl md:text-3xl mt-2 font-medium">Chamberlain · Guard · Steward · Armorer</span>
       </h1>
-      <p class="mt-6 text-slate-400 max-w-2xl leading-relaxed">
-        Compact host computer + entrance computer vision + ~50 <strong class="text-slate-200">eFoundations</strong>
-        (diode-matrix TDTP sensing) + solar/LiFePO4 power + hive I/O (fans, solenoids, load cells, heat).
-        Pro and standard variants share architecture. Designed for Midwest winter worst-case.
+      <p class="font-display italic text-xl md:text-2xl text-mist mt-4 max-w-xl mx-auto leading-snug">
+        An instrument for a living hive.
       </p>
-      <div class="mt-6 flex flex-wrap gap-2 text-xs">
-        <span class="px-2.5 py-1 rounded-full border border-amber-700/50 text-amber-200/90">Advanced R&amp;D — not default Education SKU</span>
-        <span class="px-2.5 py-1 rounded-full border border-white/10 text-slate-400">SSOT: OMNI 2 Design Documents from Intek</span>
+      <div class="rule max-w-xs mx-auto my-10"></div>
+      <p class="text-base md:text-lg text-mist/90 max-w-lg mx-auto leading-relaxed">
+        Vision at the door. Sensing in the foundation. Power from the sun.
+        Built slowly, for winters that last, and for work that does not shout.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        <a href="#still" class="px-6 py-2.5 rounded-full bg-hive/15 border border-hive/35 text-hive text-sm font-medium hover:bg-hive/25 transition">
+          See the work
+        </a>
+        <a href="education.html" class="px-6 py-2.5 rounded-full border border-white/10 text-mist text-sm hover:border-white/25 hover:text-parchment transition">
+          Kit education →
+        </a>
       </div>
-    </div>
-  </section>
-
-  <section id="system" class="max-w-5xl mx-auto px-5 py-12">
-    <h2 class="text-xl font-semibold mb-6">System layers</h2>
-    <div class="grid md:grid-cols-2 gap-4">
-      <div class="panel rounded-2xl p-5">
-        <h3 class="font-semibold text-mark mb-2">Hive Steward (host)</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          Compact AI host (BOM: <strong class="text-slate-300">NVIDIA Jetson Orin Nano Super</strong> class · ~67 TOPS).
-          Starlink path · entrance CV · motion 360 security · DB for images/video/metrics · Wi‑Fi serve to app.
-        </p>
-      </div>
-      <div class="panel rounded-2xl p-5">
-        <h3 class="font-semibold text-hive mb-2">Hive Gatekeeper (entrance vision)</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          Camera ~1–2" above entrance floor over glass; ~1" restricted width. Goals: varroa on bee, pollen type/load,
-          bee size / nectar inference, entry-exit counts, hornet / yellowjacket / beetle invaders.
-          Optics path: IMX477 + CS lens / extension ring trials.
-        </p>
-      </div>
-      <div class="panel rounded-2xl p-5">
-        <h3 class="font-semibold text-warm mb-2">Hive Chamberlain (eFoundations + hub)</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          Up to ~50 eFoundations; each drives large diode matrices (TDTP pulses) with multi power modes
-          (ambient temp → larva-safe → honey/pollen). Local ID, firmware, buffer.
-          Bus: prefer <strong class="text-slate-300">RS‑485 multi-hub</strong> over 50× USB; gold-finger plug-in to Comm Hub.
-        </p>
-      </div>
-      <div class="panel rounded-2xl p-5">
-        <h3 class="font-semibold text-slate-200 mb-2">Hive Armorer · Lady · Larderer · Guard</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          <strong class="text-slate-300">Armorer:</strong> solar 300W class + MPPT + 12V LiFePO4 100Ah cold-tolerant.<br />
-          <strong class="text-slate-300">Lady / Lord / Chaplain:</strong> HVAC fans, Peltier, servos, temp sensors.<br />
-          <strong class="text-slate-300">Larderer:</strong> 4× load cells + 24-bit ADC.<br />
-          <strong class="text-slate-300">Guard / Jailor:</strong> wicket / trap doors, varroa vacuum path, NIR/white LED imaging.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="pro-std" class="border-y border-white/5 bg-black/20">
-    <div class="max-w-5xl mx-auto px-5 py-12">
-      <h2 class="text-xl font-semibold mb-6">Pro vs standard</h2>
-      <div class="grid sm:grid-cols-2 gap-4 text-sm">
-        <div class="panel rounded-2xl p-5">
-          <h3 class="font-semibold text-white mb-2">Standard</h3>
-          <ul class="text-slate-400 space-y-1.5 list-disc list-inside">
-            <li>Fewer eFoundations (partial matrix coverage)</li>
-            <li>Entrance CV + weight + climate core</li>
-            <li>Shared host software; reduced actuator suite</li>
-            <li>Same voltage bus (12V) for parts commonality</li>
-          </ul>
-        </div>
-        <div class="panel rounded-2xl p-5">
-          <h3 class="font-semibold text-white mb-2">Pro</h3>
-          <ul class="text-slate-400 space-y-1.5 list-disc list-inside">
-            <li>Full eFoundation count + dual-side matrices</li>
-            <li>Full actuator + security + varroa path</li>
-            <li>Best-in-class compute / storage when budget allows</li>
-            <li>Broodminder-coop vs best-in-class paths both considered in design brief</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="diodes" class="max-w-5xl mx-auto px-5 py-12">
-    <h2 class="text-xl font-semibold mb-4">Diode matrix (planning note)</h2>
-    <p class="text-sm text-slate-400 max-w-3xl leading-relaxed mb-4">
-      BOM uses <strong class="text-slate-300">1N4148WS SOD-323</strong> class small-signal diodes (~$0.0015)
-      at thousands per eFoundation (example line: 7172 / PCB × 20 boards). Packages under review:
-      SOD-123 / SOD-523 / SOD-323. Specs (Vf, capacitance, thermal) must still be validated against
-      larva-safe low-power modes before production buy.
-    </p>
-    <p class="text-xs text-slate-500">Never overheat a cell that may contain larvae — power modes are a hard safety requirement.</p>
-  </section>
-
-  <section id="bom" class="border-y border-white/5 bg-black/20">
-    <div class="max-w-5xl mx-auto px-5 py-12">
-      <h2 class="text-xl font-semibold mb-2">BOM summary (planning estimates)</h2>
-      <p class="text-sm text-slate-500 mb-6">From <code class="text-slate-400">Hive King.xlsx</code> HK BOM. Not a purchase order — bulk prototype estimates.</p>
-      <div class="overflow-x-auto panel rounded-2xl">
-        <table class="w-full text-sm text-left min-w-[36rem]">
-          <thead class="text-slate-500 border-b border-white/10 text-xs uppercase tracking-wider">
-            <tr>
-              <th class="py-3 px-4 font-medium">Role / subsystem</th>
-              <th class="py-3 px-4 font-medium">Highlights</th>
-              <th class="py-3 px-4 font-medium text-right">Order of cost</th>
-            </tr>
-          </thead>
-          <tbody class="text-slate-300">
-            <tr class="border-b border-white/5">
-              <td class="py-3 px-4 font-medium text-white">Steward</td>
-              <td class="py-3 px-4 text-slate-400">Jetson Orin Nano Super kit · enclosure · SSD</td>
-              <td class="py-3 px-4 text-right text-slate-400">~$0.8k–1.0k</td>
-            </tr>
-            <tr class="border-b border-white/5">
-              <td class="py-3 px-4 font-medium text-white">Chamberlain</td>
-              <td class="py-3 px-4 text-slate-400">Comm hubs + eFoundations (MCU, matrix, optics/haptics lines)</td>
-              <td class="py-3 px-4 text-right text-slate-400">~$5k+ proto (PCB fab dominates)</td>
-            </tr>
-            <tr class="border-b border-white/5">
-              <td class="py-3 px-4 font-medium text-white">Armorer</td>
-              <td class="py-3 px-4 text-slate-400">300W panel · MPPT · 12V 100Ah LiFePO4 · power PCB</td>
-              <td class="py-3 px-4 text-right text-slate-400">~$0.6k–0.8k</td>
-            </tr>
-            <tr class="border-b border-white/5">
-              <td class="py-3 px-4 font-medium text-white">Lady / climate</td>
-              <td class="py-3 px-4 text-slate-400">Fans · Peltier · solenoids · DS18B20</td>
-              <td class="py-3 px-4 text-right text-slate-400">~$50–150</td>
-            </tr>
-            <tr class="border-b border-white/5">
-              <td class="py-3 px-4 font-medium text-white">Larderer</td>
-              <td class="py-3 px-4 text-slate-400">4× load cells · ADS1234-class ADC</td>
-              <td class="py-3 px-4 text-right text-slate-400">~$70</td>
-            </tr>
-            <tr>
-              <td class="py-3 px-4 font-medium text-white">Guard / Jailor</td>
-              <td class="py-3 px-4 text-slate-400">Wicket / vacuum / IMX477 imaging path</td>
-              <td class="py-3 px-4 text-right text-slate-400">~$200–300 + fab</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="mt-4 text-xs text-slate-500">
-        Full line items: OneDrive <code class="text-slate-400">OMNI 2\Design Documents from Intek\Hive King.xlsx</code>
-        · agent digest <code class="text-slate-400">Grok/docs/INTEK_DESIGN_DOCS_COMPREHENSION.md</code>
+      <p class="mt-8 text-[11px] text-mist/50 tracking-wide">
+        Advanced R&amp;D · not a storefront kit · not a school club
       </p>
     </div>
   </section>
 
-  <section id="kicad" class="max-w-5xl mx-auto px-5 py-12">
-    <h2 class="text-xl font-semibold mb-4">KiCAD start checklist</h2>
-    <p class="text-sm text-slate-400 mb-6 max-w-2xl">
-      Brief starts with KiCAD multi-project structure (one project per PCB). Use this order so power and bus settle first.
+  <!-- Editorial stills -->
+  <section id="still" class="max-w-4xl mx-auto px-5 pb-6">
+    <div class="grid md:grid-cols-3 gap-4">
+      <article class="card soft-ring rounded-2xl p-6 md:p-7 transition">
+        <div class="text-hive/80 text-xs uppercase tracking-[0.2em] mb-3">At the door</div>
+        <h2 class="font-display text-2xl text-parchment mb-3">Gatekeeper</h2>
+        <p class="text-sm text-mist/85 leading-relaxed">
+          A narrow entrance. Quiet optics. Count, pollen, invader, mite — seen without thrashing the colony.
+        </p>
+      </article>
+      <article class="card soft-ring rounded-2xl p-6 md:p-7 transition">
+        <div class="text-leaf/90 text-xs uppercase tracking-[0.2em] mb-3">In the comb</div>
+        <h2 class="font-display text-2xl text-parchment mb-3">Chamberlain</h2>
+        <p class="text-sm text-mist/85 leading-relaxed">
+          eFoundations listen to cells with careful pulses. Air, larva, honey, pollen — power modes that refuse to scorch life.
+        </p>
+      </article>
+      <article class="card soft-ring rounded-2xl p-6 md:p-7 transition">
+        <div class="text-mist text-xs uppercase tracking-[0.2em] mb-3">Through winter</div>
+        <h2 class="font-display text-2xl text-parchment mb-3">Armorer</h2>
+        <p class="text-sm text-mist/85 leading-relaxed">
+          Solar. Battery. Midwest cloud. Climate, weight, and steward compute kept on a single calm bus.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- One sentence brand -->
+  <section class="max-w-3xl mx-auto px-5 py-16 md:py-20 text-center">
+    <p class="font-display text-2xl md:text-3xl text-parchment/95 leading-snug">
+      Not more noise on the farm.<br />
+      <span class="text-mist">A clear instrument for those who keep bees as a craft.</span>
     </p>
-    <ol class="space-y-3 text-sm text-slate-300">
-      <li class="panel rounded-xl px-4 py-3 flex gap-3">
-        <span class="text-mark font-mono text-xs mt-0.5">1</span>
-        <span><strong class="text-white">Power Conversion PCB</strong> — 12V bus, MPPT interface, sense/monitor, connectors to solar/battery/hubs. Define nominal rails (12 / 5 / 3.3).</span>
-      </li>
-      <li class="panel rounded-xl px-4 py-3 flex gap-3">
-        <span class="text-mark font-mono text-xs mt-0.5">2</span>
-        <span><strong class="text-white">Comm Hub PCB</strong> — ports for eFoundations (RS‑485 or Ethernet evolution), isolation, gold-finger / M12 mating, uplink to Jetson.</span>
-      </li>
-      <li class="panel rounded-xl px-4 py-3 flex gap-3">
-        <span class="text-mark font-mono text-xs mt-0.5">3</span>
-        <span><strong class="text-white">eFoundation PCB</strong> — MCU module footprint, matrix mux, diode pads, local storage, edge connector. Start with 1-side prototype matrix before full 7k diodes.</span>
-      </li>
-      <li class="panel rounded-xl px-4 py-3 flex gap-3">
-        <span class="text-mark font-mono text-xs mt-0.5">4</span>
-        <span><strong class="text-white">Actuator / HVAC I/O board</strong> — motors, solenoids, fans, heater, switches, RTD/load-cell front-end (can share with Larderer ADC).</span>
-      </li>
-      <li class="panel rounded-xl px-4 py-3 flex gap-3">
-        <span class="text-mark font-mono text-xs mt-0.5">5</span>
-        <span><strong class="text-white">Entrance / Jailor optics fixtures</strong> — mechanical + camera mounts after electrical bus is proven.</span>
-      </li>
-    </ol>
-    <div class="mt-8 panel rounded-2xl p-5">
-      <h3 class="font-semibold text-white mb-2">Open design questions (from brief)</h3>
-      <ul class="text-sm text-slate-400 space-y-1.5 list-disc list-inside">
-        <li>Final host: Jetson only vs dual-path Broodminder-coop hardware</li>
-        <li>eFoundation count for Standard vs Pro; matrix size per foundation</li>
-        <li>Bus: RS‑485 vs multi-drop Ethernet after video bandwidth review</li>
-        <li>Diode package + max pulse energy with larva-safe guarantee</li>
-        <li>IP67 connector standard (M12 vs Deutsch) for outdoor Midwest</li>
-        <li>Starlink power budget on cloudy multi-day stretch</li>
+  </section>
+
+  <!-- Soft tech without thrash -->
+  <section class="border-y border-white/5 bg-black/20">
+    <div class="max-w-4xl mx-auto px-5 py-14">
+      <h2 class="font-display text-3xl text-parchment mb-2 text-center">What is being built</h2>
+      <p class="text-sm text-mist/70 text-center max-w-md mx-auto mb-10">
+        One architecture. Pro and standard variants. Host, vision, foundations, climate, power.
+      </p>
+      <ul class="space-y-0 divide-y divide-white/5 card rounded-2xl overflow-hidden">
+        <li class="px-5 py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+          <span class="text-hive text-xs uppercase tracking-wider w-28 shrink-0">Steward</span>
+          <span class="text-sm text-mist/90">On-hive computer for vision, storage, and serving a private app — Jetson-class host in the plan.</span>
+        </li>
+        <li class="px-5 py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+          <span class="text-hive text-xs uppercase tracking-wider w-28 shrink-0">Gatekeeper</span>
+          <span class="text-sm text-mist/90">Entrance camera above glass, ~1″ path — identity of traffic without opening the brood.</span>
+        </li>
+        <li class="px-5 py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+          <span class="text-hive text-xs uppercase tracking-wider w-28 shrink-0">Chamberlain</span>
+          <span class="text-sm text-mist/90">Up to ~50 eFoundations · diode-matrix TDTP · multi power modes · larva-safe first.</span>
+        </li>
+        <li class="px-5 py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+          <span class="text-hive text-xs uppercase tracking-wider w-28 shrink-0">Lady · Guard</span>
+          <span class="text-sm text-mist/90">Climate, weight, doors, and optional varroa path — actuators only where the craft asks.</span>
+        </li>
+        <li class="px-5 py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+          <span class="text-hive text-xs uppercase tracking-wider w-28 shrink-0">Armorer</span>
+          <span class="text-sm text-mist/90">Solar + cold-tolerant storage · power budget written for grey Midwest weeks.</span>
+        </li>
       </ul>
     </div>
   </section>
 
-  <section class="border-t border-white/10">
-    <div class="max-w-5xl mx-auto px-5 py-12 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
-      <div>
-        <h2 class="font-semibold">Education Exchange</h2>
-        <p class="text-sm text-slate-400 mt-1">Hive King is advanced R&amp;D — default applicants use kit tracks first.</p>
+  <!-- Next steps calm table for public -->
+  <section id="roadmap" class="max-w-4xl mx-auto px-5 py-14">
+    <h2 class="font-display text-3xl text-parchment mb-2 text-center">Road in quiet order</h2>
+    <p class="text-sm text-mist/70 text-center mb-8">Not a launch calendar. A sequence that refuses thrash.</p>
+    <div class="card rounded-2xl overflow-hidden">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-white/10 text-left text-[11px] uppercase tracking-wider text-mist/60">
+            <th class="py-3 px-4 font-medium w-10">#</th>
+            <th class="py-3 px-4 font-medium">Step</th>
+            <th class="py-3 px-4 font-medium hidden sm:table-cell">Tone</th>
+          </tr>
+        </thead>
+        <tbody class="text-mist/90">
+          <tr class="border-b border-white/5">
+            <td class="py-3.5 px-4 text-hive font-mono text-xs">1</td>
+            <td class="py-3.5 px-4">Power board in KiCAD — rails before ambition</td>
+            <td class="py-3.5 px-4 text-mist/50 hidden sm:table-cell">P0</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-3.5 px-4 text-hive font-mono text-xs">2</td>
+            <td class="py-3.5 px-4">Diode pulse table — never harm a larva cell</td>
+            <td class="py-3.5 px-4 text-mist/50 hidden sm:table-cell">P0</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-3.5 px-4 text-hive font-mono text-xs">3</td>
+            <td class="py-3.5 px-4">Standard vs Pro eFoundation count</td>
+            <td class="py-3.5 px-4 text-mist/50 hidden sm:table-cell">P1</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-3.5 px-4 text-hive font-mono text-xs">4</td>
+            <td class="py-3.5 px-4">Comm hub · then one-side foundation prototype</td>
+            <td class="py-3.5 px-4 text-mist/50 hidden sm:table-cell">P1</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-4 text-hive font-mono text-xs">5</td>
+            <td class="py-3.5 px-4">Winter power budget · optics · climate boards</td>
+            <td class="py-3.5 px-4 text-mist/50 hidden sm:table-cell">P1–2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-center text-[11px] text-mist/45">
+      Steward table in Notion · full design files on private OneDrive
+    </p>
+  </section>
+
+  <!-- Expandable engineering (for those who want depth) -->
+  <section class="max-w-4xl mx-auto px-5 pb-14">
+    <details class="card rounded-2xl group">
+      <summary class="px-5 py-4 flex items-center justify-between text-sm text-mist hover:text-parchment transition">
+        <span>Engineering depth <span class="text-mist/40">(optional)</span></span>
+        <span class="chev text-hive transition-transform">›</span>
+      </summary>
+      <div class="px-5 pb-6 pt-0 border-t border-white/5 space-y-4 text-sm text-mist/85 leading-relaxed">
+        <p class="pt-4">
+          <strong class="text-parchment font-medium">KiCAD order:</strong>
+          Power Conversion → Comm Hub → eFoundation (small matrix first) → HVAC/I/O → entrance optics fixtures.
+        </p>
+        <p>
+          <strong class="text-parchment font-medium">Bus:</strong>
+          Prefer multi-drop RS‑485 hubs over fifty USB cables; Ethernet path under review for video bandwidth.
+        </p>
+        <p>
+          <strong class="text-parchment font-medium">Diodes:</strong>
+          1N4148-class SOD packages under thermal validation before production scale.
+        </p>
+        <p>
+          <strong class="text-parchment font-medium">Host:</strong>
+          Jetson Orin Nano Super class in current BOM planning — best-in-class path preferred over “good enough.”
+        </p>
+        <p class="text-xs text-mist/50">
+          Not listed as a default Education Exchange SKU. Kit tracks live on the education page.
+        </p>
       </div>
-      <div class="flex flex-wrap gap-3">
-        <a href="education.html" class="px-5 py-2.5 rounded-lg panel text-sm hover:border-mark/40">Education tracks</a>
-        <a href="education-apply.html" class="px-5 py-2.5 rounded-lg bg-mark text-ink font-semibold text-sm hover:brightness-110">Apply (kits)</a>
+    </details>
+  </section>
+
+  <!-- Contact CTA -->
+  <section id="contact" class="hero-glow border-t border-white/5">
+    <div class="max-w-xl mx-auto px-5 py-16 md:py-20 text-center">
+      <h2 class="font-display text-3xl md:text-4xl text-parchment mb-4">Walk with the craft</h2>
+      <p class="text-mist/85 text-sm md:text-base leading-relaxed mb-8">
+        Serious collaboration, not a funnel. Education kits are open to apply.
+        Hive King remains invitation and R&amp;D.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="mailto:tharpster@intekspace.com?subject=Hive%20King"
+           class="px-6 py-3 rounded-full bg-hive/20 border border-hive/40 text-hive text-sm font-medium hover:bg-hive/30 transition">
+          Write Intek Space
+        </a>
+        <a href="education-apply.html"
+           class="px-6 py-3 rounded-full border border-white/12 text-mist text-sm hover:border-white/25 hover:text-parchment transition">
+          Apply — education tracks
+        </a>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-white/10 py-8">
-    <div class="max-w-5xl mx-auto px-5 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
-      <div>© <span id="y"></span> Intek Space / Intek Inc. · Hive King R&amp;D</div>
-      <a href="mailto:tharpster@intekspace.com" class="text-mark hover:underline">tharpster@intekspace.com</a>
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-4xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-3 text-xs text-mist/45">
+      <div>© <span id="y"></span> Intek Space / Intek Inc. · Hive King</div>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-mist">Home</a>
+        <a href="education.html" class="hover:text-mist">Education</a>
+        <a href="https://onemissionnetworkandinstitute.org/" class="hover:text-mist">One Mission</a>
+      </div>
     </div>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
