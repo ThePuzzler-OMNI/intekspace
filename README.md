@@ -32,6 +32,11 @@ See workspace `docs/INTEKSPACE_IDENTITY_PLAN.md` for M365 / mail path. This site
 
 **Not** a default Education SKU. SSOT design files under `One Mission\OMNI 2\Design Documents from Intek\`.
 
+## Form backbone
+
+`form-validate.js` → `OMNI_FORM` (sync with `Grok/js/omni-form-validate.js`).  
+Used by Education apply. See `Grok/docs/FORM_VALIDATE.md`.
+
 ## Deploy
 
 Same Vercel flow as IMI: import repo → deploy → add domain → GoDaddy DNS.

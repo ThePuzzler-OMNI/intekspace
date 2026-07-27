@@ -91,9 +91,9 @@
       <section class="panel rounded-2xl p-5 md:p-6">
         <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">A · Identity</h2>
         <label class="field"><span class="lbl">Full name *</span>
-          <input name="full_name" required autocomplete="name" /></label>
+          <input name="full_name" required autocomplete="name" data-validate="name" data-label="Full name" data-min="2" data-max="80" /></label>
         <label class="field"><span class="lbl">Preferred name</span>
-          <input name="preferred_name" /></label>
+          <input name="preferred_name" data-validate="name" data-label="Preferred name" data-max="80" /></label>
         <label class="field"><span class="lbl">Age band *</span>
           <select name="age_band" id="age_band" required>
             <option value="">Select…</option>
@@ -102,17 +102,17 @@
           </select>
         </label>
         <label class="field"><span class="lbl">Email *</span>
-          <input name="email" type="email" required autocomplete="email" /></label>
+          <input name="email" type="email" required autocomplete="email" data-validate="email" data-label="Email" /></label>
         <label class="field"><span class="lbl">Phone</span>
-          <input name="phone" type="tel" autocomplete="tel" /></label>
+          <input name="phone" type="tel" autocomplete="tel" data-validate="phone" data-label="Phone" /></label>
         <label class="field"><span class="lbl">City / State</span>
-          <input name="city_state" placeholder="e.g. Westerville, OH" /></label>
+          <input name="city_state" placeholder="e.g. Westerville, OH" data-max="80" data-label="City / State" /></label>
         <div id="guardian-block" class="hidden border-t border-white/10 pt-4 mt-2">
           <p class="text-xs text-amber-200/90 mb-3">Guardian required for under 18.</p>
           <label class="field"><span class="lbl">Guardian name *</span>
-            <input name="guardian_name" id="guardian_name" /></label>
+            <input name="guardian_name" id="guardian_name" data-validate="name" data-label="Guardian name" data-max="80" /></label>
           <label class="field"><span class="lbl">Guardian email *</span>
-            <input name="guardian_email" id="guardian_email" type="email" /></label>
+            <input name="guardian_email" id="guardian_email" type="email" data-validate="email" data-label="Guardian email" /></label>
         </div>
         <label class="field"><span class="lbl">How you found Intekspace</span>
           <input name="found_us" /></label>
@@ -161,9 +161,9 @@
       <section class="panel rounded-2xl p-5 md:p-6">
         <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">D · Motivation</h2>
         <label class="field"><span class="lbl">Why this track? *</span>
-          <textarea name="why_track" required></textarea></label>
+          <textarea name="why_track" required data-validate="textarea" data-label="Why this track" data-min="10" data-max="2000"></textarea></label>
         <label class="field"><span class="lbl">What do you want to understand about energy / matter / life?</span>
-          <textarea name="want_understand"></textarea></label>
+          <textarea name="want_understand" data-validate="textarea" data-label="What you want to understand" data-max="2000"></textarea></label>
         <label class="field"><span class="lbl">Family learning partner?</span>
           <select name="family_partner" id="family_partner">
             <option value="no">No</option>
@@ -221,9 +221,9 @@
           </select>
         </label>
         <label class="field"><span class="lbl">Signature (type full name) *</span>
-          <input name="signature" required autocomplete="off" /></label>
+          <input name="signature" required autocomplete="off" data-validate="name" data-label="Signature" data-min="2" data-max="80" /></label>
         <label class="field"><span class="lbl">Date *</span>
-          <input name="sign_date" id="sign_date" type="date" required /></label>
+          <input name="sign_date" id="sign_date" type="date" required data-validate="date" data-label="Date" /></label>
       </section>
 
       <div class="flex flex-col sm:flex-row gap-3">
@@ -241,6 +241,7 @@
     </form>
   </main>
 
+  <script src="form-validate.js"></script>
   <script src="education-tracks.js"></script>
   <script src="education-apply.js"></script>
 </body>

@@ -250,14 +250,8 @@
 
   document.getElementById('sign_date').value = new Date().toISOString().slice(0, 10);
 
-  form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      showStatus('Please complete required fields.', false);
-      return;
-    }
-    if (!validateCustom()) return;
+  function runSubmitFlow() {
+    if (!validateCustom()) return false;
     var packet = collectPacket();
     saveLocal(packet);
     downloadJson(packet);
@@ -275,15 +269,54 @@
         });
       }
     } catch (_) {}
-  });
+    return true;
+  }
+
+  // Shared validation backbone (email/phone/length/honeypot + blur feedback)
+  if (window.OMNI_FORM && OMNI_FORM.bind) {
+    OMNI_FORM.bind(form, {
+      honeypot: true,
+      live: true,
+      onInvalid: function (result) {
+        showStatus(result.message || 'Please fix the highlighted fields.', false);
+      },
+      onValid: function () {
+        // Form backbone already passed — custom rules + submit side effects
+        if (!runSubmitFlow()) return false;
+        return false; // prevent native submit (mailto path)
+      },
+    });
+  } else {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        showStatus('Please complete required fields.', false);
+        return;
+      }
+      runSubmitFlow();
+    });
+  }
 
   document.getElementById('btn-download').addEventListener('click', function () {
-    if (!form.checkValidity()) {
+    var ok = true;
+    if (window.OMNI_FORM && OMNI_FORM.validateForm) {
+      var result = OMNI_FORM.validateForm(form);
+      if (!result.ok) {
+        showStatus(result.message || 'Fix highlighted fields before download.', false);
+        if (result.firstInvalid) {
+          try {
+            result.firstInvalid.focus();
+          } catch (_) {}
+        }
+        ok = false;
+      }
+    } else if (!form.checkValidity()) {
       form.reportValidity();
       showStatus('Fill required fields before download, or continue editing.', false);
-      return;
+      ok = false;
     }
-    if (!validateCustom()) return;
+    if (!ok || !validateCustom()) return;
     var packet = collectPacket();
     downloadJson(packet);
     saveLocal(packet);
