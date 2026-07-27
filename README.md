@@ -1,17 +1,27 @@
 # Intek Space
 
-**Domain:** https://intekspace.com  
-**Path on PC:** `sites/intekspace/`  
-**GitHub (when created):** `ThePuzzler-OMNI/intekspace`
+Public site for **intekspace.com** — philosophy-first engineering, manufacturing, and prototyping education.
 
-## What this is
+## Thesis
 
-Public business front door for **Intek Inc.** engineering/manufacturing continuity. Replaces GoDaddy “Launching Soon” builder with real static HTML.
+All great works begin with a philosophy on life.
 
-## Identity
+Intek Space designs and builds tools under that order: philosophy → constraints → prototype → assemble.
 
-See workspace `docs/INTEKSPACE_IDENTITY_PLAN.md` for M365 / mail path. This site is web presence only until mail cutover.
+Technical spine: energy and matter conversions from macro hardware toward biological life.
 
-## Deploy
+## Stack
 
-Same Vercel flow as IMI: import repo → deploy → add domain → GoDaddy DNS.
+- Static HTML + Tailwind CDN
+- Vercel deploy
+- Optional GA4 via `analytics-config.js`
+
+## Local
+
+Open `index.html` or serve the folder statically.
+
+## Network
+
+- [One Mission](https://onemissionnetworkandinstitute.org/)
+- [Institute of Mature Imagination](https://instituteofmatureimagination.org/)
+- [GitHub org](https://github.com/ThePuzzler-OMNI)
