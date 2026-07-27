@@ -3,27 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intek Space · Engineering · Manufacturing · Continuity</title>
-  <meta name="description" content="Intek Space — business home for Intek Inc. engineering and manufacturing continuity through 2030. Sister to One Mission and IMI." />
+  <title>Intek Space · Philosophy · Engineering · Education</title>
+  <meta name="description" content="All great works begin with a philosophy on life. Intek Space designs conversion systems under stewardship—the death-to-life breathe held in balance. Engineering, education, long build." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://intekspace.com/" />
   <meta property="og:title" content="Intek Space" />
-  <meta property="og:description" content="Precision work. Long horizon. Human stewardship." />
+  <meta property="og:description" content="All great works begin with a philosophy on life. Engineering under stewardship—the death-to-life breathe held in balance." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://intekspace.com/" />
-  <!-- GA4: set Measurement ID in analytics-config.js (empty = no tags) -->
   <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            ink: '#0b1220',
-            steel: '#94a3b8',
+            ink: '#0a0f14',
+            parchment: '#e8e4d9',
             mark: '#0ea5e9',
-            warm: '#f59e0b',
+            hive: '#c4a35a',
+            leaf: '#6b8f71',
+            mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
           },
         },
       },
@@ -31,123 +39,247 @@
   </script>
   <style>
     body {
-      background:
-        linear-gradient(180deg, #0b1220 0%, #111827 40%, #0b1220 100%);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0a0f14;
+      color: #e8e4d9;
       min-height: 100vh;
     }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
     .panel {
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid rgba(148, 163, 184, 0.15);
+      background: rgba(14, 20, 26, 0.85);
+      border: 1px solid rgba(196, 163, 90, 0.12);
     }
-    .grid-bg {
-      background-image:
-        linear-gradient(rgba(14, 165, 233, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(14, 165, 233, 0.06) 1px, transparent 1px);
-      background-size: 48px 48px;
+    .hero {
+      background:
+        radial-gradient(ellipse 80% 55% at 50% -10%, rgba(196, 163, 90, 0.11), transparent 55%),
+        radial-gradient(ellipse 45% 35% at 85% 40%, rgba(14, 165, 233, 0.06), transparent 50%),
+        linear-gradient(180deg, #0a0f14 0%, #0e1419 45%, #0a0f14 100%);
+    }
+    .rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent);
     }
   </style>
 </head>
-<body class="text-slate-100 antialiased">
-  <header class="border-b border-white/10 sticky top-0 z-40 bg-ink/90 backdrop-blur">
-    <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-lg bg-mark/20 border border-mark/40 flex items-center justify-center font-bold text-mark text-sm">IS</div>
-        <div>
-          <div class="font-semibold tracking-tight">Intek Space</div>
-          <div class="text-[10px] text-slate-400 uppercase tracking-wider">Intek Inc. · Continuity</div>
+<body class="antialiased">
+  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/85 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-3 min-w-0">
+        <div class="w-8 h-8 rounded-full border border-hive/35 flex items-center justify-center text-hive text-xs font-semibold tracking-widest shrink-0">IS</div>
+        <div class="min-w-0">
+          <div class="font-semibold tracking-tight text-parchment text-sm">Intek Space</div>
+          <div class="text-[10px] text-mist/70 uppercase tracking-wider">Engineering · Education · Continuity</div>
         </div>
       </a>
-      <nav class="hidden sm:flex gap-6 text-sm text-slate-400">
-        <a href="#work" class="hover:text-white">Work</a>
-        <a href="education.html" class="hover:text-white text-mark">Education</a>
-        <a href="hive-king.html" class="hover:text-white">Hive King</a>
-        <a href="#identity" class="hover:text-white">Identity</a>
-        <a href="#network" class="hover:text-white">Network</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
+      <nav class="flex flex-wrap justify-end gap-3 sm:gap-5 text-sm text-mist/75">
+        <a href="#philosophy" class="hover:text-parchment transition hidden sm:inline">Philosophy</a>
+        <a href="#method" class="hover:text-parchment transition hidden md:inline">Method</a>
+        <a href="#density" class="hover:text-parchment transition hidden md:inline">Density</a>
+        <a href="education.html" class="hover:text-parchment transition text-mark">Education</a>
+        <a href="hive-king.html" class="hover:text-parchment transition">Hive King</a>
+        <a href="#contact" class="hover:text-parchment transition">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="grid-bg border-b border-white/5">
-    <div class="max-w-5xl mx-auto px-5 py-20 md:py-28">
-      <p class="text-mark text-xs uppercase tracking-[0.25em] mb-4">Launching for real · not a placeholder forever</p>
-      <h1 class="text-4xl md:text-5xl font-semibold tracking-tight max-w-2xl leading-tight">
-        Engineering that stays.<br />
-        <span class="text-slate-400">Space for the long build.</span>
+  <!-- Hero -->
+  <section class="hero border-b border-white/5">
+    <div class="max-w-4xl mx-auto px-5 pt-16 md:pt-24 pb-16 md:pb-20">
+      <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-5">Intek Space · Intek Inc.</p>
+      <h1 class="font-display text-4xl md:text-6xl font-semibold tracking-tight text-parchment leading-[1.08] max-w-3xl">
+        All great works begin with a philosophy on life.
       </h1>
-      <p class="mt-6 text-lg text-slate-400 max-w-xl leading-relaxed">
-        <strong class="text-slate-200">intekspace.com</strong> is the public business face for
-        Intek Inc. manufacturing and engineering work — identity continuity through 2030,
-        clean mail path, and a calm front door for people who want real capability, not noise.
+      <p class="mt-6 text-lg md:text-xl text-mist max-w-2xl leading-relaxed">
+        We design and build conversion systems—and the knowledge around them—under that order:
+        first a view of what human life is, then the constraints that follow, then prototypes, then assembly.
       </p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="education.html" class="px-5 py-2.5 rounded-lg bg-mark text-ink font-semibold text-sm hover:brightness-110">Education Exchange</a>
-        <a href="#contact" class="px-5 py-2.5 rounded-lg panel text-sm text-slate-200 hover:border-mark/40">Contact</a>
-        <a href="https://onemissionnetworkandinstitute.org/" class="px-5 py-2.5 rounded-lg panel text-sm text-slate-200 hover:border-mark/40">One Mission →</a>
+      <p class="mt-4 text-base text-mist/85 max-w-2xl leading-relaxed">
+        <strong class="text-parchment font-medium">Optimal land per life, per species</strong>—intelligence balanced with conversion efficiency—
+        so the <em class="text-hive/90 not-italic font-medium">death-to-life breathe</em> does not end in extinction.
+      </p>
+      <div class="rule max-w-md my-8"></div>
+      <p class="font-display italic text-xl text-mist/90 max-w-xl">
+        Engineering that stays. Space for the long build.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#philosophy" class="px-5 py-2.5 rounded-full bg-hive/15 border border-hive/40 text-hive text-sm font-medium hover:bg-hive/25 transition">See the method</a>
+        <a href="education.html" class="px-5 py-2.5 rounded-full border border-white/12 text-mist text-sm hover:border-white/25 hover:text-parchment transition">Education Exchange</a>
+        <a href="hive-king.html" class="px-5 py-2.5 rounded-full border border-white/12 text-mist text-sm hover:border-white/25 hover:text-parchment transition">Hive King</a>
       </div>
     </div>
   </section>
 
-  <section id="work" class="max-w-5xl mx-auto px-5 py-16">
-    <h2 class="text-2xl font-semibold mb-8">What this domain is for</h2>
-    <div class="grid md:grid-cols-3 gap-4">
-      <div class="panel rounded-2xl p-6">
-        <h3 class="font-semibold text-mark mb-2">Engineering / manufacturing</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">Intek Inc. workmanship, customer continuity, and professional technical presence.</p>
+  <!-- Philosophy -->
+  <section id="philosophy" class="max-w-4xl mx-auto px-5 py-14 md:py-16">
+    <h2 class="font-display text-3xl text-parchment mb-6">Philosophy</h2>
+    <div class="space-y-5 text-mist/90 leading-relaxed max-w-2xl">
+      <p>
+        Most products begin with a market gap, a trend, or a clever mechanism.
+        We begin with a <strong class="text-parchment font-medium">philosophy of life</strong>.
+      </p>
+      <p>
+        We <strong class="text-parchment font-medium">consume death to breed life</strong> under stewardship—
+        not ownership of the source. Finite, ended things (food, fuel, matter, the givenness of mortal life)
+        are received and turned toward the generation and continuation of life: body, relation, garden, household, craft.
+      </p>
+      <p>
+        Faith in the Creator keeps this from sealing inside survival alone. Technology is placed
+        <em>second</em>: useful, honest, refused where it would lie or harm.
+      </p>
+      <p class="text-sm text-mist/70 border-l-2 border-hive/40 pl-4">
+        Website claims must match refused lists and safety boundaries (no drain discharge, no human-food claims from uncontrolled waste).
+        Philosophy on this homepage is a <strong class="text-parchment font-medium">control on marketing</strong>, not decoration.
+      </p>
+    </div>
+  </section>
+
+  <!-- Goal -->
+  <section id="goal" class="border-y border-white/5 bg-black/25">
+    <div class="max-w-4xl mx-auto px-5 py-14">
+      <h2 class="font-display text-3xl text-parchment mb-4">Standing goal</h2>
+      <p class="text-lg text-mist max-w-2xl leading-relaxed">
+        Design conversion systems that make <strong class="text-parchment font-medium">land and energy costs visible</strong>
+        across species, so intelligence can advance without driving extinction:
+        the death-to-life breathe held in balance.
+      </p>
+      <p class="mt-4 text-sm text-mist/75 max-w-2xl">
+        We work the span from macro electrical and mechanical systems down toward biological scale—
+        where energy and matter actually sustain living people, gardens, and households.
+      </p>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section id="method" class="max-w-4xl mx-auto px-5 py-14">
+    <h2 class="font-display text-3xl text-parchment mb-3">Method</h2>
+    <p class="text-sm text-mist/80 mb-8 max-w-xl">
+      Philosophy → constraints → prototype → assemble.
+      Operated with <strong class="text-parchment font-medium">DMAIC</strong>, sited with
+      <strong class="text-parchment font-medium">sector overlays</strong>, shipped as
+      <strong class="text-parchment font-medium">twin extremes</strong>.
+    </p>
+    <div class="grid sm:grid-cols-3 gap-4 mb-8">
+      <div class="panel rounded-2xl p-5">
+        <div class="text-hive text-xs uppercase tracking-wider mb-2">Philosophy</div>
+        <p class="text-sm text-mist/90">Why build at all? What must never be hidden?</p>
       </div>
-      <div class="panel rounded-2xl p-6">
-        <h3 class="font-semibold text-mark mb-2">Business identity</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">Primary path toward <code class="text-slate-300">@intekspace.com</code> mail and Microsoft 365 — see internal identity plan.</p>
+      <div class="panel rounded-2xl p-5">
+        <div class="text-hive text-xs uppercase tracking-wider mb-2">Sector overlays</div>
+        <p class="text-sm text-mist/90">Where may this live on a real site? Sun, water, wind, access, risk, legal.</p>
       </div>
-      <div class="panel rounded-2xl p-6">
-        <h3 class="font-semibold text-mark mb-2">Not chaos</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">Sister brands handle mission community (One Mission) and Spaces archive (IMI). This door stays business-clean.</p>
+      <div class="panel rounded-2xl p-5">
+        <div class="text-hive text-xs uppercase tracking-wider mb-2">DMAIC</div>
+        <p class="text-sm text-mist/90">How we define, measure, analyze, improve, and control the result.</p>
       </div>
     </div>
-    <div class="mt-6 grid sm:grid-cols-2 gap-4">
-      <a href="education.html" class="panel rounded-2xl p-6 hover:border-mark/40 block">
+    <p class="text-sm text-mist/75 max-w-2xl leading-relaxed mb-6">
+      Philosophy without sectors becomes abstract. Sectors without DMAIC become a one-time sketch.
+      DMAIC without philosophy optimizes the wrong Y.
+    </p>
+    <p class="text-sm text-mist/90 max-w-2xl leading-relaxed italic font-display text-lg text-parchment/90">
+      We site with sector overlays, improve with DMAIC, and ship twin extremes—so advancement stays rapid and the breathe stays honest.
+    </p>
+    <div class="mt-8 panel rounded-2xl p-5 text-sm text-mist/85 space-y-2">
+      <p><strong class="text-parchment">D — Define</strong> · land-per-life and conversion honesty; refusals up front; site constraints enter before any BOM.</p>
+      <p><strong class="text-parchment">M — Measure</strong> · breathe metrics (intake, convert, output, residual); land proxy; zone + sector tags—not only lab data.</p>
+      <p><strong class="text-parchment">A — Analyze</strong> · overlay composites; sector failures (odor, splash to drain) as real as sensor faults.</p>
+      <p><strong class="text-parchment">I — Improve</strong> · move hardware only inside safe intersections; twin extremes; publish refused placements.</p>
+      <p><strong class="text-parchment">C — Control</strong> · install packs require overlay + zone plan + breathe datasheet; no scale-up until measures survive real sectors.</p>
+    </div>
+  </section>
+
+  <!-- Density -->
+  <section id="density" class="border-y border-white/5 bg-black/25">
+    <div class="max-w-4xl mx-auto px-5 py-14">
+      <h2 class="font-display text-3xl text-parchment mb-3">Twin extremes</h2>
+      <p class="text-sm text-mist/80 max-w-2xl mb-8 leading-relaxed">
+        Map sectors by overlays; sense only what steers the breathe; ship
+        <strong class="text-parchment font-medium">twin extremes</strong>—high-tech dense and low-tech deep—
+        because the middle is already crowded and the answers for rapid, non-extinction advancement live at the poles.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold text-mark mb-2">Community · high-tech density</h3>
+          <p class="text-sm text-mist/85 leading-relaxed">
+            Automated control limits, shared infrastructure, dense practice—still bound by drain interlocks,
+            seals, and honest energy accounting.
+          </p>
+        </div>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold text-leaf mb-2">Farmer · low-tech density</h3>
+          <p class="text-sm text-mist/85 leading-relaxed">
+            Seasonal checklist control, deep field practice, less automation—same philosophy, same refused lists,
+            same requirement that measures survive real weather.
+          </p>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-mist/50">The middle market is elsewhere. We do not collapse to it by default.</p>
+    </div>
+  </section>
+
+  <!-- Education + Projects -->
+  <section id="work" class="max-w-4xl mx-auto px-5 py-14">
+    <h2 class="font-display text-3xl text-parchment mb-3">Education &amp; projects</h2>
+    <p class="text-sm text-mist/80 max-w-2xl mb-8 leading-relaxed">
+      Students and partners prototype under this discipline: philosophy → constraints → build → evidence.
+      Paid high-school kit paths and field instruments grow from the same root—not gadget-first novelty.
+    </p>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <a href="education.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
         <div class="text-xs text-mark uppercase tracking-wider mb-1">Education</div>
-        <div class="font-semibold text-white mb-1">Education Exchange</div>
-        <p class="text-sm text-slate-400">Kit tracks, video evidence, apply online — electrons, solar, engines, yard loop, and more.</p>
+        <div class="font-semibold text-parchment mb-2">Education Exchange</div>
+        <p class="text-sm text-mist/85 leading-relaxed">
+          Kit tracks and project seats with video evidence of material use, function, energy conversion, and philosophy alignment.
+        </p>
       </a>
-      <a href="hive-king.html" class="panel rounded-2xl p-6 hover:border-amber-500/30 block">
-        <div class="text-xs text-amber-200/80 uppercase tracking-wider mb-1">Project</div>
-        <div class="font-semibold text-white mb-1">Hive King</div>
-        <p class="text-sm text-slate-400">An instrument for a living hive — vision at the door, sensing in the foundation, power from the sun.</p>
+      <a href="hive-king.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
+        <div class="text-xs text-hive uppercase tracking-wider mb-1">Project · R&amp;D</div>
+        <div class="font-semibold text-parchment mb-2">Hive King</div>
+        <p class="text-sm text-mist/85 leading-relaxed">
+          An instrument for a living hive—vision at the door, sensing in the foundation, power from the sun. Advanced; not a default kit SKU.
+        </p>
       </a>
+    </div>
+    <div class="mt-4 panel rounded-2xl p-6">
+      <h3 class="font-semibold text-parchment mb-2">Yard-to-Loop · Poop-to-Loop</h3>
+      <p class="text-sm text-mist/85 leading-relaxed">
+        Not isolated gadgets. Field instruments for measuring and improving the breathe under real sector constraints—
+        land, water, residual, intelligence practice. Student prototype → Intek Space manufacture/assemble path when honest.
+      </p>
     </div>
   </section>
 
+  <!-- Brand map (kept, quieter) -->
   <section id="identity" class="border-y border-white/5 bg-black/20">
-    <div class="max-w-5xl mx-auto px-5 py-16">
-      <h2 class="text-2xl font-semibold mb-4">Brand map</h2>
+    <div class="max-w-4xl mx-auto px-5 py-12">
+      <h2 class="font-display text-2xl text-parchment mb-4">Sister brands</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm text-left">
-          <thead class="text-slate-500 border-b border-white/10">
+          <thead class="text-mist/50 border-b border-white/10 text-xs uppercase tracking-wider">
             <tr>
               <th class="py-2 pr-4 font-medium">Brand</th>
               <th class="py-2 pr-4 font-medium">Domain</th>
               <th class="py-2 font-medium">Role</th>
             </tr>
           </thead>
-          <tbody class="text-slate-300">
+          <tbody class="text-mist/90">
             <tr class="border-b border-white/5">
-              <td class="py-3 pr-4 font-medium text-white">Intek Space</td>
+              <td class="py-3 pr-4 font-medium text-parchment">Intek Space</td>
               <td class="py-3 pr-4">intekspace.com</td>
-              <td class="py-3">Business / engineering home (this site)</td>
+              <td class="py-3">Philosophy → engineering · education · manufacture continuity</td>
             </tr>
             <tr class="border-b border-white/5">
-              <td class="py-3 pr-4 font-medium text-white">One Mission</td>
+              <td class="py-3 pr-4 font-medium text-parchment">One Mission</td>
               <td class="py-3 pr-4">onemissionnetworkandinstitute.org</td>
-              <td class="py-3">Public mission, Court, frameworks</td>
+              <td class="py-3">Public mission, Court, frameworks, faith/work gardens</td>
             </tr>
             <tr class="border-b border-white/5">
-              <td class="py-3 pr-4 font-medium text-white">IMI</td>
+              <td class="py-3 pr-4 font-medium text-parchment">IMI</td>
               <td class="py-3 pr-4">instituteofmatureimagination.org</td>
-              <td class="py-3">Spaces archive · trusted public record</td>
+              <td class="py-3">Spaces archive · mature imagination · public record</td>
             </tr>
             <tr>
-              <td class="py-3 pr-4 font-medium text-white">Legacy</td>
+              <td class="py-3 pr-4 font-medium text-parchment">Legacy</td>
               <td class="py-3 pr-4">intekflow.com</td>
               <td class="py-3">Historical identity through 2030</td>
             </tr>
@@ -157,63 +289,65 @@
     </div>
   </section>
 
-  <section id="network" class="max-w-5xl mx-auto px-5 py-16">
-    <h2 class="text-2xl font-semibold mb-6">Network</h2>
-    <div class="grid sm:grid-cols-2 gap-4">
-      <a href="https://onemissionnetworkandinstitute.org/" class="panel rounded-2xl p-6 hover:border-mark/40 block">
-        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Sister</div>
-        <div class="font-semibold">One Mission Network &amp; Institute</div>
+  <section id="network" class="max-w-4xl mx-auto px-5 py-12">
+    <h2 class="font-display text-2xl text-parchment mb-6">Network</h2>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <a href="https://onemissionnetworkandinstitute.org/" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+        <span class="text-mist/50 text-xs uppercase tracking-wider">Sister</span>
+        <div class="text-parchment font-medium mt-0.5">One Mission Network &amp; Institute</div>
       </a>
-      <a href="https://instituteofmatureimagination.org/" class="panel rounded-2xl p-6 hover:border-mark/40 block">
-        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Sister</div>
-        <div class="font-semibold">Institute of Mature Imagination</div>
+      <a href="https://instituteofmatureimagination.org/" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+        <span class="text-mist/50 text-xs uppercase tracking-wider">Sister</span>
+        <div class="text-parchment font-medium mt-0.5">Institute of Mature Imagination</div>
       </a>
-      <a href="https://x.com/omni_puzzler" target="_blank" rel="noopener" class="panel rounded-2xl p-6 hover:border-mark/40 block">
-        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Voice</div>
-        <div class="font-semibold">@omni_puzzler on X</div>
+      <a href="https://x.com/omni_puzzler" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+        <span class="text-mist/50 text-xs uppercase tracking-wider">Voice</span>
+        <div class="text-parchment font-medium mt-0.5">@omni_puzzler on X</div>
       </a>
-      <a href="https://github.com/ThePuzzler-OMNI" target="_blank" rel="noopener" class="panel rounded-2xl p-6 hover:border-mark/40 block">
-        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Code</div>
-        <div class="font-semibold">ThePuzzler-OMNI on GitHub</div>
+      <a href="https://github.com/ThePuzzler-OMNI" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+        <span class="text-mist/50 text-xs uppercase tracking-wider">Code</span>
+        <div class="text-parchment font-medium mt-0.5">ThePuzzler-OMNI on GitHub</div>
       </a>
     </div>
   </section>
 
-  <section id="contact" class="border-t border-white/10">
-    <div class="max-w-5xl mx-auto px-5 py-16">
-      <h2 class="text-2xl font-semibold mb-3">Contact</h2>
-      <p class="text-slate-400 mb-6 max-w-lg">
-        Prefer work mail. Public forms can come later; for now use the known steward addresses or X.
+  <section id="contact" class="border-t border-white/5 hero">
+    <div class="max-w-4xl mx-auto px-5 py-14">
+      <h2 class="font-display text-3xl text-parchment mb-3">Contact</h2>
+      <p class="text-mist/85 mb-6 max-w-lg text-sm leading-relaxed">
+        Work mail preferred. Serious collaboration and education applications welcome.
+        Philosophy is the door; we do not sell peace as a SKU.
       </p>
-      <div class="panel rounded-2xl p-6 space-y-2 text-sm">
-        <div><span class="text-slate-500">Primary work path:</span> <span class="text-slate-200">tharpster@intekspace.com</span> <span class="text-slate-500">(when M365 domain live)</span></div>
-        <div><span class="text-slate-500">Legacy:</span> <span class="text-slate-200">tharpster@intekflow.com</span></div>
-        <div><span class="text-slate-500">X:</span> <a class="text-mark hover:underline" href="https://x.com/omni_puzzler" target="_blank" rel="noopener">@omni_puzzler</a></div>
+      <div class="panel rounded-2xl p-6 space-y-2 text-sm text-mist/90">
+        <div><span class="text-mist/50">Work:</span> <a class="text-hive hover:underline" href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a></div>
+        <div><span class="text-mist/50">Legacy:</span> <span class="text-parchment/80">tharpster@intekflow.com</span></div>
+        <div><span class="text-mist/50">X:</span> <a class="text-hive hover:underline" href="https://x.com/omni_puzzler" target="_blank" rel="noopener">@omni_puzzler</a></div>
+        <div class="pt-2"><a href="education-apply.html" class="text-mark hover:underline">Apply — Education Exchange →</a></div>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-white/10 py-8">
-    <div class="max-w-5xl mx-auto px-5 space-y-4 text-sm text-slate-500">
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-4xl mx-auto px-5 space-y-4 text-xs text-mist/45">
       <div class="flex flex-col sm:flex-row justify-between gap-2">
         <div>© <span id="y"></span> Intek Space / Intek Inc. · intekspace.com</div>
-        <div>Hosted on Vercel · source on GitHub</div>
+        <div class="flex gap-4">
+          <a href="education.html" class="hover:text-mist">Education</a>
+          <a href="hive-king.html" class="hover:text-mist">Hive King</a>
+          <a href="https://onemissionnetworkandinstitute.org/" class="hover:text-mist">One Mission</a>
+        </div>
       </div>
-      <p id="privacy" class="text-xs text-slate-500/90 leading-relaxed max-w-3xl">
-        <strong class="text-slate-400 font-medium">Privacy &amp; analytics.</strong>
-        This site uses <strong class="text-slate-400">Google Analytics 4</strong>
-        to understand traffic: pages viewed, approximate location/device, and referral sources (including social such as X).
-        We do not use this tag to collect names, emails, or phone numbers from contact forms.
-        Google may process data per
-        <a class="text-mark hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a>
-        and its analytics terms. Contact:
-        <a class="text-mark hover:underline" href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a>
-        · X
-        <a class="text-mark hover:underline" href="https://x.com/omni_puzzler" target="_blank" rel="noopener">@omni_puzzler</a>.
-        Sister sites: One Mission · Institute of Mature Imagination (separate analytics).
+      <p id="privacy" class="leading-relaxed max-w-3xl">
+        <strong class="text-mist/60 font-medium">Privacy &amp; analytics.</strong>
+        This site uses Google Analytics 4 for traffic (pages, approximate location/device, referrals).
+        We do not use this tag to collect names, emails, or phone numbers from forms.
+        See
+        <a class="text-hive/80 hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a>.
+        Contact:
+        <a class="text-hive/80 hover:underline" href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a>.
       </p>
     </div>
   </footer>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
