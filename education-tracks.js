@@ -95,6 +95,15 @@
       safetyNote: 'Outdoor / organic materials — hygiene protocols required. Hard refusals: no storm-drain fantasy; no human-food claims from uncontrolled residual.',
       guardian: false,
     },
+    {
+      id: 'interspecies-comms',
+      name: 'Interspecies Communication Systems',
+      short: 'LLM · Hardware',
+      blurb:
+        'Build the communication language models and the hardware that carries them so we can learn to speak with and listen to other species. Full stack under direct direction. Funded. Philosophy first, then constraints, then working systems and clear documentation others can follow. Open to model design, signal work, hardware integration, or educational materials.',
+      safetyNote: '',
+      guardian: false,
+    },
   ];
 
   global.INTEK_EDU_TRACKS = TRACKS;
