@@ -8,6 +8,17 @@
 
 Public business front door for **Intek Inc.** engineering/manufacturing continuity. Replaces GoDaddy “Launching Soon” builder with real static HTML.
 
+## Grok web cook (preferred for public HTML)
+
+| Item | Value |
+|------|--------|
+| GitHub | `ThePuzzler-OMNI/intekspace` |
+| Deploy | Vercel ← push `main` |
+| Steward UI | One Mission Cmd Cntr → **Sites** → Intek Space card → Copy prompt |
+| Rule | Public files only · no secrets · **this site only** in that chat |
+
+See workspace `docs/SITES_GROK_WEB_COOK.md`.
+
 ## Identity
 
 See workspace `docs/INTEKSPACE_IDENTITY_PLAN.md` for M365 / mail path. This site is web presence only until mail cutover.
