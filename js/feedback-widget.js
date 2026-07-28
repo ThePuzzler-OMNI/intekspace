@@ -313,7 +313,7 @@
     backdrop.innerHTML =
       '<div id="omni-fb-panel" role="dialog" aria-modal="true">' +
       '<h2>Report bug or idea</h2>' +
-      '<p class="hint">Context is captured automatically (page, device, membership). Saved to Bug Desk for the steward dashboard (also emailed as backup).</p>' +
+      '<p class="hint">Context is captured automatically (page, device, membership). Goes to the shared multi-site Bug Desk (Cmd Cntr → Bugs). You stay on this page.</p>' +
       '<label for="omni-fb-type">Type</label>' +
       '<select id="omni-fb-type"><option value="bug">Bug</option><option value="feature">Feature request</option><option value="other">Other</option></select>' +
       '<label for="omni-fb-severity">Severity</label>' +
@@ -330,7 +330,7 @@
       '<div id="omni-fb-actions">' +
       '<button type="button" id="omni-fb-submit">Send report</button>' +
       '<button type="button" id="omni-fb-gh">Also open GitHub</button>' +
-      '<a id="omni-fb-board" href="https://onemissionnetworkandinstitute.org/bug-desk-admin.html" target="_blank" rel="noopener">Bug Desk</a>' +
+      '<a id="omni-fb-board" href="https://onemissionnetworkandinstitute.org/bug-desk-admin.html?site=all" target="_blank" rel="noopener">Bug Desk</a>' +
       '<button type="button" id="omni-fb-close">Close</button>' +
       '</div>' +
       '<div id="omni-fb-status"></div></div>';
@@ -429,10 +429,17 @@
           .then(function (saved) {
             statusEl.style.color = '#34d399';
             var deskId = (saved && saved.id) || item.id;
+            var siteLabel = (saved && saved.siteId) || ctx.site || 'site';
             statusEl.innerHTML =
-              'Saved to Bug Desk (' +
+              'Saved to shared Bug Desk <strong style="color:#a7f3d0">' +
               deskId +
-              '). <a href="https://onemissionnetworkandinstitute.org/bug-desk-admin.html" target="_blank" rel="noopener" style="color:#6ee7b7;text-decoration:underline">Open dashboard</a>';
+              '</strong> · ' +
+              siteLabel +
+              '. Stays on this page — steward sees it under Cmd Cntr → Bugs (all sites).';
+            // Keep modal open briefly then auto-close without leaving the page
+            setTimeout(function () {
+              try { close(); } catch (e) {}
+            }, 2200);
             // 2) Also mirror to Azure ServiceFeedback (non-blocking)
             postToAzure(f, ctx, item).catch(function () {});
             // 3) Backup notify steward by email (non-blocking)
@@ -528,10 +535,13 @@
                     (ctx.reporterEmail || f.email || 'anonymous')
                 );
                 statusEl.style.color = '#fbbf24';
-                statusEl.textContent = 'Opening email app…';
                 var mailTo = (window.OMNI_SITE && (window.OMNI_SITE.contactEmail || window.OMNI_SITE.techsupportEmail)) || 'techsupport@onemissionnetworkandinstitute.org';
-                window.location.href =
-                  'mailto:' + mailTo + '?subject=' + subject + '&body=' + body;
+                var mailUrl = 'mailto:' + mailTo + '?subject=' + subject + '&body=' + body;
+                statusEl.innerHTML =
+                  'Could not reach Bug Desk. <a href="' +
+                  mailUrl +
+                  '" style="color:#fde68a;text-decoration:underline">Email techsupport instead</a> (stays optional — this page will not navigate away).';
+                // Do NOT set window.location — that kicks users off Intek / Cmd Cntr
               });
           });
       });

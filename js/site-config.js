@@ -8,7 +8,11 @@
     formSubmitEndpoint: "https://formsubmit.co/ajax/techsupport@onemissionnetworkandinstitute.org",
     bugDesk: {
       api: "https://onemissionnetworkandinstitute.org/api/bugs",
+      admin: "https://onemissionnetworkandinstitute.org/bug-desk-admin.html?site=all",
+      apiAzure: "https://onemissionnetworkandinstitute.org/api/bugs",
     },
+    contactEmail: "techsupport@intekspace.com",
+    techsupportEmail: "techsupport@onemissionnetworkandinstitute.org",
     feedbackRepo: {
       owner: "ThePuzzler-OMNI",
       repo: "mirror-grok",
