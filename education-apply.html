@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -99,8 +99,13 @@
           <input name="full_name" required autocomplete="name" data-validate="name" data-label="Full name" data-min="2" data-max="80" /></label>
         <label class="field"><span class="lbl">Preferred name</span>
           <input name="preferred_name" data-validate="name" data-label="Preferred name" data-max="80" /></label>
-        <label class="field"><span class="lbl">Age *</span>
-          <input name="age" id="age" type="number" min="5" max="120" required placeholder="e.g. 16" /></label>
+        <label class="field"><span class="lbl">Age band *</span>
+          <select name="age_band" id="age_band" required>
+            <option value="">Select…</option>
+            <option value="under_18">Under 18</option>
+            <option value="18_plus">18+</option>
+          </select>
+        </label>
         <label class="field"><span class="lbl">Email *</span>
           <input name="email" type="email" required autocomplete="email" data-validate="email" data-label="Email" /></label>
         <label class="field"><span class="lbl">Phone</span>
@@ -244,5 +249,8 @@
   <script src="form-validate.js"></script>
   <script src="education-tracks.js"></script>
   <script src="education-apply.js"></script>
+
+  <script src="js/site-config.js"></script>
+  <script src="js/feedback-widget.js" defer></script>
 </body>
 </html>
