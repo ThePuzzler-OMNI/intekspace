@@ -9,7 +9,7 @@
   var primary = document.getElementById('track_primary');
   var secondary = document.getElementById('track_secondary');
   var safety = document.getElementById('track-safety');
-  var ageBand = document.getElementById('age_band');
+  var ageInput = document.getElementById('age');
   var guardianBlock = document.getElementById('guardian-block');
   var familyPartner = document.getElementById('family_partner');
   var familyWhoWrap = document.getElementById('family_who_wrap');
@@ -70,7 +70,8 @@
   }
 
   function updateGuardian() {
-    var under = ageBand.value === 'under_18';
+    var age = parseInt(ageInput && ageInput.value, 10);
+    var under = !isNaN(age) && age < 18;
     guardianBlock.classList.toggle('hidden', !under);
     document.getElementById('guardian_name').required = under;
     document.getElementById('guardian_email').required = under;
@@ -148,7 +149,7 @@
       'SECONDARY: ' + (packet.track_secondary_name || '—'),
       '',
       'Name: ' + f.full_name + (f.preferred_name ? ' (' + f.preferred_name + ')' : ''),
-      'Age band: ' + f.age_band,
+      'Age: ' + (f.age || '—'),
       'Email: ' + f.email,
       'Phone: ' + (f.phone || '—'),
       'City/State: ' + (f.city_state || '—'),
@@ -233,7 +234,8 @@
       medicalCb.focus();
       return false;
     }
-    if (ageBand.value === 'under_18') {
+    var age = parseInt(ageInput && ageInput.value, 10);
+    if (!isNaN(age) && age < 18) {
       if (!form.elements.guardian_name.value.trim() || !form.elements.guardian_email.value.trim()) {
         showStatus('Guardian name and email are required for under 18.', false);
         return false;
@@ -243,7 +245,10 @@
   }
 
   primary.addEventListener('change', updateSafety);
-  ageBand.addEventListener('change', updateGuardian);
+  if (ageInput) {
+    ageInput.addEventListener('input', updateGuardian);
+    ageInput.addEventListener('change', updateGuardian);
+  }
   familyPartner.addEventListener('change', function () {
     familyWhoWrap.classList.toggle('hidden', familyPartner.value !== 'yes');
   });
