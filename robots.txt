@@ -1,0 +1,5 @@
+# https://intekspace.com/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://intekspace.com/sitemap.xml

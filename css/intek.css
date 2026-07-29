@@ -281,3 +281,17 @@ label.field span.lbl {
 
 button:not(:disabled),
 [role="button"]:not(:disabled) { cursor: pointer; }
+
+.site-footer__network {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-soft);
+}
+.site-footer__network-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(196, 163, 90, 0.7);
+}

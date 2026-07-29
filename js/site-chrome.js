@@ -1,15 +1,23 @@
 /**
- * Intek Space — unified header + footer.
- * Place empty #site-header and #site-footer; set data-page on <body>.
+ * Intek Space — unified header + footer + sister network UTMs.
  */
 (function () {
   'use strict';
+
+  var UTM = {
+    omni: '?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=',
+    imi: '?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=',
+  };
+  var OMNI = 'https://onemissionnetworkandinstitute.org/';
+  var IMI = 'https://instituteofmatureimagination.org/';
+  var OMNI_VIDEOS = 'https://instituteofmatureimagination.org/videos';
 
   var LINKS = [
     { id: 'home', href: '/', label: 'Home' },
     { id: 'philosophy', href: '/philosophy', label: 'Philosophy' },
     { id: 'projects', href: '/projects', label: 'Projects' },
     { id: 'education', href: '/education', label: 'Education' },
+    { id: 'store', href: '/store', label: 'OMNI Store' },
     { id: 'launch', href: '/launch', label: 'Launch', cta: true },
     { id: 'contact', href: '/#contact', label: 'Contact' },
   ];
@@ -19,8 +27,7 @@
     if (b && b.getAttribute('data-page')) return b.getAttribute('data-page');
     var path = (location.pathname || '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/';
     if (path === '/' || path === '') return 'home';
-    var leaf = path.split('/').pop();
-    return leaf || 'home';
+    return path.split('/').pop() || 'home';
   }
 
   function isActive(link, page) {
@@ -119,12 +126,26 @@
       ' Intek Space / Intek Inc. · intekspace.com</div>' +
       '<div class="site-footer__links">' +
       footLinks +
-      '<a href="https://onemissionnetworkandinstitute.org/" rel="noopener">One Mission</a>' +
+      '</div></div>' +
+      '<div class="site-footer__network">' +
+      '<div class="site-footer__network-label">One Mission network</div>' +
+      '<div class="site-footer__links">' +
+      '<a href="' +
+      OMNI +
+      UTM.omni +
+      'footer">One Mission</a>' +
+      '<a href="' +
+      OMNI_VIDEOS +
+      UTM.imi +
+      'footer_videos">OMNI Videos</a>' +
+      '<a href="' +
+      IMI +
+      UTM.imi +
+      'footer">Institute of Mature Imagination</a>' +
       '</div></div>' +
       '<p class="site-footer__privacy">' +
       '<strong style="color:rgba(139,154,171,0.65);font-weight:500">Privacy & analytics.</strong> ' +
-      'This site uses Google Analytics 4 for traffic (pages, approximate location/device, referrals). ' +
-      'We do not use this tag to collect names, emails, or phone numbers from forms. See ' +
+      'This site uses Google Analytics 4 for traffic. We do not collect names, emails, or phone numbers from forms via this tag. See ' +
       '<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a>. ' +
       'Contact: <a href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a>.' +
       '</p></div></footer>';
