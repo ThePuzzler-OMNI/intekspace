@@ -52,7 +52,7 @@
   </section>
 
   <section id="exchange" class="max-w-4xl mx-auto px-5 py-12">
-    <h2 class="text-xl font-semibold mb-6">Exchange model</h2>
+    <h2 class="font-display text-2xl text-parchment mb-6">Exchange model</h2>
     <div class="grid md:grid-cols-2 gap-4">
       <div class="panel rounded-2xl p-6">
         <h3 class="font-semibold text-hive mb-2">We provide</h3>
@@ -77,10 +77,16 @@
   <section id="tracks" class="border-y band">
     <div class="max-w-4xl mx-auto px-5 py-14">
       <div class="flex flex-wrap items-end justify-between gap-3 mb-8">
-        <h2 class="text-xl font-semibold">Tracks</h2>
+        <h2 class="font-display text-2xl text-parchment">Tracks</h2>
         <a href="education-apply.html" class="text-sm text-hive hover:underline">Apply →</a>
       </div>
-      <div class="grid sm:grid-cols-2 gap-4" id="track-cards"></div>
+      <div class="grid sm:grid-cols-2 gap-4" id="track-cards">
+        <!-- Filled by education-tracks.js from INTEK_EDU_TRACKS (Notion SSOT) -->
+        <noscript>
+          <p class="text-sm text-mist col-span-2">Enable JavaScript to browse all 10 kit tracks, or open <a class="text-hive underline" href="education-apply.html">Apply</a> (track list loads there too).</p>
+        </noscript>
+      </div>
+      <div id="track-advanced" class="mt-6 panel rounded-2xl px-5 py-4"></div>
       <p class="mt-8 text-xs text-mist/60 max-w-2xl">
         Substantial field projects (<a href="yard-to-loop.html" class="text-hive hover:underline">Yard-to-Loop</a>,
         <a href="poop-to-loop.html" class="text-hive hover:underline">Poop-to-Loop</a>) and starship R&amp;D
@@ -98,7 +104,7 @@
         <h2 class="text-lg font-semibold">Ready to apply?</h2>
         <p class="text-sm text-mist/80 mt-1">One form for all tracks. Guardian path for under 18. Submissions go to steward mail + downloadable packet.</p>
       </div>
-      <a href="education-apply.html" class="shrink-0 px-5 py-2.5 rounded-lg bg-hive text-ink font-semibold text-sm text-center hover:brightness-110">Open application</a>
+      <a href="education-apply.html" class="btn-gold shrink-0 text-sm text-center">Open application</a>
     </div>
   </section>
 
