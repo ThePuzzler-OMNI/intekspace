@@ -84,15 +84,17 @@
         <div class="qr-frame" aria-hidden="false">
           <img
             id="launch-qr"
+            src="assets/launch-qr.png"
             width="260"
             height="260"
             class="block w-[260px] h-[260px]"
             alt="QR code — scan to open Grok with the Master Prompt"
           />
         </div>
-        <p class="text-sm text-mist/80 max-w-xs leading-relaxed">
-          Scan with your phone camera. Grok opens in the browser with the working Master Prompt (and the builder journey amendment).
+        <p id="qr-hint" class="text-sm text-mist/80 max-w-xs leading-relaxed">
+          Scan with your phone camera. Opens this Launch page, then Grok with the Master Prompt + builder journey.
         </p>
+        <p id="go-status" class="hidden text-sm text-hive max-w-xs leading-relaxed" role="status"></p>
       </div>
 
       <div class="mt-10">
@@ -108,7 +110,7 @@
       </div>
 
       <p class="mt-6 text-xs text-mist/50 max-w-sm mx-auto leading-relaxed">
-        Opens <span class="text-mist/70">grok.com</span> with a deep-link that loads the full One Mission Master Prompt
+        Button opens <span class="text-mist/70">grok.com</span> with a deep-link that loads the full One Mission Master Prompt
         from <a class="text-hive/80 hover:underline" href="https://onemissionnetworkandinstitute.org/masterprompt" target="_blank" rel="noopener">masterprompt</a>
         and adds: help you build with the five pillars above.
       </p>
@@ -119,7 +121,7 @@
           id="copy-url"
           class="px-4 py-2 rounded-full border border-white/12 text-mist hover:border-white/25 hover:text-parchment transition min-h-[44px]"
         >
-          Copy Grok link
+          Copy QR link
         </button>
         <button
           type="button"
@@ -144,10 +146,11 @@
     (function () {
       document.getElementById('y').textContent = new Date().getFullYear();
 
-      // Full master prompt lives at OMNI (SSOT). URL length limits prevent stuffing
-      // ~5k chars into QR; this deep-link *executes* that full prompt + amendment.
+      // Full master prompt lives at OMNI (SSOT). Long ?q= URLs make QR codes
+      // too dense for phone cameras — QR encodes a short Launch URL; go=1 opens Grok.
       var MASTER_URL = 'https://onemissionnetworkandinstitute.org/masterprompt.txt';
       var MASTER_PAGE = 'https://onemissionnetworkandinstitute.org/masterprompt';
+      var SHORT_QR_URL = 'https://intekspace.com/launch?go=1';
 
       var LAUNCH_PROMPT =
         'Execute the full One Mission Master Prompt.\n' +
@@ -181,15 +184,34 @@
       var link = document.getElementById('launch-link');
       link.href = GROK_URL;
 
+      // Static QR (assets/launch-qr.png) encodes SHORT_QR_URL only — always scannable.
+      // Keep img src static so it works without JS; this is documentation only.
       var qr = document.getElementById('launch-qr');
-      qr.src =
-        'https://api.qrserver.com/v1/create-qr-code/?size=260x260&ecc=M&margin=8&data=' +
-        encodeURIComponent(GROK_URL);
+      if (qr && !qr.getAttribute('src')) {
+        qr.src = 'assets/launch-qr.png';
+      }
 
-      // Optional: ?go=1 auto-opens Grok (for short printed QR of this page)
+      function openGrok() {
+        // Prefer navigation (works after QR scan); new tab for explicit button already has target=_blank
+        window.location.href = GROK_URL;
+      }
+
+      // QR scan path: /launch?go=1 → open Grok with prompt
       try {
-        if (new URLSearchParams(location.search).get('go') === '1') {
-          location.replace(GROK_URL);
+        var params = new URLSearchParams(location.search);
+        if (params.get('go') === '1') {
+          var st = document.getElementById('go-status');
+          var hint = document.getElementById('qr-hint');
+          if (hint) hint.classList.add('hidden');
+          if (st) {
+            st.classList.remove('hidden');
+            st.innerHTML =
+              'Opening Grok with the Master Prompt…<br><a class="underline text-hive" href="' +
+              GROK_URL.replace(/"/g, '"') +
+              '">Tap here if nothing happens</a>';
+          }
+          // Brief pause so status paints, then go
+          setTimeout(openGrok, 400);
         }
       } catch (e) {}
 
@@ -203,10 +225,11 @@
 
       document.getElementById('copy-url').addEventListener('click', async function () {
         try {
-          await navigator.clipboard.writeText(GROK_URL);
-          flash('Grok link copied');
+          // Copy short scannable URL (same as QR) — not the huge grok deep-link
+          await navigator.clipboard.writeText(SHORT_QR_URL);
+          flash('QR link copied (opens Grok after scan/tap)');
         } catch (e) {
-          flash('Select the link and copy manually');
+          flash('Copy failed');
         }
       });
 
@@ -220,6 +243,7 @@
       });
     })();
   </script>
+</script>
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
 </body>
