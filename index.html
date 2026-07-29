@@ -22,21 +22,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/intek.css" />
 
-  <style>
-    .hero {
-      background:
-        radial-gradient(ellipse 80% 55% at 50% -10%, rgba(196, 163, 90, 0.11), transparent 55%),
-        radial-gradient(ellipse 45% 35% at 85% 40%, rgba(14, 165, 233, 0.06), transparent 50%),
-        linear-gradient(180deg, #0a0f14 0%, #0e1419 45%, #0a0f14 100%);
-    }
-  </style>
-
 </head>
 <body class="antialiased min-h-screen flex flex-col" data-page="home">
   <div id="site-header"></div>
 
 <!-- Hero -->
-  <section class="hero border-b border-white/5">
+  <section class="hero-wash border-b border-white/5">
     <div class="max-w-4xl mx-auto px-5 pt-16 md:pt-24 pb-16 md:pb-20">
       <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-5">Intek Space · Intek Inc.</p>
       <h1 class="font-display text-4xl md:text-6xl font-semibold tracking-tight text-parchment leading-[1.08] max-w-3xl">
@@ -55,9 +46,9 @@
         Engineering that stays. Space for the long build.
       </p>
       <div class="mt-10 flex flex-wrap gap-3">
-        <a href="launch.html" class="px-5 py-2.5 rounded-full bg-hive/15 border border-hive/40 text-hive text-sm font-medium hover:bg-hive/25 transition">Launch Builder AI</a>
-        <a href="philosophy.html" class="px-5 py-2.5 rounded-full border border-white/12 text-mist text-sm hover:border-white/25 hover:text-parchment transition">Philosophy</a>
-        <a href="education.html" class="px-5 py-2.5 rounded-full border border-white/12 text-mist text-sm hover:border-white/25 hover:text-parchment transition">Education</a>
+        <a href="launch.html" class="btn-gold-soft">Launch Builder AI</a>
+        <a href="philosophy.html" class="btn-ghost">Philosophy</a>
+        <a href="education.html" class="btn-ghost">Education</a>
       </div>
     </div>
   </section>
@@ -66,9 +57,9 @@
   <section id="philosophy" class="max-w-4xl mx-auto px-5 py-14 md:py-16">
     <div class="flex flex-wrap items-baseline justify-between gap-3 mb-6">
       <h2 class="font-display text-3xl text-parchment">Philosophy</h2>
-      <a class="gloss text-sm" href="philosophy.html">Full writeup &amp; glossary →</a>
+      <a class="gloss text-sm" href="philosophy.html">Full writeup & glossary →</a>
     </div>
-    <div class="space-y-5 text-mist/90 leading-relaxed max-w-2xl">
+    <div class="panel rounded-2xl p-6 md:p-8 space-y-5 text-mist/90 leading-relaxed max-w-3xl">
       <p>
         Most products begin with a market gap, a trend, or a clever mechanism.
         We begin with a <a class="gloss" href="philosophy.html#philosophy-on-life"><strong class="font-medium">philosophy of life</strong></a>.
@@ -83,7 +74,7 @@
         Faith in the Creator keeps this from sealing inside survival alone. Technology is placed
         <em>second</em>: useful, honest, refused where it would lie or harm.
       </p>
-      <p class="text-sm text-mist/70 border-l-2 border-hive/40 pl-4">
+      <p class="text-sm text-mist/70 border-l-2 border-hive/50 pl-4">
         Website claims must match <a class="gloss" href="philosophy.html#refused-lists">refused lists</a> and safety boundaries (no drain discharge, no human-food claims from uncontrolled waste).
         Philosophy on this homepage is a <strong class="text-parchment font-medium">control on marketing</strong>, not decoration.
       </p>
@@ -91,18 +82,20 @@
   </section>
 
   <!-- Goal -->
-  <section id="goal" class="border-y border-white/5 bg-black/25">
+  <section id="goal" class="border-y band">
     <div class="max-w-4xl mx-auto px-5 py-14">
       <h2 class="font-display text-3xl text-parchment mb-4">Standing goal</h2>
-      <p class="text-lg text-mist max-w-2xl leading-relaxed">
-        Design <a class="gloss" href="philosophy.html#conversion-system">conversion systems</a> that make <strong class="text-parchment font-medium">land and energy costs visible</strong>
-        across species, so intelligence can advance without driving extinction:
-        the <a class="gloss" href="philosophy.html#death-to-life-breathe">death-to-life breathe</a> held in balance.
-      </p>
-      <p class="mt-4 text-sm text-mist/75 max-w-2xl">
-        We work the span from macro electrical and mechanical systems down toward biological scale—
-        where energy and matter actually sustain living people, gardens, and households.
-      </p>
+      <div class="panel rounded-2xl p-6 md:p-8 max-w-3xl">
+        <p class="text-lg text-mist leading-relaxed">
+          Design <a class="gloss" href="philosophy.html#conversion-system">conversion systems</a> that make <strong class="text-parchment font-medium">land and energy costs visible</strong>
+          across species, so intelligence can advance without driving extinction:
+          the <a class="gloss" href="philosophy.html#death-to-life-breathe">death-to-life breathe</a> held in balance.
+        </p>
+        <p class="mt-4 text-sm text-mist/75">
+          We work the span from macro electrical and mechanical systems down toward biological scale—
+          where energy and matter actually sustain living people, gardens, and households.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -136,17 +129,17 @@
     <p class="text-sm text-mist/90 max-w-2xl leading-relaxed italic font-display text-lg text-parchment/90">
       We site with sector overlays, improve with DMAIC, and ship twin extremes—so advancement stays rapid and the breathe stays honest.
     </p>
-    <div class="mt-8 panel rounded-2xl p-5 text-sm text-mist/85 space-y-2">
-      <p><strong class="text-parchment">D — Define</strong> · <a class="gloss" href="philosophy.html#land-per-life">land-per-life</a> and conversion honesty; refusals up front; site constraints enter before any BOM.</p>
-      <p><strong class="text-parchment">M — Measure</strong> · breathe metrics (intake, convert, output, residual); land proxy; zone + sector tags—not only lab data.</p>
-      <p><strong class="text-parchment">A — Analyze</strong> · overlay composites; sector failures (odor, splash to drain) as real as sensor faults.</p>
-      <p><strong class="text-parchment">I — Improve</strong> · move hardware only inside safe intersections; twin extremes; publish refused placements.</p>
-      <p><strong class="text-parchment">C — Control</strong> · install packs require overlay + zone plan + breathe datasheet; no scale-up until measures survive real sectors.</p>
+    <div class="mt-8 panel rounded-2xl p-5 md:p-6 text-sm text-mist/85 space-y-2.5">
+      <p><strong class="text-hive">D — Define</strong> · <a class="gloss" href="philosophy.html#land-per-life">land-per-life</a> and conversion honesty; refusals up front; site constraints enter before any BOM.</p>
+      <p><strong class="text-hive">M — Measure</strong> · breathe metrics (intake, convert, output, residual); land proxy; zone + sector tags—not only lab data.</p>
+      <p><strong class="text-hive">A — Analyze</strong> · overlay composites; sector failures (odor, splash to drain) as real as sensor faults.</p>
+      <p><strong class="text-hive">I — Improve</strong> · move hardware only inside safe intersections; twin extremes; publish refused placements.</p>
+      <p><strong class="text-hive">C — Control</strong> · install packs require overlay + zone plan + breathe datasheet; no scale-up until measures survive real sectors.</p>
     </div>
   </section>
 
   <!-- Density -->
-  <section id="density" class="border-y border-white/5 bg-black/25">
+  <section id="density" class="border-y band">
     <div class="max-w-4xl mx-auto px-5 py-14">
       <h2 class="font-display text-3xl text-parchment mb-3"><a class="gloss" href="philosophy.html#twin-extremes">Twin extremes</a></h2>
       <p class="text-sm text-mist/80 max-w-2xl mb-8 leading-relaxed">
@@ -163,7 +156,7 @@
           </p>
         </div>
         <div class="panel rounded-2xl p-6">
-          <h3 class="font-semibold text-leaf mb-2"><a class="gloss" href="philosophy.html#farmer-density">Farmer · low-tech density</a></h3>
+          <h3 class="font-semibold text-hive mb-2"><a class="gloss" href="philosophy.html#farmer-density">Farmer · low-tech density</a></h3>
           <p class="text-sm text-mist/85 leading-relaxed">
             Seasonal checklist control, deep field practice, less automation—same philosophy, same
             <a class="gloss" href="philosophy.html#refused-lists">refused lists</a>,
@@ -178,7 +171,7 @@
   <!-- Education + Projects -->
   <section id="work" class="max-w-4xl mx-auto px-5 py-14">
     <div class="flex flex-wrap items-baseline justify-between gap-3 mb-3">
-      <h2 class="font-display text-3xl text-parchment">Education &amp; projects</h2>
+      <h2 class="font-display text-3xl text-parchment">Education & projects</h2>
       <a class="gloss text-sm" href="projects.html">All projects →</a>
     </div>
     <p class="text-sm text-mist/80 max-w-2xl mb-8 leading-relaxed">
@@ -186,28 +179,28 @@
       Smaller kit tracks live under Education; substantial field projects sit peer to Hive King (real cost, sectors, proof).
     </p>
     <div class="grid sm:grid-cols-2 gap-4">
-      <a href="education.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
+      <a href="education.html" class="panel rounded-2xl p-6 block">
         <div class="text-xs text-mark uppercase tracking-wider mb-1">Education</div>
         <div class="font-semibold text-parchment mb-2">Education Exchange</div>
         <p class="text-sm text-mist/85 leading-relaxed">
           Kit tracks and project seats with video evidence of material use, function, energy conversion, and philosophy alignment.
         </p>
       </a>
-      <a href="hive-king.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
-        <div class="text-xs text-hive uppercase tracking-wider mb-1">Starship · R&amp;D</div>
+      <a href="hive-king.html" class="panel rounded-2xl p-6 block">
+        <div class="text-xs text-hive uppercase tracking-wider mb-1">Starship · R&D</div>
         <div class="font-semibold text-parchment mb-2">Hive King</div>
         <p class="text-sm text-mist/85 leading-relaxed">
           Flagship instrument for a living hive—vision at the door, sensing in the foundation, power from the sun. Not a default kit SKU.
         </p>
       </a>
-      <a href="yard-to-loop.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
+      <a href="yard-to-loop.html" class="panel rounded-2xl p-6 block">
         <div class="text-xs text-mark uppercase tracking-wider mb-1">Field project · substantial</div>
         <div class="font-semibold text-parchment mb-2">Yard-to-Loop</div>
         <p class="text-sm text-mist/85 leading-relaxed">
-          Yard biomass / insect conversion under sector overlays and DMAIC. Peer scope and cost to serious R&amp;D—not a toy kit.
+          Yard biomass / insect conversion under sector overlays and DMAIC. Peer scope and cost to serious R&D—not a toy kit.
         </p>
       </a>
-      <a href="poop-to-loop.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
+      <a href="poop-to-loop.html" class="panel rounded-2xl p-6 block">
         <div class="text-xs text-mark uppercase tracking-wider mb-1">Field project · substantial</div>
         <div class="font-semibold text-parchment mb-2">Poop-to-Loop</div>
         <p class="text-sm text-mist/85 leading-relaxed">
@@ -217,11 +210,11 @@
     </div>
   </section>
 
-  <!-- Brand map (kept, quieter) -->
-  <section id="identity" class="border-y border-white/5 bg-black/20">
+  <!-- Brand map -->
+  <section id="identity" class="border-y band-soft">
     <div class="max-w-4xl mx-auto px-5 py-12">
       <h2 class="font-display text-2xl text-parchment mb-4">Sister brands</h2>
-      <div class="overflow-x-auto">
+      <div class="panel rounded-2xl p-5 md:p-6 overflow-x-auto">
         <table class="w-full text-sm text-left">
           <thead class="text-mist/50 border-b border-white/10 text-xs uppercase tracking-wider">
             <tr>
@@ -260,33 +253,33 @@
   <section id="network" class="max-w-4xl mx-auto px-5 py-12">
     <h2 class="font-display text-2xl text-parchment mb-6">Network</h2>
     <div class="grid sm:grid-cols-2 gap-3">
-      <a href="https://onemissionnetworkandinstitute.org/" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+      <a href="https://onemissionnetworkandinstitute.org/?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=home_network" class="panel rounded-xl px-5 py-4 block text-sm">
         <span class="text-mist/50 text-xs uppercase tracking-wider">Sister</span>
-        <div class="text-parchment font-medium mt-0.5">One Mission Network &amp; Institute</div>
+        <div class="text-parchment font-medium mt-0.5">One Mission Network & Institute</div>
       </a>
-      <a href="https://instituteofmatureimagination.org/" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+      <a href="https://instituteofmatureimagination.org/?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=home_network" class="panel rounded-xl px-5 py-4 block text-sm">
         <span class="text-mist/50 text-xs uppercase tracking-wider">Sister</span>
         <div class="text-parchment font-medium mt-0.5">Institute of Mature Imagination</div>
       </a>
-      <a href="https://x.com/omni_puzzler" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+      <a href="https://x.com/omni_puzzler" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 block text-sm">
         <span class="text-mist/50 text-xs uppercase tracking-wider">Voice</span>
         <div class="text-parchment font-medium mt-0.5">@omni_puzzler on X</div>
       </a>
-      <a href="https://github.com/ThePuzzler-OMNI" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+      <a href="https://github.com/ThePuzzler-OMNI" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 block text-sm">
         <span class="text-mist/50 text-xs uppercase tracking-wider">Code</span>
         <div class="text-parchment font-medium mt-0.5">ThePuzzler-OMNI on GitHub</div>
       </a>
     </div>
   </section>
 
-  <section id="contact" class="border-t border-white/5 hero">
+  <section id="contact" class="border-t border-white/5 hero-wash">
     <div class="max-w-4xl mx-auto px-5 py-14">
       <h2 class="font-display text-3xl text-parchment mb-3">Contact</h2>
       <p class="text-mist/85 mb-6 max-w-lg text-sm leading-relaxed">
         Work mail preferred. Serious collaboration and education applications welcome.
         Philosophy is the door; we do not sell peace as a SKU.
       </p>
-      <div class="panel rounded-2xl p-6 space-y-2 text-sm text-mist/90">
+      <div class="panel rounded-2xl p-6 space-y-2 text-sm text-mist/90 max-w-xl">
         <div><span class="text-mist/50">Work:</span> <a class="text-hive hover:underline" href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a></div>
         <div><span class="text-mist/50">Legacy:</span> <span class="text-parchment/80">tharpster@intekflow.com</span></div>
         <div><span class="text-mist/50">X:</span> <a class="text-hive hover:underline" href="https://x.com/omni_puzzler" target="_blank" rel="noopener">@omni_puzzler</a></div>

@@ -1,6 +1,6 @@
 /**
  * Intek Space — shared Tailwind tokens (CDN).
- * Load immediately after https://cdn.tailwindcss.com
+ * Deep navy + gold. Load immediately after https://cdn.tailwindcss.com
  */
 (function () {
   if (typeof tailwind === 'undefined') return;
@@ -8,12 +8,12 @@
     theme: {
       extend: {
         colors: {
-          ink: '#0a0f14',
-          parchment: '#e8e4d9',
-          mark: '#0ea5e9',
-          hive: '#c4a35a',
-          leaf: '#6b8f71',
-          mist: '#8b9aab',
+          ink: '#070f1c',
+          parchment: '#e8eef8',
+          mark: '#3b9eff',
+          hive: '#c9a84c',
+          leaf: '#5d9b7a',
+          mist: '#8b9cb8',
         },
         fontFamily: {
           display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
