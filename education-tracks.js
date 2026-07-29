@@ -88,6 +88,26 @@
       guardian: false,
     },
     {
+    {
+      id: 'wearable-low-tech',
+      name: 'Wearable low tech',
+      short: 'Body · educate the animal',
+      blurb:
+        'Think: how can I and AI educate this dumb animal? Low-tech wearables + human discipline. We hold architectural plans; you contribute designs, prototypes, and honest evidence of what actually changes behavior—and win a seat in the build.',
+      safetyNote:
+        'Not a medical device. Not for diagnosis or treatment. Body-worn tech is educational / prototype only; steward review on anything skin-contact or continuous wear.',
+      guardian: false,
+    },
+    {
+      id: 'omni-home',
+      name: 'OMNI Home',
+      short: 'Five P presence',
+      blurb:
+        'Think: how can I and AI be personal, parental, professional, political, and philosophical? Home presence node under One Mission. We hold architectural plans; you contribute room logic, host controls, and evidence of attention that serves life—and win a seat in the build.',
+      safetyNote:
+        'Advanced product track — steward review. No surveillance theater; host-managed attention only. Not consumer medical claims.',
+      guardian: false,
+    },
       id: 'yard-to-loop',
       name: 'Yard-to-Loop / Poop-to-Loop',
       short: 'Field project seats',
