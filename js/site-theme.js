@@ -8,12 +8,12 @@
     theme: {
       extend: {
         colors: {
-          ink: '#070f1c',
-          parchment: '#e8eef8',
-          mark: '#3b9eff',
-          hive: '#c9a84c',
+          ink: '#0a1628',
+          parchment: '#eaf0fa',
+          mark: '#4aa8ff',
+          hive: '#d4b056',
           leaf: '#5d9b7a',
-          mist: '#8b9cb8',
+          mist: '#9aadc8',
         },
         fontFamily: {
           display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
