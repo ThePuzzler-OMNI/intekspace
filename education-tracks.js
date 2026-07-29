@@ -88,7 +88,6 @@
       guardian: false,
     },
     {
-    {
       id: 'wearable-low-tech',
       name: 'Wearable low tech',
       short: 'Body · educate the animal',
