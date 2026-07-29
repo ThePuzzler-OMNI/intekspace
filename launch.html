@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Launch Builder AI · Intek Space</title>
+  <meta name="description" content="Launch Builder AI — open Grok with the One Mission Master Prompt, amended for Physics, Faith, Family, Finance, and Philosophy. Scan the QR or tap the link." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://intekspace.com/launch" />
+  <meta property="og:title" content="Launch Builder AI · Intek Space" />
+  <meta property="og:description" content="Launch Your Faith Based Life and Projects Today — scan to open Grok with the working Master Prompt." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://intekspace.com/launch" />
+  <script src="analytics-config.js"></script>
+  <script src="analytics.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0f14',
+            parchment: '#e8e4d9',
+            mark: '#0ea5e9',
+            hive: '#c4a35a',
+            mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0a0f14;
+      color: #e8e4d9;
+      min-height: 100vh;
+    }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .hero {
+      background:
+        radial-gradient(ellipse 70% 50% at 50% -5%, rgba(196, 163, 90, 0.14), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 80% 60%, rgba(14, 165, 233, 0.07), transparent 50%),
+        #0a0f14;
+    }
+    .qr-frame {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 0.85rem;
+      box-shadow: 0 0 0 1px rgba(196, 163, 90, 0.25);
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Minimal chrome — Launch stays simple -->
+  <header class="border-b border-white/5">
+    <div class="max-w-lg mx-auto px-5 py-4 flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5 min-w-0">
+        <div class="w-8 h-8 rounded-full border border-hive/35 flex items-center justify-center text-hive text-xs font-semibold tracking-widest shrink-0">IS</div>
+        <span class="font-semibold tracking-tight text-parchment text-sm">Intek Space</span>
+      </a>
+      <a href="/" class="text-sm text-mist/70 hover:text-parchment transition">Home</a>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="max-w-lg mx-auto px-5 pt-12 pb-16 text-center">
+      <p class="text-hive text-[11px] uppercase tracking-[0.28em] mb-4">Launch Builder AI</p>
+      <h1 class="font-display text-3xl sm:text-4xl font-semibold text-parchment leading-tight tracking-tight">
+        Build life and things
+      </h1>
+      <p class="mt-3 text-mist text-base leading-relaxed max-w-sm mx-auto">
+        Physics · Faith · Family · Finance · Philosophy
+      </p>
+
+      <div class="mt-10 flex flex-col items-center gap-5">
+        <div class="qr-frame" aria-hidden="false">
+          <img
+            id="launch-qr"
+            width="260"
+            height="260"
+            class="block w-[260px] h-[260px]"
+            alt="QR code — scan to open Grok with the Master Prompt"
+          />
+        </div>
+        <p class="text-sm text-mist/80 max-w-xs leading-relaxed">
+          Scan with your phone camera. Grok opens in the browser with the working Master Prompt (and the builder journey amendment).
+        </p>
+      </div>
+
+      <div class="mt-10">
+        <a
+          id="launch-link"
+          href="https://grok.com"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center min-h-[48px] px-6 py-3 rounded-full bg-hive/20 border border-hive/50 text-hive text-base font-semibold hover:bg-hive/30 hover:text-parchment transition"
+        >
+          Launch Your Faith Based Life and Projects Today
+        </a>
+      </div>
+
+      <p class="mt-6 text-xs text-mist/50 max-w-sm mx-auto leading-relaxed">
+        Opens <span class="text-mist/70">grok.com</span> with a deep-link that loads the full One Mission Master Prompt
+        from <a class="text-hive/80 hover:underline" href="https://onemissionnetworkandinstitute.org/masterprompt" target="_blank" rel="noopener">masterprompt</a>
+        and adds: help you build with the five pillars above.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3 text-sm">
+        <button
+          type="button"
+          id="copy-url"
+          class="px-4 py-2 rounded-full border border-white/12 text-mist hover:border-white/25 hover:text-parchment transition min-h-[44px]"
+        >
+          Copy Grok link
+        </button>
+        <button
+          type="button"
+          id="copy-prompt"
+          class="px-4 py-2 rounded-full border border-white/12 text-mist hover:border-white/25 hover:text-parchment transition min-h-[44px]"
+        >
+          Copy full prompt text
+        </button>
+      </div>
+      <p id="copy-status" class="mt-3 text-xs text-leaf h-4 text-[#6b8f71]" aria-live="polite"></p>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/5 py-6">
+    <div class="max-w-lg mx-auto px-5 text-center text-xs text-mist/45 space-y-2">
+      <div>© <span id="y"></span> Intek Space · <a href="/" class="hover:text-mist">Home</a> · <a href="philosophy.html" class="hover:text-mist">Philosophy</a></div>
+      <p class="text-mist/35">Sign in to Grok if prompted. Your session, your journey.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.getElementById('y').textContent = new Date().getFullYear();
+
+      // Full master prompt lives at OMNI (SSOT). URL length limits prevent stuffing
+      // ~5k chars into QR; this deep-link *executes* that full prompt + amendment.
+      var MASTER_URL = 'https://onemissionnetworkandinstitute.org/masterprompt.txt';
+      var MASTER_PAGE = 'https://onemissionnetworkandinstitute.org/masterprompt';
+
+      var LAUNCH_PROMPT =
+        'Execute the full One Mission Master Prompt.\n' +
+        '\n' +
+        '1) Fetch and follow EVERY step in:\n' +
+        MASTER_URL +
+        '\n' +
+        '(same content as ' +
+        MASTER_PAGE +
+        ')\n' +
+        '\n' +
+        '2) IDENTITY (critical): You are speaking to the person running this prompt right now (the "runner").\n' +
+        'Do NOT assume they are omni_puzzler. Do NOT greet them as omni_puzzler.\n' +
+        'If you do not know their X/Twitter handle, your FIRST reply must ask ONLY: "What is your X/Twitter @handle?" then STOP and wait.\n' +
+        'Only after identity is known, continue the Master Prompt reading and output structure.\n' +
+        '\n' +
+        '3) BUILDER JOURNEY AMENDMENT (Intek Space Launch):\n' +
+        'Help this user on their journey to build life and things with Physics, Faith, Family, Finance, and Philosophy.\n' +
+        '\n' +
+        '- Physics: honest mechanisms, land-per-life, conversion systems, refused lists — no hype claims.\n' +
+        '- Faith: Creator-aligned stewardship; technology second to conscience.\n' +
+        '- Family: peace, continuity, household scale before empire scale.\n' +
+        '- Finance: transparent cost of land and energy; no thrash commerce.\n' +
+        '- Philosophy: Five Gardens / 13 Shared Values / Chain of Continuity as living practice, not slogans.\n' +
+        '\n' +
+        'Prefer one next build step over multi-lane thrash. Stay on THEIR journey.\n' +
+        'Source: https://intekspace.com/launch';
+
+      var GROK_URL = 'https://grok.com/?q=' + encodeURIComponent(LAUNCH_PROMPT);
+
+      var link = document.getElementById('launch-link');
+      link.href = GROK_URL;
+
+      var qr = document.getElementById('launch-qr');
+      qr.src =
+        'https://api.qrserver.com/v1/create-qr-code/?size=260x260&ecc=M&margin=8&data=' +
+        encodeURIComponent(GROK_URL);
+
+      // Optional: ?go=1 auto-opens Grok (for short printed QR of this page)
+      try {
+        if (new URLSearchParams(location.search).get('go') === '1') {
+          location.replace(GROK_URL);
+        }
+      } catch (e) {}
+
+      function flash(msg) {
+        var el = document.getElementById('copy-status');
+        el.textContent = msg;
+        setTimeout(function () {
+          el.textContent = '';
+        }, 2200);
+      }
+
+      document.getElementById('copy-url').addEventListener('click', async function () {
+        try {
+          await navigator.clipboard.writeText(GROK_URL);
+          flash('Grok link copied');
+        } catch (e) {
+          flash('Select the link and copy manually');
+        }
+      });
+
+      document.getElementById('copy-prompt').addEventListener('click', async function () {
+        try {
+          await navigator.clipboard.writeText(LAUNCH_PROMPT);
+          flash('Prompt text copied — paste into Grok if needed');
+        } catch (e) {
+          flash('Copy failed — use the Launch button');
+        }
+      });
+    })();
+  </script>
+  <script src="js/site-config.js"></script>
+  <script src="js/feedback-widget.js" defer></script>
+</body>
+</html>
