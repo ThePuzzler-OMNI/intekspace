@@ -1,91 +1,52 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <title>Apply · Education Exchange · Intek Space</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply · Education Exchange · Intek Space</title>
   <meta name="description" content="Apply to an Intek Space Education Exchange track." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://intekspace.com/education-apply" />
   <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { ink: '#0b1220', mark: '#0ea5e9', warm: '#f59e0b' },
-        },
-      },
-    };
-  </script>
+  <script src="js/site-theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/intek.css" />
+
   <style>
-    body {
-      background: linear-gradient(180deg, #0b1220 0%, #111827 40%, #0b1220 100%);
-      min-height: 100vh;
-    }
-    .panel {
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid rgba(148, 163, 184, 0.15);
-    }
     label.field { display: block; margin-bottom: 1rem; }
-    label.field span.lbl {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #94a3b8;
-      margin-bottom: 0.35rem;
-    }
-    input, select, textarea {
-      width: 100%;
-      background: #0f172a;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      border-radius: 0.75rem;
-      padding: 0.65rem 0.85rem;
-      color: #e2e8f0;
-      font-size: 0.875rem;
-      min-height: 44px;
-    }
-    textarea { min-height: 5.5rem; resize: vertical; }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: rgba(14, 165, 233, 0.55);
-    }
     .check-row {
       display: flex;
-      gap: 0.65rem;
       align-items: flex-start;
+      gap: 0.65rem;
       margin-bottom: 0.75rem;
-      font-size: 0.875rem;
-      color: #cbd5e1;
     }
-    .check-row input {
+    .check-row input[type="checkbox"] {
       width: 1.15rem;
       height: 1.15rem;
-      min-height: 0;
       margin-top: 0.15rem;
       flex-shrink: 0;
+      accent-color: #c4a35a;
     }
   </style>
-</head>
-<body class="text-slate-100 antialiased">
-  <header class="border-b border-white/10 sticky top-0 z-40 bg-ink/90 backdrop-blur">
-    <div class="max-w-2xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="education.html" class="text-sm text-slate-400 hover:text-white">← Education</a>
-      <div class="text-sm font-semibold">Application</div>
-      <a href="/" class="text-sm text-slate-400 hover:text-white">Home</a>
-    </div>
-  </header>
 
-  <main class="max-w-2xl mx-auto px-5 py-10">
+</head>
+<body class="antialiased min-h-screen flex flex-col" data-page="education-apply">
+  <div id="site-header"></div>
+
+<main class="flex-1 w-full max-w-2xl mx-auto px-5 py-10">
     <h1 class="text-2xl font-semibold mb-2">Education Exchange application</h1>
-    <p class="text-sm text-slate-400 mb-6 leading-relaxed">
+    <p class="text-sm text-mist/80 mb-6 leading-relaxed">
       One form for all tracks. Not a school-sponsored class. Self-directed building with video evidence.
       Work product ownership and consent language inherit the Harpster Science and Faith model (Intek).
       Unusual terms are defined in the
-      <a class="text-sky-300/90 underline underline-offset-2 hover:text-white" href="philosophy.html">philosophy glossary</a>.
+      <a class="text-mist/90 underline underline-offset-2 hover:text-parchment" href="philosophy.html">philosophy glossary</a>.
       Loop tracks are seats into substantial
-      <a class="text-sky-300/90 underline underline-offset-2 hover:text-white" href="projects.html">field projects</a>
+      <a class="text-mist/90 underline underline-offset-2 hover:text-parchment" href="projects.html">field projects</a>
       (peer seriousness to Hive King).
     </p>
 
@@ -94,7 +55,7 @@
     <form id="edu-form" class="space-y-8" novalidate>
       <!-- A Identity -->
       <section class="panel rounded-2xl p-5 md:p-6">
-        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">A · Identity</h2>
+        <h2 class="text-sm font-semibold text-hive uppercase tracking-wider mb-4">A · Identity</h2>
         <label class="field"><span class="lbl">Full name *</span>
           <input name="full_name" required autocomplete="name" data-validate="name" data-label="Full name" data-min="2" data-max="80" /></label>
         <label class="field"><span class="lbl">Preferred name</span>
@@ -113,7 +74,7 @@
         <label class="field"><span class="lbl">City / State</span>
           <input name="city_state" placeholder="e.g. Westerville, OH" data-max="80" data-label="City / State" /></label>
         <div id="guardian-block" class="hidden border-t border-white/10 pt-4 mt-2">
-          <p class="text-xs text-amber-200/90 mb-3">Guardian required for under 18.</p>
+          <p class="text-xs text-hive mb-3">Guardian required for under 18.</p>
           <label class="field"><span class="lbl">Guardian name *</span>
             <input name="guardian_name" id="guardian_name" data-validate="name" data-label="Guardian name" data-max="80" /></label>
           <label class="field"><span class="lbl">Guardian email *</span>
@@ -125,7 +86,7 @@
 
       <!-- B Track -->
       <section class="panel rounded-2xl p-5 md:p-6">
-        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">B · Track selection</h2>
+        <h2 class="text-sm font-semibold text-hive uppercase tracking-wider mb-4">B · Track selection</h2>
         <label class="field"><span class="lbl">Primary track *</span>
           <select name="track_primary" id="track_primary" required></select>
         </label>
@@ -146,7 +107,7 @@
 
       <!-- C Experience -->
       <section class="panel rounded-2xl p-5 md:p-6">
-        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">C · Experience</h2>
+        <h2 class="text-sm font-semibold text-hive uppercase tracking-wider mb-4">C · Experience</h2>
         <label class="field"><span class="lbl">Tech / tinkering / projects (free text)</span>
           <textarea name="experience" placeholder="Arduino, code, shop, farm, apps…"></textarea></label>
         <label class="field"><span class="lbl">Tools you can access</span>
@@ -164,7 +125,7 @@
 
       <!-- D Motivation -->
       <section class="panel rounded-2xl p-5 md:p-6">
-        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">D · Motivation</h2>
+        <h2 class="text-sm font-semibold text-hive uppercase tracking-wider mb-4">D · Motivation</h2>
         <label class="field"><span class="lbl">Why this track? *</span>
           <textarea name="why_track" required data-validate="textarea" data-label="Why this track" data-min="10" data-max="2000"></textarea></label>
         <label class="field"><span class="lbl">What do you want to understand about energy / matter / life?</span>
@@ -181,8 +142,8 @@
 
       <!-- E Commitments -->
       <section class="panel rounded-2xl p-5 md:p-6">
-        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">E · Commitments *</h2>
-        <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+        <h2 class="text-sm font-semibold text-hive uppercase tracking-wider mb-4">E · Commitments *</h2>
+        <p class="text-xs text-mist/60 mb-4 leading-relaxed">
           Self-directed first (parents, peers, mentors). Organizer is higher-tier support.
           Video documentation is central. Work product ownership to Intek unless otherwise agreed in writing.
         </p>
@@ -196,7 +157,7 @@
         </label>
         <label class="check-row" id="c_medical_wrap">
           <input type="checkbox" name="c_medical" id="c_medical" />
-          <span>I understand body-signal / e-stethoscope work is <strong class="text-slate-200">not a medical device</strong> and not for diagnosis.</span>
+          <span>I understand body-signal / e-stethoscope work is <strong class="text-parchment/90">not a medical device</strong> and not for diagnosis.</span>
         </label>
         <label class="check-row">
           <input type="checkbox" name="c_review" required />
@@ -214,7 +175,7 @@
 
       <!-- F Logistics -->
       <section class="panel rounded-2xl p-5 md:p-6">
-        <h2 class="text-sm font-semibold text-mark uppercase tracking-wider mb-4">F · Logistics</h2>
+        <h2 class="text-sm font-semibold text-hive uppercase tracking-wider mb-4">F · Logistics</h2>
         <label class="field"><span class="lbl">Ship-to address (if kit)</span>
           <textarea name="ship_to" placeholder="Street, city, state, ZIP"></textarea></label>
         <label class="field"><span class="lbl">Preference</span>
@@ -232,15 +193,15 @@
       </section>
 
       <div class="flex flex-col sm:flex-row gap-3">
-        <button type="submit" class="flex-1 px-5 py-3 rounded-xl bg-mark text-ink font-semibold text-sm hover:brightness-110 min-h-[48px]">
+        <button type="submit" class="flex-1 px-5 py-3 rounded-xl bg-hive text-ink font-semibold text-sm hover:brightness-110 min-h-[48px]">
           Submit application
         </button>
-        <button type="button" id="btn-download" class="px-5 py-3 rounded-xl panel text-sm font-semibold text-slate-200 hover:border-mark/40 min-h-[48px]">
+        <button type="button" id="btn-download" class="px-5 py-3 rounded-xl panel text-sm font-semibold text-parchment/90 hover:border-hive/40 min-h-[48px]">
           Download JSON only
         </button>
       </div>
-      <p class="text-[11px] text-slate-500 leading-relaxed">
-        Submit opens your email client to <span class="text-slate-400" id="mail-hint"></span>
+      <p class="text-[11px] text-mist/60 leading-relaxed">
+        Submit opens your email client to <span class="text-mist/80" id="mail-hint"></span>
         with a structured packet, and downloads a JSON copy for your records. Steward also gets a browser log on this device for local review.
       </p>
     </form>
@@ -250,7 +211,9 @@
   <script src="education-tracks.js"></script>
   <script src="education-apply.js"></script>
 
+  <script src="js/site-chrome.js"></script>
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
+<div id="site-footer"></div>
 </body>
 </html>

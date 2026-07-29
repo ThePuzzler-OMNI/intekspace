@@ -1,81 +1,52 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <title>Education Exchange · Intek Space</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Education Exchange · Intek Space</title>
   <meta name="description" content="Intek Space Education Exchange — kit tracks, video evidence, honest energy and life learning." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://intekspace.com/education" />
   <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { ink: '#0b1220', steel: '#94a3b8', mark: '#0ea5e9', warm: '#f59e0b' },
-        },
-      },
-    };
-  </script>
-  <style>
-    body {
-      background: linear-gradient(180deg, #0b1220 0%, #111827 40%, #0b1220 100%);
-      min-height: 100vh;
-    }
-    .panel {
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid rgba(148, 163, 184, 0.15);
-    }
-  </style>
-</head>
-<body class="text-slate-100 antialiased">
-  <header class="border-b border-white/10 sticky top-0 z-40 bg-ink/90 backdrop-blur">
-    <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
-      <a href="/" class="flex items-center gap-3 min-w-0">
-        <div class="w-9 h-9 rounded-lg bg-mark/20 border border-mark/40 flex items-center justify-center font-bold text-mark text-sm shrink-0">IS</div>
-        <div class="min-w-0">
-          <div class="font-semibold tracking-tight truncate">Intek Space</div>
-          <div class="text-[10px] text-slate-400 uppercase tracking-wider">Education Exchange</div>
-        </div>
-      </a>
-      <nav class="flex gap-3 sm:gap-5 text-sm text-slate-400 shrink-0">
-        <a href="/" class="hover:text-white">Home</a>
-        <a href="philosophy.html" class="hover:text-white hidden sm:inline">Philosophy</a>
-        <a href="projects.html" class="hover:text-white hidden md:inline">Projects</a>
-        <a href="#tracks" class="hover:text-white hidden sm:inline">Tracks</a>
-        <a href="education-apply.html" class="px-3 py-1.5 rounded-lg bg-mark text-ink font-semibold text-xs sm:text-sm hover:brightness-110">Apply</a>
-      </nav>
-    </div>
-  </header>
+  <script src="js/site-theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/intek.css" />
 
-  <section class="border-b border-white/5">
+</head>
+<body class="antialiased min-h-screen flex flex-col" data-page="education">
+  <div id="site-header"></div>
+
+<section class="border-b border-white/5">
     <div class="max-w-5xl mx-auto px-5 py-14 md:py-20">
-      <p class="text-mark text-xs uppercase tracking-[0.25em] mb-4">Education Exchange</p>
-      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight max-w-2xl leading-tight">
+      <p class="text-hive text-xs uppercase tracking-[0.25em] mb-4">Education Exchange</p>
+      <h1 class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-parchment max-w-2xl leading-tight">
         Kits and project seats.<br />
-        <span class="text-slate-400">Evidence of work. Honest energy.</span>
+        <span class="text-mist/80">Evidence of work. Honest energy.</span>
       </h1>
-      <p class="mt-5 text-slate-400 max-w-2xl leading-relaxed">
-        All great works begin with a <a class="text-amber-200/90 underline underline-offset-2 decoration-amber-200/30 hover:text-white" href="philosophy.html#philosophy-on-life">philosophy on life</a>.
+      <p class="mt-5 text-mist/80 max-w-2xl leading-relaxed">
+        All great works begin with a <a class="text-hive underline underline-offset-2 decoration-hive/40 hover:text-parchment" href="philosophy.html#philosophy-on-life">philosophy on life</a>.
         Education here follows that order: meaning → constraints → build → evidence—not gadget-first novelty.
       </p>
-      <p class="mt-3 text-slate-400 max-w-2xl leading-relaxed text-sm">
+      <p class="mt-3 text-mist/80 max-w-2xl leading-relaxed text-sm">
         Provide a kit or project seat + protocol + mentor/Grok path.
         Require video and graphic evidence of material use, function, energy conversion, and philosophy alignment
-        (One Mission · honest <a class="text-amber-200/80 underline underline-offset-2 decoration-amber-200/30 hover:text-white" href="philosophy.html#death-to-life-breathe">breathe</a> · mature imagination).
+        (One Mission · honest <a class="text-hive/80 underline underline-offset-2 decoration-hive/40 hover:text-parchment" href="philosophy.html#death-to-life-breathe">breathe</a> · mature imagination).
         Not school bureaucracy as the first door.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="education-apply.html" class="px-5 py-2.5 rounded-lg bg-mark text-ink font-semibold text-sm hover:brightness-110">Apply to a track</a>
-        <a href="philosophy.html" class="px-5 py-2.5 rounded-lg panel text-sm text-slate-200 hover:border-mark/40">Philosophy glossary</a>
-        <a href="#exchange" class="px-5 py-2.5 rounded-lg panel text-sm text-slate-200 hover:border-mark/40">How it works</a>
+        <a href="education-apply.html" class="px-5 py-2.5 rounded-lg bg-hive text-ink font-semibold text-sm hover:brightness-110">Apply to a track</a>
+        <a href="philosophy.html" class="px-5 py-2.5 rounded-lg panel text-sm text-parchment/90 hover:border-hive/40">Philosophy glossary</a>
+        <a href="#exchange" class="px-5 py-2.5 rounded-lg panel text-sm text-parchment/90 hover:border-hive/40">How it works</a>
       </div>
-      <p class="mt-4 text-xs text-slate-500 max-w-xl">
-        Philosophy tags: <span class="text-slate-400">One Mission</span> (values on doing) ·
-        <a class="text-slate-400 hover:text-slate-200 underline underline-offset-2" href="philosophy.html">Intek Space</a> (honest breathe) ·
-        <span class="text-slate-400">IMI</span> (biology temporary — respect elders).
+      <p class="mt-4 text-xs text-mist/60 max-w-xl">
+        Philosophy tags: <span class="text-mist/80">One Mission</span> (values on doing) ·
+        <a class="text-mist/80 hover:text-parchment/90 underline underline-offset-2" href="philosophy.html">Intek Space</a> (honest breathe) ·
+        <span class="text-mist/80">IMI</span> (biology temporary — respect elders).
       </p>
     </div>
   </section>
@@ -84,16 +55,16 @@
     <h2 class="text-xl font-semibold mb-6">Exchange model</h2>
     <div class="grid md:grid-cols-2 gap-4">
       <div class="panel rounded-2xl p-6">
-        <h3 class="font-semibold text-mark mb-2">We provide</h3>
-        <ul class="text-sm text-slate-400 space-y-1.5 list-disc list-inside">
+        <h3 class="font-semibold text-hive mb-2">We provide</h3>
+        <ul class="text-sm text-mist/80 space-y-1.5 list-disc list-inside">
           <li>Kit or project seat</li>
           <li>Protocol and safety notes for the track</li>
           <li>Mentor / Grok review path (not public without permission)</li>
         </ul>
       </div>
       <div class="panel rounded-2xl p-6">
-        <h3 class="font-semibold text-mark mb-2">You provide evidence</h3>
-        <ul class="text-sm text-slate-400 space-y-1.5 list-disc list-inside">
+        <h3 class="font-semibold text-hive mb-2">You provide evidence</h3>
+        <ul class="text-sm text-mist/80 space-y-1.5 list-disc list-inside">
           <li>Material usage</li>
           <li>Function (it works — or honest failure fixed)</li>
           <li>Energy conversion named</li>
@@ -107,14 +78,14 @@
     <div class="max-w-5xl mx-auto px-5 py-14">
       <div class="flex flex-wrap items-end justify-between gap-3 mb-8">
         <h2 class="text-xl font-semibold">Tracks</h2>
-        <a href="education-apply.html" class="text-sm text-mark hover:underline">Apply →</a>
+        <a href="education-apply.html" class="text-sm text-hive hover:underline">Apply →</a>
       </div>
       <div class="grid sm:grid-cols-2 gap-4" id="track-cards"></div>
-      <p class="mt-8 text-xs text-slate-500 max-w-2xl">
-        Substantial field projects (<a href="yard-to-loop.html" class="text-mark hover:underline">Yard-to-Loop</a>,
-        <a href="poop-to-loop.html" class="text-mark hover:underline">Poop-to-Loop</a>) and starship R&amp;D
-        (<a href="hive-king.html" class="text-mark hover:underline">Hive King</a>) live under
-        <a href="projects.html" class="text-mark hover:underline">Projects</a>—peer seriousness, not toy kits.
+      <p class="mt-8 text-xs text-mist/60 max-w-2xl">
+        Substantial field projects (<a href="yard-to-loop.html" class="text-hive hover:underline">Yard-to-Loop</a>,
+        <a href="poop-to-loop.html" class="text-hive hover:underline">Poop-to-Loop</a>) and starship R&amp;D
+        (<a href="hive-king.html" class="text-hive hover:underline">Hive King</a>) live under
+        <a href="projects.html" class="text-hive hover:underline">Projects</a>—peer seriousness, not toy kits.
         Hive King is not a default education SKU; steward invitation only after safety and IP review.
         Education seats may still apply toward loop prototypes under the track rubric.
       </p>
@@ -125,41 +96,15 @@
     <div class="panel rounded-2xl p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <h2 class="text-lg font-semibold">Ready to apply?</h2>
-        <p class="text-sm text-slate-400 mt-1">One form for all tracks. Guardian path for under 18. Submissions go to steward mail + downloadable packet.</p>
+        <p class="text-sm text-mist/80 mt-1">One form for all tracks. Guardian path for under 18. Submissions go to steward mail + downloadable packet.</p>
       </div>
-      <a href="education-apply.html" class="shrink-0 px-5 py-2.5 rounded-lg bg-mark text-ink font-semibold text-sm text-center hover:brightness-110">Open application</a>
+      <a href="education-apply.html" class="shrink-0 px-5 py-2.5 rounded-lg bg-hive text-ink font-semibold text-sm text-center hover:brightness-110">Open application</a>
     </div>
   </section>
 
-  <footer class="border-t border-white/10 py-8">
-    <div class="max-w-5xl mx-auto px-5 text-sm text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
-      <div>© <span id="y"></span> Intek Space / Intek Inc.</div>
-      <div class="flex flex-wrap gap-4">
-        <a href="/" class="hover:text-slate-300">Home</a>
-        <a href="philosophy.html" class="hover:text-slate-300">Philosophy</a>
-        <a href="projects.html" class="hover:text-slate-300">Projects</a>
-        <a href="https://onemissionnetworkandinstitute.org/" class="hover:text-slate-300">One Mission</a>
-      </div>
-    </div>
-  </footer>
-  <script src="education-tracks.js"></script>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    var root = document.getElementById('track-cards');
-    (window.INTEK_EDU_TRACKS || []).forEach(function (t) {
-      if (t.advanced) return;
-      var a = document.createElement('a');
-      a.href = 'education-apply.html?track=' + encodeURIComponent(t.id);
-      a.className = 'panel rounded-2xl p-5 hover:border-mark/40 block transition';
-      a.innerHTML =
-        '<div class="text-[10px] uppercase tracking-wider text-slate-500 mb-1">' + t.short + '</div>' +
-        '<div class="font-semibold text-white mb-2">' + t.name + '</div>' +
-        '<p class="text-sm text-slate-400 leading-relaxed">' + t.blurb + '</p>' +
-        (t.safetyNote ? '<p class="mt-2 text-[11px] text-amber-200/80">' + t.safetyNote + '</p>' : '');
-      root.appendChild(a);
-    });
-  </script>
-
+  <div id="site-footer"></div>
+<script src="education-tracks.js"></script>
+  <script src="js/site-chrome.js"></script>
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
 </body>

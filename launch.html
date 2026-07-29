@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <title>Launch Builder AI · Intek Space</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Launch Builder AI · Intek Space</title>
   <meta name="description" content="Launch Builder AI — open Grok with the One Mission Master Prompt, amended for Physics, Faith, Family, Finance, and Philosophy. Scan the QR or tap the link." />
   <meta name="robots" content="index,follow" />
+  <meta property="og:description" content="Launch Your Faith Based Life and Projects Today — scan to open Grok with the working Master Prompt." />
   <link rel="canonical" href="https://intekspace.com/launch" />
   <meta property="og:title" content="Launch Builder AI · Intek Space" />
   <meta property="og:description" content="Launch Your Faith Based Life and Projects Today — scan to open Grok with the working Master Prompt." />
@@ -14,36 +16,13 @@
   <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/site-theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink: '#0a0f14',
-            parchment: '#e8e4d9',
-            mark: '#0ea5e9',
-            hive: '#c4a35a',
-            mist: '#8b9aab',
-          },
-          fontFamily: {
-            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
+  <link rel="stylesheet" href="css/intek.css" />
+
   <style>
-    body {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      background: #0a0f14;
-      color: #e8e4d9;
-      min-height: 100vh;
-    }
-    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
     .hero {
       background:
         radial-gradient(ellipse 70% 50% at 50% -5%, rgba(196, 163, 90, 0.14), transparent 55%),
@@ -57,20 +36,13 @@
       box-shadow: 0 0 0 1px rgba(196, 163, 90, 0.25);
     }
   </style>
-</head>
-<body class="antialiased">
-  <!-- Minimal chrome — Launch stays simple -->
-  <header class="border-b border-white/5">
-    <div class="max-w-lg mx-auto px-5 py-4 flex items-center justify-between gap-3">
-      <a href="/" class="flex items-center gap-2.5 min-w-0">
-        <div class="w-8 h-8 rounded-full border border-hive/35 flex items-center justify-center text-hive text-xs font-semibold tracking-widest shrink-0">IS</div>
-        <span class="font-semibold tracking-tight text-parchment text-sm">Intek Space</span>
-      </a>
-      <a href="/" class="text-sm text-mist/70 hover:text-parchment transition">Home</a>
-    </div>
-  </header>
 
-  <main class="hero">
+</head>
+<body class="antialiased min-h-screen flex flex-col" data-page="launch">
+  <!-- Minimal chrome — Launch stays simple -->
+  <div id="site-header"></div>
+
+<main class="flex-1 w-full hero">
     <div class="max-w-lg mx-auto px-5 pt-12 pb-16 text-center">
       <p class="text-hive text-[11px] uppercase tracking-[0.28em] mb-4">Launch Builder AI</p>
       <h1 class="font-display text-3xl sm:text-4xl font-semibold text-parchment leading-tight tracking-tight">
@@ -135,14 +107,8 @@
     </div>
   </main>
 
-  <footer class="border-t border-white/5 py-6">
-    <div class="max-w-lg mx-auto px-5 text-center text-xs text-mist/45 space-y-2">
-      <div>© <span id="y"></span> Intek Space · <a href="/" class="hover:text-mist">Home</a> · <a href="philosophy.html" class="hover:text-mist">Philosophy</a></div>
-      <p class="text-mist/35">Sign in to Grok if prompted. Your session, your journey.</p>
-    </div>
-  </footer>
-
-  <script>
+  <div id="site-footer"></div>
+<script>
     (function () {
       document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -243,7 +209,7 @@
       });
     })();
   </script>
-</script>
+  <script src="js/site-chrome.js"></script>
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
 </body>

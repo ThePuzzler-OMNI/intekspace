@@ -1,50 +1,27 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <title>Projects · Intek Space</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects · Intek Space</title>
   <meta name="description" content="Intek Space projects: Hive King, Yard-to-Loop, Poop-to-Loop — substantial conversion systems under a philosophy of life." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://intekspace.com/projects" />
   <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { ink: '#0a0f14', parchment: '#e8e4d9', mark: '#0ea5e9', hive: '#c4a35a', mist: '#8b9aab' },
-          fontFamily: { display: ['"Cormorant Garamond"', 'Georgia', 'serif'], sans: ['"DM Sans"', 'system-ui', 'sans-serif'] },
-        },
-      },
-    };
-  </script>
-  <style>
-    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0a0f14; color: #e8e4d9; min-height: 100vh; }
-    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
-    .panel { background: rgba(14, 20, 26, 0.85); border: 1px solid rgba(196, 163, 90, 0.12); }
-    a.gloss { color: #c4a35a; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(196, 163, 90, 0.4); }
-    a.gloss:hover { color: #e8e4d9; }
-  </style>
-</head>
-<body class="antialiased">
-  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/85 backdrop-blur-md">
-    <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="/" class="text-sm text-mist hover:text-parchment flex items-center gap-2">
-        <span class="w-8 h-8 rounded-full border border-hive/35 flex items-center justify-center text-hive text-xs font-semibold">IS</span>
-        Intek Space
-      </a>
-      <nav class="flex gap-4 text-sm text-mist/75">
-        <a href="philosophy.html" class="hover:text-parchment">Philosophy</a>
-        <a href="education.html" class="hover:text-parchment">Education</a>
-        <a href="/" class="hover:text-parchment">Home</a>
-      </nav>
-    </div>
-  </header>
+  <script src="js/site-theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/intek.css" />
 
-  <main class="max-w-4xl mx-auto px-5 py-14">
+</head>
+<body class="antialiased min-h-screen flex flex-col" data-page="projects">
+  <div id="site-header"></div>
+
+<main class="flex-1 w-full max-w-4xl mx-auto px-5 py-14">
     <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-4">Substantial builds</p>
     <h1 class="font-display text-4xl md:text-5xl font-semibold text-parchment leading-tight mb-4">Projects</h1>
     <p class="text-mist max-w-2xl leading-relaxed mb-3">
@@ -96,14 +73,8 @@
     </div>
   </main>
 
-  <footer class="border-t border-white/5 py-8">
-    <div class="max-w-4xl mx-auto px-5 text-xs text-mist/45 flex justify-between">
-      <span>© <span id="y"></span> Intek Space</span>
-      <a href="philosophy.html" class="hover:text-mist">Philosophy glossary →</a>
-    </div>
-  </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-
+  <div id="site-footer"></div>
+<script src="js/site-chrome.js"></script>
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
 </body>
