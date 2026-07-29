@@ -107,6 +107,7 @@
         'Advanced product track — steward review. No surveillance theater; host-managed attention only. Not consumer medical claims.',
       guardian: false,
     },
+    {
       id: 'yard-to-loop',
       name: 'Yard-to-Loop / Poop-to-Loop',
       short: 'Field project seats',
