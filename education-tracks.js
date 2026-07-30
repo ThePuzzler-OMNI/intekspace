@@ -11,7 +11,7 @@
     { id: 'sun-water', name: 'Sun → water & charge', short: 'Solar',
       blurb: 'Play day and kits need power; plants need water — the sun already provides. Explore solar input to stored charge and real loads (including watering). Evidence: panel/input → stored or pumped output measured; cloudy-day limitation named. Not a promise of free energy or a fixed parts cart.',
       safetyNote: '', guardian: false },
-    { id: 'solar-charge', name: 'Solar charge bank', short: 'Sun · packs · HA',
+    { id: 'solar-charge', name: 'Solar charge bank', short: 'Sun · packs · HA', about: 'solar-charge.html',
       blurb: 'A classroom (or house) that needs freshly charged packs for play day — and an honest account of battery status and asset health over time. Solar input preferred over paying for what the sun already provides; monitor panel and bank through local Home Assistant. Evidence: typed packs, status ledger, health trend, cloudy-day or chemistry limit named. Public copy is not a charge-station BOM.',
       safetyNote: 'Mixed chemistries need typed bays and correct charge profiles — no junk-drawer charging. Guardian for outdoor panel work and any mains fallback. Stored energy is not a toy.',
       guardian: true },
@@ -55,10 +55,10 @@
 
   function escapeHtml(s) {
     return String(s || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+      .replace(/&/g, '&')
+      .replace(/</g, '<')
+      .replace(/>/g, '>')
+      .replace(/"/g, '"');
   }
 
   function renderTrackCards(targetId) {
