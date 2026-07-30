@@ -1,8 +1,6 @@
 /**
  * Education Exchange track catalog — SSOT for landing + apply form.
- * UI: About = live page only; else muted About · soon. Apply = seat.
- * Blurbs ~30–36 words. Sort: clean → warnings → projects. No About-page badge.
- * about field is the switch: if set, real About button; if missing, About · soon.
+ * About = live page only; else About · soon. about field is the switch.
  */
 (function (global) {
   var TRACKS = [
@@ -34,7 +32,7 @@
     { id: 'presence-home', name: 'Presence / Grok Family Home', short: 'Advanced',
       blurb: 'Low-screen home presence under steward review: speak-aloud direction, transcripts, extended body tech. Evidence: architecture sketch or prototype log. Related to OMNI Home. Not consumer medical claims or a kit BOM.',
       safetyNote: 'Advanced track — steward review may apply.', guardian: false, about: 'omni-home.html' },
-    { id: 'ai-tv', name: 'AI TV (product team)', short: 'Attention product',
+    { id: 'ai-tv', name: 'AI TV (product team)', short: 'Attention product', about: 'ai-tv.html',
       blurb: 'Attention as a designed object: host-managed curated video, context panels, Spaces-class room. Evidence: panel mock or host-control storyboard; philosophy of attention, not parrot talk. Not a product BOM promise.',
       safetyNote: '', guardian: false },
     { id: 'wearable-low-tech', name: 'Wearable low tech', short: 'Body · educate the animal',
@@ -118,7 +116,7 @@
       adv.innerHTML =
         '<p class="text-xs text-mist/65 leading-relaxed"><strong class="text-parchment/80 font-medium">Advanced / R&D (not default education SKUs):</strong> ' +
         escapeHtml(ADVANCED_NOTE) + '</p>' +
-        '<p class="text-xs text-mist/50 leading-relaxed mt-2">About = live page when ready. About · soon = no page yet (blurb is the preview). Apply = seat and packet. Videos of real attempts will be example detail later. Public track copy does not promise a specific BOM.</p>';
+        '<p class="text-xs text-mist/50 leading-relaxed mt-2">About = live page when ready. About · soon = no page yet. Apply = seat and packet. Public track copy does not promise a specific BOM.</p>';
     }
   }
 
