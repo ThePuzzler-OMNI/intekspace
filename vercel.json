@@ -2,76 +2,33 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/store",
-      "destination": "/store.html"
-    },
-    {
-      "source": "/launch",
-      "destination": "/launch.html"
-    },
-    {
-      "source": "/education",
-      "destination": "/education.html"
-    },
-    {
-      "source": "/education-apply",
-      "destination": "/education-apply.html"
-    },
-    {
-      "source": "/hive-king",
-      "destination": "/hive-king.html"
-    },
-    {
-      "source": "/omnibot",
-      "destination": "/omnibot.html"
-    },
-    {
-      "source": "/omni-home",
-      "destination": "/omni-home.html"
-    },
-    {
-      "source": "/philosophy",
-      "destination": "/philosophy.html"
-    },
-    {
-      "source": "/projects",
-      "destination": "/projects.html"
-    },
-    {
-      "source": "/yard-to-loop",
-      "destination": "/yard-to-loop.html"
-    },
-    {
-      "source": "/poop-to-loop",
-      "destination": "/poop-to-loop.html"
-    }
+    { "source": "/store", "destination": "/store.html" },
+    { "source": "/launch", "destination": "/launch.html" },
+    { "source": "/education", "destination": "/education.html" },
+    { "source": "/education-apply", "destination": "/education-apply.html" },
+    { "source": "/electrons-code", "destination": "/electrons-code.html" },
+    { "source": "/solar-charge", "destination": "/solar-charge.html" },
+    { "source": "/hive-king", "destination": "/hive-king.html" },
+    { "source": "/omnibot", "destination": "/omnibot.html" },
+    { "source": "/omni-home", "destination": "/omni-home.html" },
+    { "source": "/philosophy", "destination": "/philosophy.html" },
+    { "source": "/projects", "destination": "/projects.html" },
+    { "source": "/yard-to-loop", "destination": "/yard-to-loop.html" },
+    { "source": "/poop-to-loop", "destination": "/poop-to-loop.html" }
   ],
   "headers": [
     {
       "source": "/robots.txt",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=300"
-        }
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=300" }
       ]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=300"
-        }
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=300" }
       ]
     }
   ]
