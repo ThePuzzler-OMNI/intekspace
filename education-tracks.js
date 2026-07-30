@@ -1,7 +1,7 @@
 /**
  * Education Exchange track catalog — SSOT for landing + apply form.
  * UI: About = live page only; else muted About · soon. Apply = seat.
- * Blurbs aimed ~30–36 words for card grid symmetry. No public BOM promise.
+ * Blurbs ~30–36 words. Sort: clean → warnings → projects. No About-page badge.
  */
 (function (global) {
   var TRACKS = [
@@ -65,11 +65,26 @@
     var el = typeof document !== 'undefined' ? document.getElementById(targetId || 'track-cards') : null;
     if (!el) return;
 
-    var html = TRACKS.map(function (t, i) {
+    var PROJECT_IDS = {
+      'wearable-low-tech': true,
+      'omni-home': true,
+      'omnibot': true,
+      'yard-to-loop': true
+    };
+    function cardTier(t) {
+      if (PROJECT_IDS[t.id]) return 2;
+      if (t.guardian || t.safetyNote) return 1;
+      return 0;
+    }
+    var ordered = TRACKS.slice().sort(function (a, b) {
+      var d = cardTier(a) - cardTier(b);
+      if (d !== 0) return d;
+      return TRACKS.indexOf(a) - TRACKS.indexOf(b);
+    });
+    var html = ordered.map(function (t, i) {
       var badges = [];
       if (t.guardian) badges.push('<span class="text-[10px] uppercase tracking-wider text-hive border border-hive/40 rounded-full px-2 py-0.5">Guardian</span>');
       if (t.safetyNote) badges.push('<span class="text-[10px] uppercase tracking-wider text-mist/70 border border-white/10 rounded-full px-2 py-0.5">Safety note</span>');
-      if (t.about) badges.push('<span class="text-[10px] uppercase tracking-wider text-mark/90 border border-mark/30 rounded-full px-2 py-0.5">About page</span>');
       var badgeRow = badges.length ? '<div class="flex flex-wrap gap-1.5 mb-2">' + badges.join('') + '</div>' : '';
       var safety = t.safetyNote
         ? '<p class="mt-3 text-xs text-amber-100/75 leading-relaxed border-t border-white/5 pt-3">' + escapeHtml(t.safetyNote) + '</p>'
