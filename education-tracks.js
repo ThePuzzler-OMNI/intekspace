@@ -2,10 +2,11 @@
  * Education Exchange track catalog — SSOT for landing + apply form.
  * UI: About = live page only; else muted About · soon. Apply = seat.
  * Blurbs ~30–36 words. Sort: clean → warnings → projects. No About-page badge.
+ * about field is the switch: if set, real About button; if missing, About · soon.
  */
 (function (global) {
   var TRACKS = [
-    { id: 'electrons-code', name: 'Electrons & code', short: 'Circuits · MCU',
+    { id: 'electrons-code', name: 'Electrons & code', short: 'Circuits · MCU', about: 'electrons-code.html',
       blurb: 'You need a circuit that works — sensing, control, a small wireless node. Explore electrons and code under that need. Evidence: working demo, power path explained, one failure fixed on camera. Not a kit shopping list.',
       safetyNote: '', guardian: false },
     { id: 'sun-water', name: 'Sun → water & charge', short: 'Solar',
