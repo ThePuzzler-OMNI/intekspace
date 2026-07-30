@@ -27,6 +27,10 @@
       "destination": "/omnibot.html"
     },
     {
+      "source": "/omni-home",
+      "destination": "/omni-home.html"
+    },
+    {
       "source": "/philosophy",
       "destination": "/philosophy.html"
     },
