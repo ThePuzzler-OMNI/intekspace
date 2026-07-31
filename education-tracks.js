@@ -3,9 +3,14 @@
  * About = live page only; else About · soon. about field is the switch.
  * Identity = track id (+ name + About URL). UI sort is presentation only.
  * Do NOT show "Track N of M" — that is not Notion ### N and not mission rank.
+ * Browse pin: grab-bag-donated is card #1 (presentation only).
  */
 (function (global) {
   var TRACKS = [
+    { id: 'grab-bag-donated', name: 'Educational Grab Bag — Make Something from Free Donated Stuff', short: 'Grab bag · play',
+      blurb: 'Random free donated odds — Therabands and similar low-cost stuff that might otherwise go to trash. Make something useful or playful; post a short video. Low promise. Play, reuse, creativity — not commercial products.',
+      safetyNote: 'Not unsupervised toddler toys unless age-appropriate. No medical claims (e.g. Theraband is not prescribed). Not Amazon-grade SKUs. Ships only when stock exists; may pause when empty.',
+      guardian: false },
     { id: 'electrons-code', name: 'Electrons & code', short: 'Circuits · MCU', about: 'electrons-code.html',
       blurb: 'You need a circuit that works — sensing, control, a small wireless node. Explore electrons and code under that need. Evidence: working demo, power path explained, one failure fixed on camera. Not a kit shopping list.',
       safetyNote: '', guardian: false },
@@ -73,6 +78,8 @@
       'yard-to-loop': true
     };
     function cardTier(t) {
+      // Browse pin only — not architecture rank
+      if (t.id === 'grab-bag-donated') return -1;
       if (PROJECT_IDS[t.id]) return 2;
       if (t.guardian || t.safetyNote) return 1;
       return 0;
