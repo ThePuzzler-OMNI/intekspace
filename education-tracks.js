@@ -1,6 +1,8 @@
 /**
  * Education Exchange track catalog — SSOT for landing + apply form.
  * About = live page only; else About · soon. about field is the switch.
+ * Identity = track id (+ name + About URL). UI sort is presentation only.
+ * Do NOT show "Track N of M" — that is not Notion ### N and not mission rank.
  */
 (function (global) {
   var TRACKS = [
@@ -80,7 +82,7 @@
       if (d !== 0) return d;
       return TRACKS.indexOf(a) - TRACKS.indexOf(b);
     });
-    var html = ordered.map(function (t, i) {
+    var html = ordered.map(function (t) {
       var badges = [];
       if (t.guardian) badges.push('<span class="text-[10px] uppercase tracking-wider text-hive border border-hive/40 rounded-full px-2 py-0.5">Guardian</span>');
       if (t.safetyNote) badges.push('<span class="text-[10px] uppercase tracking-wider text-mist/70 border border-white/10 rounded-full px-2 py-0.5">Safety note</span>');
@@ -101,11 +103,10 @@
         badgeRow +
         '<p class="text-sm text-mist/90 leading-relaxed flex-1">' + escapeHtml(t.blurb) + '</p>' +
         safety +
-        '<div class="mt-4 pt-3 border-t border-white/5 flex flex-wrap items-center justify-between gap-2">' +
-        '<span class="text-[10px] uppercase tracking-wider text-mist/45">Track ' + (i + 1) + ' of ' + TRACKS.length + '</span>' +
-        '<div class="flex flex-wrap items-center gap-2">' + aboutBtn +
+        '<div class="mt-4 pt-3 border-t border-white/5 flex flex-wrap items-center justify-end gap-2">' +
+        aboutBtn +
         '<a class="btn-gold-soft text-xs px-3 py-1.5 min-h-0" href="education-apply.html?track=' + encodeURIComponent(t.id) + '">Apply</a>' +
-        '</div></div></article>'
+        '</div></article>'
       );
     }).join('');
 
@@ -116,7 +117,7 @@
       adv.innerHTML =
         '<p class="text-xs text-mist/65 leading-relaxed"><strong class="text-parchment/80 font-medium">Advanced / R&D (not default education SKUs):</strong> ' +
         escapeHtml(ADVANCED_NOTE) + '</p>' +
-        '<p class="text-xs text-mist/50 leading-relaxed mt-2">About = live page when ready. About · soon = no page yet. Apply = seat and packet. Public track copy does not promise a specific BOM.</p>';
+        '<p class="text-xs text-mist/50 leading-relaxed mt-2">About = live page when ready. About · soon = no page yet. Apply = seat and packet. Card order is browse sort only — identity is the track name and Apply link, not a number. Public copy does not promise a specific BOM.</p>';
     }
   }
 
