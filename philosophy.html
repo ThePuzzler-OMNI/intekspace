@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Philosophy · Intek Space</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Philosophy · Intek Space</title>
   <meta name="description" content="Coherent writeup of Intek Space philosophy and nomenclature: death-to-life breathe, sector overlays, DMAIC, twin extremes, land per life." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://intekspace.com/philosophy" />
-    <meta property="og:title" content="Philosophy · Intek Space" />
+  <meta property="og:title" content="Philosophy · Intek Space" />
   <meta property="og:description" content="Coherent writeup of Intek Space philosophy and nomenclature: death-to-life breathe, sector overlays, DMAIC, twin extremes, land per life." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://intekspace.com/philosophy" />
@@ -17,20 +16,98 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://intekspace.com/assets/og/og-philosophy.jpg?v=20260802" />
-<script src="analytics-config.js"></script>
+  <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/site-theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/intek.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0f14', parchment: '#e8e4d9', mark: '#0ea5e9',
+            hive: '#c4a35a', leaf: '#6b8f71', mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0a0f14; color: #e8e4d9; min-height: 100vh; }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .panel { background: rgba(14, 20, 26, 0.85); border: 1px solid rgba(196, 163, 90, 0.12); }
+    .term:target { outline: 1px solid rgba(196, 163, 90, 0.45); outline-offset: 4px; border-radius: 1rem; }
+    .rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent); }
+    a.gloss { color: #c4a35a; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(196, 163, 90, 0.4); }
+    a.gloss:hover { color: #e8e4d9; text-decoration-color: rgba(196, 163, 90, 0.8); }
+  
+    .is-nav-toggle {
+      display: none;
+      width: 2.5rem; height: 2.5rem;
+      align-items: center; justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(196,163,90,0.25);
+      background: transparent;
+      color: #e8e4d9;
+      cursor: pointer;
+    }
+    @media (max-width: 639px) {
+      .is-nav-toggle { display: inline-flex; }
+      .is-nav-desktop { display: none !important; }
+    }
+    #is-mobile-menu {
+      display: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(10,15,20,0.98);
+    }
+    #is-mobile-menu.open { display: block; }
+    #is-mobile-menu a {
+      display: block;
+      padding: 0.85rem 1.25rem;
+      color: #8b9aab;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.95rem;
+    }
+    #is-mobile-menu a:hover { color: #e8e4d9; background: rgba(196,163,90,0.08); }
 
+  </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col" data-page="philosophy">
-  <div id="site-header"></div>
+<body class="antialiased">
+  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/85 backdrop-blur-md">
+    <div class="max-w-3xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-3 text-sm text-mist hover:text-parchment">
+        <span class="w-8 h-8 rounded-full border border-hive/35 flex items-center justify-center text-hive text-xs font-semibold">IS</span>
+        Intek Space
+      </a>
+      <nav class="flex gap-4 text-sm text-mist/75">
+        <a href="#glossary" class="hover:text-parchment">Glossary</a>
+        <a href="projects.html" class="hover:text-parchment">Projects</a>
+        <a href="education.html" class="hover:text-parchment">Education</a>
+        <a href="/" class="hover:text-parchment">Home</a>
+      </nav>
 
-<main class="flex-1 w-full max-w-3xl mx-auto px-5 py-12 md:py-16">
+      <button type="button" id="is-nav-toggle" class="is-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="is-mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="is-mobile-menu">
+      <a href="philosophy.html">Philosophy</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="hive-king.html">Hive King</a>
+      <a href="store.html">Store</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-5 py-12 md:py-16">
     <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-4">Coherent writeup</p>
     <h1 class="font-display text-4xl md:text-5xl font-semibold text-parchment leading-tight">
       Philosophy &amp; nomenclature
@@ -218,9 +295,40 @@
     </section>
   </main>
 
-  <div id="site-footer"></div>
-<script src="js/site-chrome.js"></script>
+  <footer class="border-t border-white/5 py-8 mt-8">
+    <div class="max-w-3xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-2 text-xs text-mist/45">
+      <div>© <span id="y"></span> Intek Space / Intek Inc.</div>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-mist">Home</a>
+        <a href="education.html" class="hover:text-mist">Education</a>
+        <a href="projects.html" class="hover:text-mist">Projects</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('is-nav-toggle');
+      var menu = document.getElementById('is-mobile-menu');
+      if (!btn || !menu) return;
+      function setOpen(o) {
+        menu.classList.toggle('open', o);
+        btn.setAttribute('aria-expanded', o ? 'true' : 'false');
+      }
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        setOpen(!menu.classList.contains('open'));
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(false); });
+      });
+    })();
+  </script>
+
+<script src="js/site-chrome.js" defer></script>
 </body>
 </html>

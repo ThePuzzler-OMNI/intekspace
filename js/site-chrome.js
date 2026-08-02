@@ -1,152 +1,182 @@
 /**
- * Intek Space — unified header + footer + sister network UTMs.
+ * Intek Space — shared header/footer from site-registry.json (public web discipline).
+ * Replaces <header data-site-chrome> or first site header; replaces <footer> unless data-site-chrome="skip".
  */
 (function () {
-  'use strict';
+  if (window.__isSiteChrome) return;
+  window.__isSiteChrome = true;
 
-  var UTM = {
-    omni: '?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=',
-    imi: '?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=',
-  };
-  var OMNI = 'https://onemissionnetworkandinstitute.org/';
-  var IMI = 'https://instituteofmatureimagination.org/';
-  var OMNI_VIDEOS = 'https://instituteofmatureimagination.org/videos';
+  var REG_URL = 'site-registry.json';
 
-  var LINKS = [
-    { id: 'home', href: '/', label: 'Home' },
-    { id: 'philosophy', href: '/philosophy', label: 'Philosophy' },
-    { id: 'projects', href: '/projects', label: 'Projects' },
-    { id: 'education', href: '/education', label: 'Education' },
-    { id: 'store', href: '/store', label: 'OMNI Store' },
-    { id: 'launch', href: '/launch', label: 'Launch', cta: true },
-    { id: 'contact', href: '/#contact', label: 'Contact' },
-  ];
-
-  function pageId() {
-    var b = document.body;
-    if (b && b.getAttribute('data-page')) return b.getAttribute('data-page');
-    var path = (location.pathname || '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/';
-    if (path === '/' || path === '') return 'home';
-    return path.split('/').pop() || 'home';
+  function year() {
+    return new Date().getFullYear();
   }
 
-  function isActive(link, page) {
-    if (link.id === page) return true;
-    if (page === 'education-apply' && link.id === 'education') return true;
-    if ((page === 'hive-king' || page === 'yard-to-loop' || page === 'poop-to-loop' || page === 'omnibot' || page === 'omni-home') && link.id === 'projects')
-      return true;
-    return false;
+  function esc(s) {
+    return String(s || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/"/g, '&quot;');
   }
 
-  function navLinks(page, drawer) {
-    return LINKS.map(function (L) {
-      var active = isActive(L, page);
-      var cls = [];
-      if (active) cls.push('is-active');
-      if (L.cta && !drawer) cls.push('site-nav__cta');
-      return (
-        '<a href="' +
-        L.href +
-        '"' +
-        (cls.length ? ' class="' + cls.join(' ') + '"' : '') +
-        (active ? ' aria-current="page"' : '') +
-        '>' +
-        L.label +
-        '</a>'
-      );
-    }).join('');
+  function navLinks(nav, mobile) {
+    return (nav || [])
+      .map(function (item) {
+        var ext = item.external ? ' target="_blank" rel="noopener"' : '';
+        var cls = mobile
+          ? 'block px-3 py-2 rounded-lg text-parchment/90 hover:bg-white/5'
+          : 'text-sm text-mist hover:text-parchment transition';
+        return (
+          '<a href="' +
+          esc(item.href) +
+          '" class="' +
+          cls +
+          '"' +
+          ext +
+          '>' +
+          esc(item.label) +
+          '</a>'
+        );
+      })
+      .join(mobile ? '' : '');
   }
 
-  function renderHeader(el, page) {
-    el.innerHTML =
-      '<header class="site-header">' +
-      '<div class="site-header__inner">' +
-      '<a class="site-brand" href="/">' +
-      '<span class="site-brand__mark" aria-hidden="true">IS</span>' +
-      '<span><span class="site-brand__name">Intek Space</span>' +
-      '<span class="site-brand__tag">Philosophy · Engineering · Education</span></span></a>' +
-      '<nav class="site-nav" aria-label="Primary">' +
-      navLinks(page, false) +
+  function buildHeader(chrome) {
+    var nav = chrome.nav || [];
+    var desktop = nav
+      .map(function (item) {
+        var ext = item.external ? ' target="_blank" rel="noopener"' : '';
+        return (
+          '<a href="' +
+          esc(item.href) +
+          '" class="text-sm text-mist hover:text-parchment transition"' +
+          ext +
+          '>' +
+          esc(item.label) +
+          '</a>'
+        );
+      })
+      .join('\n');
+    var mobile = navLinks(nav, true);
+    return (
+      '<div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between gap-4">' +
+      '<a href="' +
+      esc(chrome.home_href || 'index.html') +
+      '" class="flex items-center gap-2 font-display text-lg text-parchment">' +
+      '<span class="w-8 h-8 rounded-lg bg-hive/20 text-hive text-xs font-bold flex items-center justify-center">' +
+      esc(chrome.mark || 'IS') +
+      '</span><span>Intek Space</span></a>' +
+      '<nav class="hidden md:flex items-center gap-6">' +
+      desktop +
       '</nav>' +
-      '<button type="button" class="site-menu-btn" id="site-menu-btn" aria-expanded="false" aria-controls="site-drawer" aria-label="Open menu">' +
-      '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>' +
-      '</button></div>' +
-      '<div class="site-drawer" id="site-drawer">' +
-      navLinks(page, true) +
-      '</div></header>';
+      '<button type="button" id="is-nav-toggle" class="md:hidden text-parchment p-2" aria-label="Menu" aria-expanded="false" aria-controls="is-mobile-menu">' +
+      '<span class="text-xl">☰</span></button></div>' +
+      '<div id="is-mobile-menu" class="hidden md:hidden border-t border-white/10 px-4 py-3 space-y-1 bg-ink/95">' +
+      mobile +
+      '</div>'
+    );
+  }
 
-    var btn = document.getElementById('site-menu-btn');
-    var drawer = document.getElementById('site-drawer');
-    if (btn && drawer) {
-      btn.addEventListener('click', function () {
-        var open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-        drawer.classList.toggle('is-open', !open);
+  function buildFooter(chrome) {
+    var sisters = (chrome.sister_links || [])
+      .map(function (s) {
+        return (
+          '<a href="' +
+          esc(s.href) +
+          '" class="hover:text-parchment" target="_blank" rel="noopener">' +
+          esc(s.label) +
+          '</a>'
+        );
+      })
+      .join(' · ');
+    var navBits = (chrome.nav || [])
+      .filter(function (n) {
+        return !n.external;
+      })
+      .slice(0, 5)
+      .map(function (n) {
+        return '<a href="' + esc(n.href) + '" class="hover:text-parchment">' + esc(n.label) + '</a>';
+      })
+      .join(' · ');
+    return (
+      '<div class="max-w-5xl mx-auto px-4 py-10 text-sm text-mist space-y-4">' +
+      '<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">' +
+      '<div>© <span id="y">' +
+      year() +
+      '</span> Intek Space</div>' +
+      '<div class="flex flex-wrap gap-x-2 gap-y-1">' +
+      navBits +
+      '</div></div>' +
+      '<div class="text-xs text-mist/80">Sister network: ' +
+      sisters +
+      '</div>' +
+      '<p class="text-xs text-mist/60">Analytics may be used to improve the site. See One Mission privacy for network practices.</p>' +
+      '</div>'
+    );
+  }
+
+  function bindMobile(root) {
+    var btn = document.getElementById('is-nav-toggle');
+    var menu = document.getElementById('is-mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var open = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  function apply(reg) {
+    var chrome = reg.chrome || {};
+    var headers = document.querySelectorAll('header[data-site-chrome], header.site-chrome, body > header');
+    if (!headers.length) {
+      var h = document.createElement('header');
+      h.setAttribute('data-site-chrome', 'ready');
+      h.className = 'sticky top-0 z-40 border-b border-white/10 bg-ink/90 backdrop-blur';
+      h.innerHTML = buildHeader(chrome);
+      document.body.insertBefore(h, document.body.firstChild);
+      bindMobile(h);
+    } else {
+      headers.forEach(function (el, i) {
+        if (el.getAttribute('data-site-chrome') === 'skip') return;
+        if (i > 0 && el.getAttribute('data-site-chrome') !== 'force') return;
+        el.className = 'sticky top-0 z-40 border-b border-white/10 bg-ink/90 backdrop-blur';
+        el.setAttribute('data-site-chrome', 'ready');
+        el.innerHTML = buildHeader(chrome);
+        bindMobile(el);
+      });
+    }
+
+    var footers = document.querySelectorAll('footer');
+    if (!footers.length) {
+      var f = document.createElement('footer');
+      f.className = 'mt-16 border-t border-white/10';
+      f.setAttribute('data-site-chrome', 'ready');
+      f.innerHTML = buildFooter(chrome);
+      document.body.appendChild(f);
+    } else {
+      footers.forEach(function (f) {
+        if (f.getAttribute('data-site-chrome') === 'skip') return;
+        f.className = 'mt-16 border-t border-white/10';
+        f.setAttribute('data-site-chrome', 'ready');
+        f.innerHTML = buildFooter(chrome);
       });
     }
   }
 
-  function renderFooter(el, page) {
-    var year = new Date().getFullYear();
-    el.innerHTML =
-      '<footer class="site-footer">' +
-      '<div class="site-footer__inner">' +
-      '<div class="site-footer__row">' +
-      '<div>© ' +
-      year +
-      ' Intek Space / Intek Inc.</div>' +
-      '<div class="site-footer__links">' +
-      '<a href="/"' +
-      (page === 'home' ? ' class="is-active"' : '') +
-      '>Home</a>' +
-      '<a href="/philosophy"' +
-      (page === 'philosophy' ? ' class="is-active"' : '') +
-      '>Philosophy</a>' +
-      '<a href="/projects"' +
-      (page === 'projects' || page === 'omnibot' || page === 'omni-home' || page === 'hive-king' || page === 'yard-to-loop' || page === 'poop-to-loop' ? ' class="is-active"' : '') +
-      '>Projects</a>' +
-      '<a href="/education"' +
-      (page === 'education' || page === 'education-apply' ? ' class="is-active"' : '') +
-      '>Education</a>' +
-      '<a href="/store"' +
-      (page === 'store' ? ' class="is-active"' : '') +
-      '>OMNI Store</a>' +
-      '<a href="/launch"' +
-      (page === 'launch' ? ' class="is-active"' : '') +
-      '>Launch</a>' +
-      '</div></div>' +
-      '<p class="site-footer__privacy">Philosophy constrains marketing. Evidence over promise. ' +
-      '<a href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a></p>' +
-      '<div class="site-footer__network">' +
-      '<div class="site-footer__network-label">Sister network</div>' +
-      '<div class="site-footer__links">' +
-      '<a href="' +
-      OMNI +
-      UTM.omni +
-      'footer" rel="noopener">One Mission</a>' +
-      '<a href="' +
-      IMI +
-      UTM.imi +
-      'footer" rel="noopener">IMI</a>' +
-      '<a href="' +
-      OMNI_VIDEOS +
-      UTM.imi +
-      'footer_videos" rel="noopener">OMNI Videos</a>' +
-      '<a href="https://x.com/omni_puzzler" target="_blank" rel="noopener">@omni_puzzler</a>' +
-      '</div></div></div></footer>';
-  }
-
   function boot() {
-    var page = pageId();
-    var h = document.getElementById('site-header');
-    var f = document.getElementById('site-footer');
-    if (h) renderHeader(h, page);
-    if (f) renderFooter(f, page);
+    if (document.documentElement.getAttribute('data-site-chrome') === 'skip') return;
+    fetch(REG_URL, { credentials: 'same-origin' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('registry ' + r.status);
+        return r.json();
+      })
+      .then(apply)
+      .catch(function (e) {
+        console.warn('[site-chrome] registry load failed', e);
+      });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
-  } else {
-    boot();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
 })();

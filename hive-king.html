@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Hive King · Intek Space</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hive King · Intek Space</title>
   <meta name="description" content="Hive King — a calm instrument for a living hive. Entrance vision, foundation sensing, solar power. Intek Space R&amp;D." />
   <meta name="robots" content="index,follow" />
-<link rel="canonical" href="https://intekspace.com/hive-king" />
+  <link rel="canonical" href="https://intekspace.com/hive-king" />
   <meta property="og:title" content="Hive King · Intek Space" />
   <meta property="og:description" content="An instrument for a living hive — vision at the door, sensing in the foundation, power from the sun." />
   <meta property="og:type" content="website" />
@@ -17,20 +16,126 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://intekspace.com/assets/og/og-hive-king.jpg?v=20260802" />
-<script src="analytics-config.js"></script>
+  <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/site-theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/intek.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0f14',
+            parchment: '#e8e4d9',
+            hive: '#c4a35a',
+            leaf: '#6b8f71',
+            mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0a0f14;
+      color: #e8e4d9;
+      min-height: 100vh;
+    }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .hero-glow {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196, 163, 90, 0.12), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 80% 40%, rgba(107, 143, 113, 0.08), transparent 50%),
+        radial-gradient(ellipse 40% 30% at 15% 70%, rgba(139, 154, 171, 0.06), transparent 45%),
+        linear-gradient(180deg, #0a0f14 0%, #0e1419 50%, #0a0f14 100%);
+    }
+    .card {
+      background: rgba(14, 20, 26, 0.85);
+      border: 1px solid rgba(196, 163, 90, 0.12);
+      backdrop-filter: blur(8px);
+    }
+    .card:hover {
+      border-color: rgba(196, 163, 90, 0.28);
+    }
+    .rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent);
+    }
+    .soft-ring {
+      box-shadow: 0 0 0 1px rgba(196, 163, 90, 0.15), 0 24px 80px -40px rgba(0, 0, 0, 0.8);
+    }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary .chev { transform: rotate(90deg); }
+  
+    .is-nav-toggle {
+      display: none;
+      width: 2.5rem; height: 2.5rem;
+      align-items: center; justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(196,163,90,0.25);
+      background: transparent;
+      color: #e8e4d9;
+      cursor: pointer;
+    }
+    @media (max-width: 639px) {
+      .is-nav-toggle { display: inline-flex; }
+      .is-nav-desktop { display: none !important; }
+    }
+    #is-mobile-menu {
+      display: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(10,15,20,0.98);
+    }
+    #is-mobile-menu.open { display: block; }
+    #is-mobile-menu a {
+      display: block;
+      padding: 0.85rem 1.25rem;
+      color: #8b9aab;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.95rem;
+    }
+    #is-mobile-menu a:hover { color: #e8e4d9; background: rgba(196,163,90,0.08); }
 
+  </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col" data-page="hive-king">
-  <div id="site-header"></div>
+<body class="antialiased">
+  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/80 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-full border border-hive/30 flex items-center justify-center text-hive text-xs font-semibold tracking-widest group-hover:border-hive/60 transition">IS</div>
+        <span class="text-sm text-mist/80 group-hover:text-parchment transition">Intek Space</span>
+      </a>
+      <nav class="flex gap-4 sm:gap-5 text-sm text-mist/70">
+        <a href="philosophy.html" class="hover:text-parchment transition hidden sm:inline">Philosophy</a>
+        <a href="projects.html" class="hover:text-parchment transition">Projects</a>
+        <a href="education.html" class="hover:text-parchment transition hidden md:inline">Education</a>
+        <a href="#contact" class="text-hive hover:text-parchment transition">Contact</a>
+      </nav>
 
-<!-- Calm hero ad -->
+      <button type="button" id="is-nav-toggle" class="is-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="is-mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="is-mobile-menu">
+      <a href="philosophy.html">Philosophy</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="hive-king.html">Hive King</a>
+      <a href="store.html">Store</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Calm hero ad -->
   <section class="hero-glow">
     <div class="max-w-4xl mx-auto px-5 pt-16 md:pt-24 pb-20 md:pb-28 text-center">
       <p class="text-[11px] uppercase tracking-[0.35em] text-hive/90 mb-6">
@@ -69,21 +174,21 @@
   <!-- Editorial stills -->
   <section id="still" class="max-w-4xl mx-auto px-5 pb-6">
     <div class="grid md:grid-cols-3 gap-4">
-      <article class="panel rounded-2xl p-6 md:p-7 transition">
+      <article class="card soft-ring rounded-2xl p-6 md:p-7 transition">
         <div class="text-hive/80 text-xs uppercase tracking-[0.2em] mb-3">At the door</div>
         <h2 class="font-display text-2xl text-parchment mb-3">Gatekeeper</h2>
         <p class="text-sm text-mist/85 leading-relaxed">
           A narrow entrance. Quiet optics. Count, pollen, invader, mite — seen without thrashing the colony.
         </p>
       </article>
-      <article class="panel rounded-2xl p-6 md:p-7 transition">
+      <article class="card soft-ring rounded-2xl p-6 md:p-7 transition">
         <div class="text-leaf/90 text-xs uppercase tracking-[0.2em] mb-3">In the comb</div>
         <h2 class="font-display text-2xl text-parchment mb-3">Chamberlain</h2>
         <p class="text-sm text-mist/85 leading-relaxed">
           eFoundations listen to cells with careful pulses. Air, larva, honey, pollen — power modes that refuse to scorch life.
         </p>
       </article>
-      <article class="panel rounded-2xl p-6 md:p-7 transition">
+      <article class="card soft-ring rounded-2xl p-6 md:p-7 transition">
         <div class="text-mist text-xs uppercase tracking-[0.2em] mb-3">Through winter</div>
         <h2 class="font-display text-2xl text-parchment mb-3">Armorer</h2>
         <p class="text-sm text-mist/85 leading-relaxed">
@@ -102,13 +207,13 @@
   </section>
 
   <!-- Soft tech without thrash -->
-  <section class="border-y band">
+  <section class="border-y border-white/5 bg-black/20">
     <div class="max-w-4xl mx-auto px-5 py-14">
       <h2 class="font-display text-3xl text-parchment mb-2 text-center">What is being built</h2>
       <p class="text-sm text-mist/70 text-center max-w-md mx-auto mb-10">
         One architecture. Pro and standard variants. Host, vision, foundations, climate, power.
       </p>
-      <ul class="space-y-0 divide-y divide-white/5 panel rounded-2xl overflow-hidden">
+      <ul class="space-y-0 divide-y divide-white/5 card rounded-2xl overflow-hidden">
         <li class="px-5 py-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
           <span class="text-hive text-xs uppercase tracking-wider w-28 shrink-0">Steward</span>
           <span class="text-sm text-mist/90">On-hive computer for vision, storage, and serving a private app — Jetson-class host in the plan.</span>
@@ -137,7 +242,7 @@
   <section id="roadmap" class="max-w-4xl mx-auto px-5 py-14">
     <h2 class="font-display text-3xl text-parchment mb-2 text-center">Road in quiet order</h2>
     <p class="text-sm text-mist/70 text-center mb-8">Not a launch calendar. A sequence that refuses thrash.</p>
-    <div class="panel rounded-2xl overflow-hidden">
+    <div class="card rounded-2xl overflow-hidden">
       <table class="w-full text-sm">
         <thead>
           <tr class="border-b border-white/10 text-left text-[11px] uppercase tracking-wider text-mist/60">
@@ -182,7 +287,7 @@
 
   <!-- Expandable engineering (for those who want depth) -->
   <section class="max-w-4xl mx-auto px-5 pb-14">
-    <details class="panel rounded-2xl group">
+    <details class="card rounded-2xl group">
       <summary class="px-5 py-4 flex items-center justify-between text-sm text-mist hover:text-parchment transition">
         <span>Engineering depth <span class="text-mist/40">(optional)</span></span>
         <span class="chev text-hive transition-transform">›</span>
@@ -232,9 +337,42 @@
     </div>
   </section>
 
-  <div id="site-footer"></div>
-<script src="js/site-chrome.js"></script>
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-4xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-3 text-xs text-mist/45">
+      <div>© <span id="y"></span> Intek Space / Intek Inc. · Hive King</div>
+      <div class="flex gap-4">
+        <a href="/" class="hover:text-mist">Home</a>
+        <a href="philosophy.html" class="hover:text-mist">Philosophy</a>
+        <a href="projects.html" class="hover:text-mist">Projects</a>
+        <a href="education.html" class="hover:text-mist">Education</a>
+        <a href="https://onemissionnetworkandinstitute.org/" class="hover:text-mist">One Mission</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('is-nav-toggle');
+      var menu = document.getElementById('is-mobile-menu');
+      if (!btn || !menu) return;
+      function setOpen(o) {
+        menu.classList.toggle('open', o);
+        btn.setAttribute('aria-expanded', o ? 'true' : 'false');
+      }
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        setOpen(!menu.classList.contains('open'));
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(false); });
+      });
+    })();
+  </script>
+
+<script src="js/site-chrome.js" defer></script>
 </body>
 </html>

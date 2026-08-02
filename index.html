@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Intek Space · Philosophy · Engineering · Education</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intek Space · Philosophy · Engineering · Education</title>
   <meta name="description" content="All great works begin with a philosophy on life. Intek Space designs conversion systems under stewardship—the death-to-life breathe held in balance. Engineering, education, long build." />
   <meta name="robots" content="index,follow" />
-<link rel="canonical" href="https://intekspace.com/" />
+  <link rel="canonical" href="https://intekspace.com/" />
   <meta property="og:title" content="Intek Space" />
   <meta property="og:description" content="All great works begin with a philosophy on life. Engineering under stewardship—the death-to-life breathe held in balance." />
   <meta property="og:type" content="website" />
@@ -17,21 +16,130 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://intekspace.com/assets/og/og-home.jpg?v=20260802" />
-<script src="analytics-config.js"></script>
+  <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/site-theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/intek.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0f14',
+            parchment: '#e8e4d9',
+            mark: '#0ea5e9',
+            hive: '#c4a35a',
+            leaf: '#6b8f71',
+            mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #0a0f14;
+      color: #e8e4d9;
+      min-height: 100vh;
+    }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .panel {
+      background: rgba(14, 20, 26, 0.85);
+      border: 1px solid rgba(196, 163, 90, 0.12);
+    }
+    .hero {
+      background:
+        radial-gradient(ellipse 80% 55% at 50% -10%, rgba(196, 163, 90, 0.11), transparent 55%),
+        radial-gradient(ellipse 45% 35% at 85% 40%, rgba(14, 165, 233, 0.06), transparent 50%),
+        linear-gradient(180deg, #0a0f14 0%, #0e1419 45%, #0a0f14 100%);
+    }
+    .rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent);
+    }
+    a.gloss {
+      color: #c4a35a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(196, 163, 90, 0.4);
+    }
+    a.gloss:hover { color: #e8e4d9; text-decoration-color: rgba(196, 163, 90, 0.8); }
+  
+    .is-nav-toggle {
+      display: none;
+      width: 2.5rem; height: 2.5rem;
+      align-items: center; justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(196,163,90,0.25);
+      background: transparent;
+      color: #e8e4d9;
+      cursor: pointer;
+    }
+    @media (max-width: 639px) {
+      .is-nav-toggle { display: inline-flex; }
+      .is-nav-desktop { display: none !important; }
+    }
+    #is-mobile-menu {
+      display: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(10,15,20,0.98);
+    }
+    #is-mobile-menu.open { display: block; }
+    #is-mobile-menu a {
+      display: block;
+      padding: 0.85rem 1.25rem;
+      color: #8b9aab;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.95rem;
+    }
+    #is-mobile-menu a:hover { color: #e8e4d9; background: rgba(196,163,90,0.08); }
 
+  </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col" data-page="home">
-  <div id="site-header"></div>
+<body class="antialiased">
+  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/85 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-3 min-w-0">
+        <div class="w-8 h-8 rounded-full border border-hive/35 flex items-center justify-center text-hive text-xs font-semibold tracking-widest shrink-0">IS</div>
+        <div class="min-w-0">
+          <div class="font-semibold tracking-tight text-parchment text-sm">Intek Space</div>
+          <div class="text-[10px] text-mist/70 uppercase tracking-wider">Engineering · Education · Continuity</div>
+        </div>
+      </a>
+      <nav class="is-nav-desktop flex flex-wrap justify-end gap-3 sm:gap-5 text-sm text-mist/75" aria-label="Primary">
+        <a href="philosophy.html" class="hover:text-parchment transition">Philosophy</a>
+        <a href="projects.html" class="hover:text-parchment transition hidden sm:inline">Projects</a>
+        <a href="education.html" class="hover:text-parchment transition text-mark">Education</a>
+        <a href="https://onemissionnetworkandinstitute.org/vision-load?site=intek" class="hover:text-parchment transition hidden lg:inline text-hive/90">Vision</a>
+        <a href="hive-king.html" class="hover:text-parchment transition hidden md:inline">Hive King</a>
+        <a href="#contact" class="hover:text-parchment transition">Contact</a>
+      </nav>
 
-<!-- Hero -->
-  <section class="hero-wash border-b border-white/5">
+      <button type="button" id="is-nav-toggle" class="is-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="is-mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="is-mobile-menu">
+      <a href="philosophy.html">Philosophy</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="https://onemissionnetworkandinstitute.org/vision-load?site=intek">Vision · education &amp; project success</a>
+      <a href="hive-king.html">Hive King</a>
+      <a href="store.html">Store</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero border-b border-white/5">
     <div class="max-w-4xl mx-auto px-5 pt-16 md:pt-24 pb-16 md:pb-20">
       <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-5">Intek Space · Intek Inc.</p>
       <h1 class="font-display text-4xl md:text-6xl font-semibold tracking-tight text-parchment leading-[1.08] max-w-3xl">
@@ -50,9 +158,10 @@
         Engineering that stays. Space for the long build.
       </p>
       <div class="mt-10 flex flex-wrap gap-3">
-        <a href="launch.html" class="btn-gold-soft">Launch Builder AI</a>
-        <a href="philosophy.html" class="btn-ghost">Philosophy</a>
-        <a href="education.html" class="btn-ghost">Education</a>
+        <a href="philosophy.html" class="px-5 py-2.5 rounded-full bg-hive/15 border border-hive/40 text-hive text-sm font-medium hover:bg-hive/25 transition">Philosophy &amp; glossary</a>
+        <a href="projects.html" class="px-5 py-2.5 rounded-full border border-white/12 text-mist text-sm hover:border-white/25 hover:text-parchment transition">Projects</a>
+        <a href="education.html" class="px-5 py-2.5 rounded-full border border-white/12 text-mist text-sm hover:border-white/25 hover:text-parchment transition">Education Exchange</a>
+        <a href="https://onemissionnetworkandinstitute.org/vision-load?site=intek" class="px-5 py-2.5 rounded-full border border-mark/30 text-mark text-sm hover:bg-mark/10 transition">OMNI Vision · imagine success</a>
       </div>
     </div>
   </section>
@@ -61,9 +170,9 @@
   <section id="philosophy" class="max-w-4xl mx-auto px-5 py-14 md:py-16">
     <div class="flex flex-wrap items-baseline justify-between gap-3 mb-6">
       <h2 class="font-display text-3xl text-parchment">Philosophy</h2>
-      <a class="gloss text-sm" href="philosophy.html">Full writeup & glossary →</a>
+      <a class="gloss text-sm" href="philosophy.html">Full writeup &amp; glossary →</a>
     </div>
-    <div class="panel rounded-2xl p-6 md:p-8 space-y-5 text-mist/90 leading-relaxed max-w-3xl">
+    <div class="space-y-5 text-mist/90 leading-relaxed max-w-2xl">
       <p>
         Most products begin with a market gap, a trend, or a clever mechanism.
         We begin with a <a class="gloss" href="philosophy.html#philosophy-on-life"><strong class="font-medium">philosophy of life</strong></a>.
@@ -78,7 +187,7 @@
         Faith in the Creator keeps this from sealing inside survival alone. Technology is placed
         <em>second</em>: useful, honest, refused where it would lie or harm.
       </p>
-      <p class="text-sm text-mist/70 border-l-2 border-hive/50 pl-4">
+      <p class="text-sm text-mist/70 border-l-2 border-hive/40 pl-4">
         Website claims must match <a class="gloss" href="philosophy.html#refused-lists">refused lists</a> and safety boundaries (no drain discharge, no human-food claims from uncontrolled waste).
         Philosophy on this homepage is a <strong class="text-parchment font-medium">control on marketing</strong>, not decoration.
       </p>
@@ -86,54 +195,18 @@
   </section>
 
   <!-- Goal -->
-  <section id="goal" class="border-y band">
+  <section id="goal" class="border-y border-white/5 bg-black/25">
     <div class="max-w-4xl mx-auto px-5 py-14">
-      <h2 class="font-display text-3xl text-parchment mb-2">Standing goal</h2>
-      <p class="text-sm text-mist/70 max-w-2xl mb-5 leading-relaxed">
-        Under One Mission the order of work is fixed. Philosophy is a control on marketing — not decoration.
+      <h2 class="font-display text-3xl text-parchment mb-4">Standing goal</h2>
+      <p class="text-lg text-mist max-w-2xl leading-relaxed">
+        Design <a class="gloss" href="philosophy.html#conversion-system">conversion systems</a> that make <strong class="text-parchment font-medium">land and energy costs visible</strong>
+        across species, so intelligence can advance without driving extinction:
+        the <a class="gloss" href="philosophy.html#death-to-life-breathe">death-to-life breathe</a> held in balance.
       </p>
-      <div class="panel rounded-2xl p-4 md:p-5 max-w-xl mb-8">
-        <div class="om-order">
-          <div class="om-order__row">
-            <span class="om-order__mark om-order__mark--goal" aria-hidden="true"></span>
-            <span><strong>Goal</strong> — <a href="omnibot.html">OMNIbot</a> · continuity of presence</span>
-          </div>
-          <div class="om-order__row">
-            <span class="om-order__mark om-order__mark--goals" aria-hidden="true"></span>
-            <span><strong>Other goals</strong> — <a href="projects.html">projects</a> · conversion instruments</span>
-          </div>
-          <div class="om-order__row">
-            <span class="om-order__mark om-order__mark--obj" aria-hidden="true"></span>
-            <span><strong>Objectives</strong> — <a href="education.html">education</a> · OMNI Videos · evidence along the path</span>
-          </div>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-2 gap-4 max-w-4xl">
-        <a href="omnibot.html" class="panel rounded-2xl p-6 md:p-8 block hover:border-hive/40 transition group">
-          <div class="flex flex-wrap items-center gap-2 mb-3">
-            <span class="text-[10px] uppercase tracking-[0.18em] text-void bg-gradient-to-r from-hive to-mark px-2.5 py-1 rounded-full font-semibold">Primary goal</span>
-            <span class="om-pole om-pole--community">Community · high-tech</span>
-          </div>
-          <h3 class="font-display text-2xl md:text-3xl text-parchment group-hover:text-hive transition-colors">OMNIbot</h3>
-          <p class="mt-3 text-sm text-mist/90 leading-relaxed">
-            Childhood robot · mind-meld goal. Wearable and mergeable tech so presence can outlast the body.
-            First: next Tesla as mobile command. Last: last biological cell.
-          </p>
-          <p class="mt-4 text-sm font-medium text-hive">Open the goal →</p>
-        </a>
-        <div class="panel rounded-2xl p-6 md:p-8">
-          <p class="text-[10px] uppercase tracking-[0.18em] text-mist/50 mb-3">Philosophy constraint</p>
-          <p class="text-base text-mist leading-relaxed">
-            Design <a class="gloss" href="philosophy.html#conversion-system">conversion systems</a> that make
-            <strong class="text-parchment font-medium">land and energy costs visible</strong>
-            across species, so intelligence can advance without driving extinction:
-            the <a class="gloss" href="philosophy.html#death-to-life-breathe">death-to-life breathe</a> held in balance.
-          </p>
-          <p class="mt-4 text-sm text-mist/70 leading-relaxed">
-            Macro systems down to biological scale — where energy and matter sustain people, gardens, and households.
-          </p>
-        </div>
-      </div>
+      <p class="mt-4 text-sm text-mist/75 max-w-2xl">
+        We work the span from macro electrical and mechanical systems down toward biological scale—
+        where energy and matter actually sustain living people, gardens, and households.
+      </p>
     </div>
   </section>
 
@@ -167,17 +240,17 @@
     <p class="text-sm text-mist/90 max-w-2xl leading-relaxed italic font-display text-lg text-parchment/90">
       We site with sector overlays, improve with DMAIC, and ship twin extremes—so advancement stays rapid and the breathe stays honest.
     </p>
-    <div class="mt-8 panel rounded-2xl p-5 md:p-6 text-sm text-mist/85 space-y-2.5">
-      <p><strong class="text-hive">D — Define</strong> · <a class="gloss" href="philosophy.html#land-per-life">land-per-life</a> and conversion honesty; refusals up front; site constraints enter before any BOM.</p>
-      <p><strong class="text-hive">M — Measure</strong> · breathe metrics (intake, convert, output, residual); land proxy; zone + sector tags—not only lab data.</p>
-      <p><strong class="text-hive">A — Analyze</strong> · overlay composites; sector failures (odor, splash to drain) as real as sensor faults.</p>
-      <p><strong class="text-hive">I — Improve</strong> · move hardware only inside safe intersections; twin extremes; publish refused placements.</p>
-      <p><strong class="text-hive">C — Control</strong> · install packs require overlay + zone plan + breathe datasheet; no scale-up until measures survive real sectors.</p>
+    <div class="mt-8 panel rounded-2xl p-5 text-sm text-mist/85 space-y-2">
+      <p><strong class="text-parchment">D — Define</strong> · <a class="gloss" href="philosophy.html#land-per-life">land-per-life</a> and conversion honesty; refusals up front; site constraints enter before any BOM.</p>
+      <p><strong class="text-parchment">M — Measure</strong> · breathe metrics (intake, convert, output, residual); land proxy; zone + sector tags—not only lab data.</p>
+      <p><strong class="text-parchment">A — Analyze</strong> · overlay composites; sector failures (odor, splash to drain) as real as sensor faults.</p>
+      <p><strong class="text-parchment">I — Improve</strong> · move hardware only inside safe intersections; twin extremes; publish refused placements.</p>
+      <p><strong class="text-parchment">C — Control</strong> · install packs require overlay + zone plan + breathe datasheet; no scale-up until measures survive real sectors.</p>
     </div>
   </section>
 
   <!-- Density -->
-  <section id="density" class="border-y band">
+  <section id="density" class="border-y border-white/5 bg-black/25">
     <div class="max-w-4xl mx-auto px-5 py-14">
       <h2 class="font-display text-3xl text-parchment mb-3"><a class="gloss" href="philosophy.html#twin-extremes">Twin extremes</a></h2>
       <p class="text-sm text-mist/80 max-w-2xl mb-8 leading-relaxed">
@@ -185,22 +258,20 @@
         <strong class="text-parchment font-medium">twin extremes</strong>—high-tech dense and low-tech deep—
         because the middle is already crowded and the answers for rapid, non-extinction advancement live at the poles.
       </p>
-      <div class="om-twins">
-        <div class="panel om-twins__pole om-twins__pole--community rounded-2xl p-6">
-          <div class="mb-3"><span class="om-pole om-pole--community">Community · high-tech</span></div>
-          <h3 class="font-semibold text-mark mb-2"><a class="gloss" href="philosophy.html#community-density">High-tech density</a></h3>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold text-mark mb-2"><a class="gloss" href="philosophy.html#community-density">Community · high-tech density</a></h3>
           <p class="text-sm text-mist/85 leading-relaxed">
             Automated control limits, shared infrastructure, dense practice—still bound by drain interlocks,
-            seals, and honest energy accounting. OMNIbot lives here as instrument.
+            seals, and honest energy accounting.
           </p>
         </div>
-        <div class="panel om-twins__pole om-twins__pole--farmer rounded-2xl p-6">
-          <div class="mb-3"><span class="om-pole om-pole--farmer">Farmer · deep field</span></div>
-          <h3 class="font-semibold text-hive mb-2"><a class="gloss" href="philosophy.html#farmer-density">Low-tech density</a></h3>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold text-leaf mb-2"><a class="gloss" href="philosophy.html#farmer-density">Farmer · low-tech density</a></h3>
           <p class="text-sm text-mist/85 leading-relaxed">
             Seasonal checklist control, deep field practice, less automation—same philosophy, same
             <a class="gloss" href="philosophy.html#refused-lists">refused lists</a>,
-            same requirement that measures survive real weather. Biology proliferates here.
+            same requirement that measures survive real weather.
           </p>
         </div>
       </div>
@@ -211,7 +282,7 @@
   <!-- Education + Projects -->
   <section id="work" class="max-w-4xl mx-auto px-5 py-14">
     <div class="flex flex-wrap items-baseline justify-between gap-3 mb-3">
-      <h2 class="font-display text-3xl text-parchment">Education & projects</h2>
+      <h2 class="font-display text-3xl text-parchment">Education &amp; projects</h2>
       <a class="gloss text-sm" href="projects.html">All projects →</a>
     </div>
     <p class="text-sm text-mist/80 max-w-2xl mb-8 leading-relaxed">
@@ -219,63 +290,42 @@
       Smaller kit tracks live under Education; substantial field projects sit peer to Hive King (real cost, sectors, proof).
     </p>
     <div class="grid sm:grid-cols-2 gap-4">
-      <a href="education.html" class="panel rounded-2xl p-6 block">
+      <a href="education.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
         <div class="text-xs text-mark uppercase tracking-wider mb-1">Education</div>
         <div class="font-semibold text-parchment mb-2">Education Exchange</div>
         <p class="text-sm text-mist/85 leading-relaxed">
           Kit tracks and project seats with video evidence of material use, function, energy conversion, and philosophy alignment.
         </p>
       </a>
-      <a href="hive-king.html" class="panel rounded-2xl p-6 block">
-        <div class="text-xs text-hive uppercase tracking-wider mb-1">Starship · R&D</div>
+      <a href="hive-king.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
+        <div class="text-xs text-hive uppercase tracking-wider mb-1">Starship · R&amp;D</div>
         <div class="font-semibold text-parchment mb-2">Hive King</div>
         <p class="text-sm text-mist/85 leading-relaxed">
           Flagship instrument for a living hive—vision at the door, sensing in the foundation, power from the sun. Not a default kit SKU.
         </p>
       </a>
-      <a href="yard-to-loop.html" class="panel rounded-2xl p-6 block">
+      <a href="yard-to-loop.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
         <div class="text-xs text-mark uppercase tracking-wider mb-1">Field project · substantial</div>
         <div class="font-semibold text-parchment mb-2">Yard-to-Loop</div>
         <p class="text-sm text-mist/85 leading-relaxed">
-          Yard biomass / insect conversion under sector overlays and DMAIC. Peer scope and cost to serious R&D—not a toy kit.
+          Yard biomass / insect conversion under sector overlays and DMAIC. Peer scope and cost to serious R&amp;D—not a toy kit.
         </p>
       </a>
-      <a href="poop-to-loop.html" class="panel rounded-2xl p-6 block">
+      <a href="poop-to-loop.html" class="panel rounded-2xl p-6 hover:border-hive/40 block transition">
         <div class="text-xs text-mark uppercase tracking-wider mb-1">Field project · substantial</div>
         <div class="font-semibold text-parchment mb-2">Poop-to-Loop</div>
         <p class="text-sm text-mist/85 leading-relaxed">
           Residual organic conversion under hard refusals. Same method stature as Yard-to-Loop; higher sector risk surface.
         </p>
       </a>
-      <a href="education-apply.html?track=wearable-low-tech" class="panel rounded-2xl p-6 block">
-        <div class="text-xs text-hive uppercase tracking-wider mb-1">Contribute & win</div>
-        <div class="font-semibold text-parchment mb-2">Wearable low tech</div>
-        <p class="text-sm text-mist/85 leading-relaxed">
-          How can I and AI educate this dumb animal? Plans exist—you contribute and win.
-        </p>
-      </a>
-      <a href="education-apply.html?track=omni-home" class="panel rounded-2xl p-6 block">
-        <div class="text-xs text-hive uppercase tracking-wider mb-1">Contribute & win</div>
-        <div class="font-semibold text-parchment mb-2">OMNI Home</div>
-        <p class="text-sm text-mist/85 leading-relaxed">
-          Personal, parental, professional, political, philosophical. Plans exist—you contribute and win.
-        </p>
-      </a>
-      <a href="education-apply.html?track=omnibot" class="panel rounded-2xl p-6 block">
-        <div class="text-xs text-hive uppercase tracking-wider mb-1">Contribute & win</div>
-        <div class="font-semibold text-parchment mb-2">OMNIbot</div>
-        <p class="text-sm text-mist/85 leading-relaxed">
-          Childhood robot · mind-meld goal. Wearable and mergeable continuity. First: Tesla mobile command. Last: last biological cell. Plans exist—you contribute and win.
-        </p>
-      </a>
     </div>
   </section>
 
-  <!-- Brand map -->
-  <section id="identity" class="border-y band-soft">
+  <!-- Brand map (kept, quieter) -->
+  <section id="identity" class="border-y border-white/5 bg-black/20">
     <div class="max-w-4xl mx-auto px-5 py-12">
       <h2 class="font-display text-2xl text-parchment mb-4">Sister brands</h2>
-      <div class="panel rounded-2xl p-5 md:p-6 overflow-x-auto">
+      <div class="overflow-x-auto">
         <table class="w-full text-sm text-left">
           <thead class="text-mist/50 border-b border-white/10 text-xs uppercase tracking-wider">
             <tr>
@@ -314,44 +364,88 @@
   <section id="network" class="max-w-4xl mx-auto px-5 py-12">
     <h2 class="font-display text-2xl text-parchment mb-6">Network</h2>
     <div class="grid sm:grid-cols-2 gap-3">
-      <a href="https://onemissionnetworkandinstitute.org/?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=home_network" class="panel rounded-xl px-5 py-4 block text-sm">
+      <a href="https://onemissionnetworkandinstitute.org/" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
         <span class="text-mist/50 text-xs uppercase tracking-wider">Sister</span>
-        <div class="text-parchment font-medium mt-0.5">One Mission Network & Institute</div>
+        <div class="text-parchment font-medium mt-0.5">One Mission Network &amp; Institute</div>
       </a>
-      <a href="https://instituteofmatureimagination.org/?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=home_network" class="panel rounded-xl px-5 py-4 block text-sm">
+      <a href="https://instituteofmatureimagination.org/" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
         <span class="text-mist/50 text-xs uppercase tracking-wider">Sister</span>
         <div class="text-parchment font-medium mt-0.5">Institute of Mature Imagination</div>
       </a>
-      <a href="https://x.com/omni_puzzler" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 block text-sm">
+      <a href="https://x.com/omni_puzzler" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
         <span class="text-mist/50 text-xs uppercase tracking-wider">Voice</span>
         <div class="text-parchment font-medium mt-0.5">@omni_puzzler on X</div>
       </a>
-      <a href="https://github.com/ThePuzzler-OMNI" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 block text-sm">
+      <a href="https://github.com/ThePuzzler-OMNI" target="_blank" rel="noopener" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
         <span class="text-mist/50 text-xs uppercase tracking-wider">Code</span>
         <div class="text-parchment font-medium mt-0.5">ThePuzzler-OMNI on GitHub</div>
       </a>
     </div>
   </section>
 
-  <section id="contact" class="border-t border-white/5 hero-wash">
+  <section id="contact" class="border-t border-white/5 hero">
     <div class="max-w-4xl mx-auto px-5 py-14">
       <h2 class="font-display text-3xl text-parchment mb-3">Contact</h2>
       <p class="text-mist/85 mb-6 max-w-lg text-sm leading-relaxed">
         Work mail preferred. Serious collaboration and education applications welcome.
         Philosophy is the door; we do not sell peace as a SKU.
       </p>
-      <div class="panel rounded-2xl p-6 space-y-2 text-sm text-mist/90 max-w-xl">
+      <div class="panel rounded-2xl p-6 space-y-2 text-sm text-mist/90">
         <div><span class="text-mist/50">Work:</span> <a class="text-hive hover:underline" href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a></div>
         <div><span class="text-mist/50">Legacy:</span> <span class="text-parchment/80">tharpster@intekflow.com</span></div>
         <div><span class="text-mist/50">X:</span> <a class="text-hive hover:underline" href="https://x.com/omni_puzzler" target="_blank" rel="noopener">@omni_puzzler</a></div>
-        <div class="pt-2"><a href="education-apply.html" class="text-hive hover:underline">Apply — Education Exchange →</a></div>
+        <div class="pt-2"><a href="education-apply.html" class="text-mark hover:underline">Apply — Education Exchange →</a></div>
       </div>
     </div>
   </section>
 
-  <div id="site-footer"></div>
-<script src="js/site-chrome.js"></script>
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-4xl mx-auto px-5 space-y-4 text-xs text-mist/45">
+      <div class="flex flex-col sm:flex-row justify-between gap-2">
+        <div>© <span id="y"></span> Intek Space / Intek Inc. · intekspace.com</div>
+        <div class="flex flex-wrap gap-4">
+          <a href="philosophy.html" class="hover:text-mist">Philosophy</a>
+          <a href="projects.html" class="hover:text-mist">Projects</a>
+          <a href="education.html" class="hover:text-mist">Education</a>
+          <a href="hive-king.html" class="hover:text-mist">Hive King</a>
+          <a href="https://onemissionnetworkandinstitute.org/" class="hover:text-mist">One Mission</a>
+        </div>
+      </div>
+      <p id="privacy" class="leading-relaxed max-w-3xl">
+        <strong class="text-mist/60 font-medium">Privacy &amp; analytics.</strong>
+        This site uses Google Analytics 4 for traffic (pages, approximate location/device, referrals).
+        We do not use this tag to collect names, emails, or phone numbers from forms.
+        See
+        <a class="text-hive/80 hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google’s Privacy Policy</a>.
+        Contact:
+        <a class="text-hive/80 hover:underline" href="mailto:tharpster@intekspace.com">tharpster@intekspace.com</a>.
+      </p>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('is-nav-toggle');
+      var menu = document.getElementById('is-mobile-menu');
+      if (!btn || !menu) return;
+      function setOpen(o) {
+        menu.classList.toggle('open', o);
+        btn.setAttribute('aria-expanded', o ? 'true' : 'false');
+      }
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        setOpen(!menu.classList.contains('open'));
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(false); });
+      });
+    })();
+  </script>
+
+<script src="js/site-chrome.js" defer></script>
 </body>
 </html>

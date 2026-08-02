@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Poop-to-Loop · Intek Space</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poop-to-Loop · Intek Space</title>
   <meta name="description" content="Poop-to-Loop — substantial residual conversion project under hard refusals. Death-to-life breathe, sector overlays. Intek Space." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://intekspace.com/poop-to-loop" />
-    <meta property="og:title" content="Poop-to-Loop · Intek Space" />
+  <meta property="og:title" content="Poop-to-Loop · Intek Space" />
   <meta property="og:description" content="Poop-to-Loop - substantial residual conversion project under hard refusals. Death-to-life breathe, sector overlays. Intek Space." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://intekspace.com/poop-to-loop" />
@@ -17,20 +16,44 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://intekspace.com/assets/og/og-poop-to-loop.jpg?v=20260802" />
-<script src="analytics-config.js"></script>
+  <script src="analytics-config.js"></script>
   <script src="analytics.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="js/site-theme.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/intek.css" />
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#0a0f14', parchment: '#e8e4d9', mark: '#0ea5e9', hive: '#c4a35a', leaf: '#6b8f71', mist: '#8b9aab' },
+          fontFamily: { display: ['"Cormorant Garamond"', 'Georgia', 'serif'], sans: ['"DM Sans"', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0a0f14; color: #e8e4d9; min-height: 100vh; }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .panel { background: rgba(14, 20, 26, 0.85); border: 1px solid rgba(196, 163, 90, 0.12); }
+    .hero {
+      background:
+        radial-gradient(ellipse 70% 50% at 55% 0%, rgba(196, 163, 90, 0.1), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 10% 60%, rgba(107, 143, 113, 0.08), transparent 45%),
+        linear-gradient(180deg, #0a0f14 0%, #0e1419 50%, #0a0f14 100%);
+    }
+    a.gloss { color: #c4a35a; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(196, 163, 90, 0.4); }
+    a.gloss:hover { color: #e8e4d9; }
+    .rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent); }
+  </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col" data-page="poop-to-loop">
-  <div id="site-header"></div>
+<body class="antialiased">
+  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/85 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="projects.html" class="text-sm text-mist hover:text-parchment">← Projects</a>
+      <a href="philosophy.html#poop-to-loop" class="text-xs text-hive hover:underline">Glossary</a>
+    </div>
+  </header>
 
-<section class="hero border-b border-white/5">
+  <section class="hero border-b border-white/5">
     <div class="max-w-4xl mx-auto px-5 pt-14 md:pt-20 pb-14">
       <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-4">Field project · substantial scope &amp; cost</p>
       <h1 class="font-display text-4xl md:text-6xl font-semibold text-parchment leading-tight">Poop-to-Loop</h1>
@@ -54,7 +77,7 @@
     </div>
   </section>
 
-  <main class="flex-1 w-full max-w-4xl mx-auto px-5 py-12 space-y-12">
+  <main class="max-w-4xl mx-auto px-5 py-12 space-y-12">
     <section>
       <h2 class="font-display text-2xl text-parchment mb-4">What it is</h2>
       <div class="grid md:grid-cols-2 gap-4 text-sm text-mist/90 leading-relaxed">
@@ -116,9 +139,16 @@
     </section>
   </main>
 
-  <div id="site-footer"></div>
-<script src="js/site-chrome.js"></script>
+  <footer class="border-t border-white/5 py-8 mt-8">
+    <div class="max-w-4xl mx-auto px-5 text-xs text-mist/45 flex justify-between">
+      <span>© <span id="y"></span> Intek Space · Poop-to-Loop</span>
+      <a href="projects.html" class="hover:text-mist">All projects</a>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
   <script src="js/site-config.js"></script>
   <script src="js/feedback-widget.js" defer></script>
+<script src="js/site-chrome.js" defer></script>
 </body>
 </html>

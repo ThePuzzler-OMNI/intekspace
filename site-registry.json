@@ -1,0 +1,107 @@
+{
+  "schema": "omni-public-web-registry/v1",
+  "brand": "intek-space",
+  "domain": "https://intekspace.com",
+  "og_dir": "assets/og",
+  "og_path_prefix": "/assets/og/",
+  "og_cache_bust": "20260802",
+  "theme": "intek-ink",
+  "chrome": {
+    "mark": "IS",
+    "home_href": "index.html",
+    "nav": [
+      { "href": "philosophy.html", "label": "Philosophy" },
+      { "href": "projects.html", "label": "Projects" },
+      { "href": "education.html", "label": "Education" },
+      { "href": "https://onemissionnetworkandinstitute.org/forge.html", "label": "Vision", "external": true },
+      { "href": "hive-king.html", "label": "Hive King" },
+      { "href": "https://onemissionnetworkandinstitute.org/contact.html", "label": "Contact", "external": true }
+    ],
+    "sister_links": [
+      { "href": "https://onemissionnetworkandinstitute.org/", "label": "One Mission" },
+      { "href": "https://instituteofmatureimagination.org/", "label": "IMI" }
+    ]
+  },
+  "pages": [
+    {
+      "id": "home",
+      "file": "index.html",
+      "path": "/",
+      "title": "Intek Space",
+      "subtitle": "Philosophy · Engineering · Education",
+      "description": "All great works begin with a philosophy on life. Engineering under stewardship.",
+      "og_slug": "home",
+      "public": true
+    },
+    {
+      "id": "philosophy",
+      "file": "philosophy.html",
+      "path": "/philosophy",
+      "title": "Philosophy",
+      "subtitle": "Stewardship and the long build",
+      "description": "Philosophy of Intek Space — death-to-life breathe held in balance.",
+      "og_slug": "philosophy",
+      "public": true
+    },
+    {
+      "id": "education",
+      "file": "education.html",
+      "path": "/education",
+      "title": "Education Exchange",
+      "subtitle": "Learn by building",
+      "description": "Education tracks under Intek Space.",
+      "og_slug": "education",
+      "public": true
+    },
+    {
+      "id": "projects",
+      "file": "projects.html",
+      "path": "/projects",
+      "title": "Projects",
+      "subtitle": "Engineering in the open",
+      "description": "Projects and conversion systems.",
+      "og_slug": "projects",
+      "public": true
+    },
+    {
+      "id": "hive-king",
+      "file": "hive-king.html",
+      "path": "/hive-king",
+      "title": "Hive King",
+      "subtitle": "Product line",
+      "description": "Hive King — Intek Space product narrative.",
+      "og_slug": "hive-king",
+      "public": true
+    },
+    {
+      "id": "education-apply",
+      "file": "education-apply.html",
+      "path": "/education-apply",
+      "title": "Apply · Education",
+      "subtitle": "Join a track",
+      "description": "Apply to Intek Space education exchange.",
+      "og_slug": "education-apply",
+      "public": true
+    },
+    {
+      "id": "poop-to-loop",
+      "file": "poop-to-loop.html",
+      "path": "/poop-to-loop",
+      "title": "Poop-to-Loop",
+      "subtitle": "Conversion systems",
+      "description": "Poop-to-Loop project page.",
+      "og_slug": "poop-to-loop",
+      "public": true
+    },
+    {
+      "id": "yard-to-loop",
+      "file": "yard-to-loop.html",
+      "path": "/yard-to-loop",
+      "title": "Yard-to-Loop",
+      "subtitle": "Conversion systems",
+      "description": "Yard-to-Loop project page.",
+      "og_slug": "yard-to-loop",
+      "public": true
+    }
+  ]
+}
