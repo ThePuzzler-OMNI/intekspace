@@ -62,10 +62,13 @@
       '<div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between gap-4">' +
       '<a href="' +
       esc(chrome.home_href || 'index.html') +
-      '" class="flex items-center gap-2 font-display text-lg text-parchment">' +
-      '<span class="w-8 h-8 rounded-lg bg-hive/20 text-hive text-xs font-bold flex items-center justify-center">' +
+      '" class="flex items-center gap-2.5 text-parchment min-w-0" title="Intek Inc. · Intek Space">' +
+      '<span class="w-8 h-8 shrink-0 rounded-lg bg-hive/20 text-hive text-xs font-bold flex items-center justify-center">' +
       esc(chrome.mark || 'IS') +
-      '</span><span>Intek Space</span></a>' +
+      '</span><span class="flex flex-col leading-tight min-w-0">' +
+      '<span class="font-display text-base sm:text-lg truncate">Intek Inc.</span>' +
+      '<span class="text-[10px] sm:text-[11px] text-mist font-sans tracking-wide">Intek Space</span>' +
+      '</span></a>' +
       '<nav class="hidden md:flex items-center gap-6">' +
       desktop +
       '</nav>' +
@@ -103,7 +106,7 @@
       '<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">' +
       '<div>© <span id="y">' +
       year() +
-      '</span> Intek Space</div>' +
+      '</span> Intek Inc. · Intek Space</div>' +
       '<div class="flex flex-wrap gap-x-2 gap-y-1">' +
       navBits +
       '</div></div>' +

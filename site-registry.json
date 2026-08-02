@@ -4,7 +4,7 @@
   "domain": "https://intekspace.com",
   "og_dir": "assets/og",
   "og_path_prefix": "/assets/og/",
-  "og_cache_bust": "20260802",
+  "og_cache_bust": "20260802d",
   "theme": "intek-ink",
   "chrome": {
     "mark": "IS",
@@ -27,8 +27,8 @@
       "id": "home",
       "file": "index.html",
       "path": "/",
-      "title": "Intek Space",
-      "subtitle": "Philosophy · Engineering · Education",
+      "title": "Intek Inc.",
+      "subtitle": "Intek Space · Philosophy · Engineering · Education",
       "description": "All great works begin with a philosophy on life. Engineering under stewardship.",
       "og_slug": "home",
       "public": true
@@ -38,7 +38,7 @@
       "file": "philosophy.html",
       "path": "/philosophy",
       "title": "Philosophy",
-      "subtitle": "Stewardship and the long build",
+      "subtitle": "Intek Inc. · Stewardship and the long build",
       "description": "Philosophy of Intek Space — death-to-life breathe held in balance.",
       "og_slug": "philosophy",
       "public": true
@@ -48,7 +48,7 @@
       "file": "education.html",
       "path": "/education",
       "title": "Education Exchange",
-      "subtitle": "Learn by building",
+      "subtitle": "Intek Inc. · Learn by building",
       "description": "Education tracks under Intek Space.",
       "og_slug": "education",
       "public": true
@@ -58,7 +58,7 @@
       "file": "projects.html",
       "path": "/projects",
       "title": "Projects",
-      "subtitle": "Engineering in the open",
+      "subtitle": "Intek Inc. · Engineering in the open",
       "description": "Projects and conversion systems.",
       "og_slug": "projects",
       "public": true
@@ -68,7 +68,7 @@
       "file": "hive-king.html",
       "path": "/hive-king",
       "title": "Hive King",
-      "subtitle": "Product line",
+      "subtitle": "Intek Inc. · Product line",
       "description": "Hive King — Intek Space product narrative.",
       "og_slug": "hive-king",
       "public": true
@@ -78,7 +78,7 @@
       "file": "education-apply.html",
       "path": "/education-apply",
       "title": "Apply · Education",
-      "subtitle": "Join a track",
+      "subtitle": "Intek Inc. · Join a track",
       "description": "Apply to Intek Space education exchange.",
       "og_slug": "education-apply",
       "public": true
@@ -88,7 +88,7 @@
       "file": "poop-to-loop.html",
       "path": "/poop-to-loop",
       "title": "Poop-to-Loop",
-      "subtitle": "Conversion systems",
+      "subtitle": "Intek Inc. · Conversion systems",
       "description": "Poop-to-Loop project page.",
       "og_slug": "poop-to-loop",
       "public": true
@@ -98,7 +98,7 @@
       "file": "yard-to-loop.html",
       "path": "/yard-to-loop",
       "title": "Yard-to-Loop",
-      "subtitle": "Conversion systems",
+      "subtitle": "Intek Inc. · Conversion systems",
       "description": "Yard-to-Loop project page.",
       "og_slug": "yard-to-loop",
       "public": true
