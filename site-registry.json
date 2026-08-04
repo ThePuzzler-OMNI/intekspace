@@ -21,7 +21,9 @@
     ],
     "sister_links": [
       { "href": "https://onemissionnetworkandinstitute.org/", "label": "One Mission" },
-      { "href": "https://instituteofmatureimagination.org/", "label": "IMI" }
+      { "href": "https://instituteofmatureimagination.org/", "label": "IMI" },
+      { "href": "https://onemissionfoundation.org/", "label": "Foundation" },
+      { "href": "https://omniexchange.org/", "label": "Exchange" }
     ]
   },
   "pages": [
