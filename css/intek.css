@@ -1,6 +1,8 @@
 /* Intek Space — site design system (all pages)
    Palette: deep navy blue + gold accent (brand lock)
    Atmosphere: IMI-like multi-radial void + frosted glass panels (2026-07-29) */
+/* Network template kit v1 · Q-NET-ADOPT-INTEK 2026-08-05
+   Hive family accents. Shell tokens match NETWORK_TEMPLATE_KIT. */
 :root {
   --ink: #070b14;
   --ink-mid: #0e1c36;
@@ -18,8 +20,15 @@
   --gold-glow: rgba(212, 176, 86, 0.2);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
-  --max: 56rem; /* max-w-4xl */
-  --header-h: 3.75rem;
+  /* Kit shells */
+  --page-max: 56rem;
+  --page-max-prose: 48rem;
+  --page-pad: 1.25rem;
+  --max: var(--page-max); /* legacy alias */
+  --header-h: 3.5rem;
+  --bp-md: 768px;
+  --z-header: 40;
+  --section-gap: 3rem;
   --glass-blur: 14px;
 }
 

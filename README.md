@@ -1,12 +1,27 @@
 # Intek Space
 
 **Domain:** https://intekspace.com  
-**Path on PC:** `sites/intekspace/`  
-**GitHub (when created):** `ThePuzzler-OMNI/intekspace`
+**Path on PC:** `product/_w2_push/intekspace/` (this tree)  
+**GitHub:** `ThePuzzler-OMNI/intekspace`
 
 ## What this is
 
 Public business front door for **Intek Inc.** engineering/manufacturing continuity. Replaces GoDaddy “Launching Soon” builder with real static HTML.
+
+## Network template kit (Q-NET-ADOPT-INTEK · 2026-08-05)
+
+Aligned to `product/docs/NETWORK_TEMPLATE_KIT_v1_2026-08-05.md`:
+
+| Rule | Intek |
+|------|--------|
+| `--page-max: 56rem` | `css/intek.css` tokens |
+| Explicit chrome CSS | `js/site-chrome.js` (not Tailwind-only hamburger) |
+| Desktop hamburger always on | yes |
+| Sisters omit self | registry + runtime filter |
+| Mount | `<header>`/`<footer>` **or** `#site-header` / `#site-footer` |
+| Accent | hive gold (not Foundation apple) |
+
+Smoke: https://intekspace.com/ · desktop hamburger · Escape closes menu · footer sisters = OM · IMI · Foundation · Exchange (no Intek self).
 
 ## Grok web cook (preferred for public HTML)
 
