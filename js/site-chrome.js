@@ -80,13 +80,21 @@
     document.head.appendChild(s);
   }
 
+  function usableHref(href) {
+    var h = String(href || '').trim();
+    if (!h || /^about:blank$/i.test(h) || h === '#' || /^javascript:/i.test(h)) {
+      return '';
+    }
+    return h;
+  }
+
   function navLinks(chrome, mobile) {
     return (chrome.nav || [])
       .map(function (item) {
-        var ext = item.external ? ' target="_blank" rel="noopener"' : '';
-        return (
-          '<a href="' + esc(item.href) + '"' + ext + '>' + esc(item.label) + '</a>'
-        );
+        var href = usableHref(item && item.href);
+        if (!href) return '';
+        // Same-tab only. target=_blank was opening a dead about:blank tab.
+        return '<a href="' + esc(href) + '">' + esc(item.label) + '</a>';
       })
       .join('');
   }
@@ -121,22 +129,19 @@
   function buildFooter(chrome) {
     var sisters = filterSisters(chrome.sister_links)
       .map(function (s) {
-        return (
-          '<a href="' +
-          esc(s.href) +
-          '" target="_blank" rel="noopener">' +
-          esc(s.label) +
-          '</a>'
-        );
+        var href = usableHref(s.href);
+        if (!href) return '';
+        return '<a href="' + esc(href) + '">' + esc(s.label) + '</a>';
       })
+      .filter(Boolean)
       .join(' · ');
     var local = (chrome.nav || [])
       .filter(function (n) {
-        return !n.external;
+        return n && usableHref(n.href) && !/^https?:\/\//i.test(n.href);
       })
       .slice(0, 5)
       .map(function (n) {
-        return '<a href="' + esc(n.href) + '">' + esc(n.label) + '</a>';
+        return '<a href="' + esc(usableHref(n.href)) + '">' + esc(n.label) + '</a>';
       })
       .join(' · ');
     return (
@@ -268,15 +273,17 @@
         { href: 'projects.html', label: 'Projects' },
         { href: 'education.html', label: 'Education' },
         {
-          href: 'https://onemissionnetworkandinstitute.org/forge.html',
+          href: 'https://onemissionnetworkandinstitute.org/forge',
+          label: 'Forge',
+        },
+        {
+          href: 'https://onemissionnetworkandinstitute.org/vision-load?site=intek',
           label: 'Vision',
-          external: true,
         },
         { href: 'hive-king.html', label: 'Hive King' },
         {
-          href: 'https://onemissionnetworkandinstitute.org/contact.html',
+          href: 'https://onemissionnetworkandinstitute.org/contact',
           label: 'Contact',
-          external: true,
         },
       ],
       sister_links: [

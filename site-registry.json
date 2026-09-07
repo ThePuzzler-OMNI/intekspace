@@ -19,9 +19,10 @@
       { "href": "philosophy.html", "label": "Philosophy" },
       { "href": "projects.html", "label": "Projects" },
       { "href": "education.html", "label": "Education" },
-      { "href": "https://onemissionnetworkandinstitute.org/forge.html", "label": "Vision", "external": true },
+      { "href": "https://onemissionnetworkandinstitute.org/forge", "label": "Forge" },
+      { "href": "https://onemissionnetworkandinstitute.org/vision-load?site=intek", "label": "Vision" },
       { "href": "hive-king.html", "label": "Hive King" },
-      { "href": "https://onemissionnetworkandinstitute.org/contact.html", "label": "Contact", "external": true }
+      { "href": "https://onemissionnetworkandinstitute.org/contact", "label": "Contact" }
     ],
     "sister_links": [
       { "href": "https://onemissionnetworkandinstitute.org/", "label": "One Mission" },

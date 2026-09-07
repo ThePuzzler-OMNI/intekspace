@@ -8,6 +8,7 @@
     { "source": "/philosophy", "destination": "/philosophy.html" },
     { "source": "/projects", "destination": "/projects.html" },
     { "source": "/yard-to-loop", "destination": "/yard-to-loop.html" },
-    { "source": "/poop-to-loop", "destination": "/poop-to-loop.html" }
+    { "source": "/poop-to-loop", "destination": "/poop-to-loop.html" },
+    { "source": "/launch", "destination": "/launch.html" }
   ]
 }
