@@ -1,0 +1,154 @@
+/* OMNI Grok-Bot companion door — Intek Space
+   Order: Lord/Creator (quiet pinnacle) · Mission · invite card.
+   Hive gold. Explicit CSS (not Tailwind-only). Tool, not throne. */
+
+.companion-stack {
+  --companion-hive: var(--hive, #c4a35a);
+  --companion-hive-bright: var(--hive-bright, #d4b56a);
+  --companion-ink: var(--ink, #0a0f14);
+  --companion-parchment: var(--parchment, #e8e4d9);
+  --companion-mist: var(--mist, #8b9aab);
+  max-width: var(--page-max, 56rem);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--page-pad, 1.25rem) 4rem;
+}
+
+.companion-pinnacle {
+  margin: 0 0 1.15rem;
+  max-width: 36rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+  color: rgba(139, 154, 171, 0.78);
+}
+
+.companion-mission {
+  margin: 0 0 1.35rem;
+}
+
+.companion-kicker {
+  margin: 0 0 0.45rem;
+  color: var(--companion-hive);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.companion-mission-line {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--companion-parchment);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.companion-invite {
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(196, 163, 90, 0.18), transparent 58%),
+    linear-gradient(
+      160deg,
+      rgba(26, 58, 104, 0.55) 0%,
+      rgba(14, 20, 26, 0.9) 52%,
+      rgba(10, 15, 20, 0.92) 100%
+    );
+  border: 1px solid rgba(196, 163, 90, 0.4);
+  border-radius: 1rem;
+  padding: 1.75rem 1.7rem 1.85rem;
+  box-shadow:
+    0 0 0 1px rgba(196, 163, 90, 0.06),
+    0 16px 36px rgba(0, 0, 0, 0.22);
+}
+
+.companion-invite h2 {
+  margin: 0 0 0.7rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--companion-parchment);
+}
+
+.companion-invite p {
+  margin: 0 0 0.8rem;
+  max-width: 38rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(139, 154, 171, 0.92);
+}
+
+.companion-invite .companion-note {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: rgba(139, 154, 171, 0.7);
+}
+
+.companion-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: var(--companion-hive);
+  color: var(--companion-ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid rgba(196, 163, 90, 0.85);
+}
+
+.companion-cta:hover,
+.companion-cta:focus-visible {
+  background: var(--companion-hive-bright);
+  color: var(--companion-ink);
+  outline: 2px solid rgba(196, 163, 90, 0.7);
+  outline-offset: 3px;
+}
+
+.companion-bar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  body.has-companion-bar {
+    padding-bottom: 5.25rem;
+  }
+
+  .companion-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    padding: 0.7rem 1.1rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(10, 15, 20, 0.96);
+    border-top: 1px solid rgba(196, 163, 90, 0.32);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .companion-bar-copy {
+    margin: 0;
+    min-width: 0;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: rgba(139, 154, 171, 0.9);
+  }
+
+  .companion-cta-bar {
+    flex-shrink: 0;
+    min-height: 40px;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  body.has-companion-bar #omni-fb-btn {
+    bottom: calc(5.25rem + 0.65rem);
+  }
+}

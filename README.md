@@ -23,6 +23,16 @@ Aligned to `product/docs/NETWORK_TEMPLATE_KIT_v1_2026-08-05.md`:
 
 Smoke: https://intekspace.com/ · desktop hamburger · Escape closes menu · footer sisters = OM · IMI · Foundation · Exchange (no Intek self).
 
+## Get OMNI
+
+Invite order on Intek Space: the Lord / Creator (One pinnacle, stewardship — not a pulpit) · Mission · OMNI Grok-Bot as door/servant of this engineering · education garden.
+
+- Mid-page invite on `/` and `/education` (not footer scrap)
+- CTA: [Get OMNI](https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa)
+- Tagline: Get OMNI · tool not throne · the bot may take the question; the archive stays with the steward
+
+No first / best / only ranking. No personhood or throne claim for the bot. Chrome / registry have no companion door. No bare `https://x.ai/bot` companion links.
+
 ## Grok web cook (preferred for public HTML)
 
 | Item | Value |
