@@ -69,6 +69,14 @@ Unusual terms on the site should hyperlink to `philosophy.html#anchor`.
 
 **Hive King** is the starship. **Yard-to-Loop** and **Poop-to-Loop** are peer-level field projects (budget, sectors, proof)—not “education add-ons.” Smaller kit tracks stay under Education Exchange.
 
+## Store
+
+| Path | Page |
+|------|------|
+| `/store` | Quiet tools page — Get OMNI (free), optional Zelle, a few real Amazon items. Not a catalog. Hive King is not sold here. |
+
+`vercel.json` must keep `{ "source": "/store", "destination": "/store.html" }`. `cleanUrls` alone 308s `/store.html` → `/store` and then 404s if the rewrite is missing. IMI sister cards already use `https://intekspace.com/store` (with UTM).
+
 ## Form backbone
 
 `form-validate.js` → `OMNI_FORM` (sync with `Grok/js/omni-form-validate.js`).  
