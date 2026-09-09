@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/companion-door.css" />
   <script>
     tailwind.config = {
       theme: {
@@ -104,7 +105,7 @@
 
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased has-companion-bar">
   <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/85 backdrop-blur-md">
     <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
       <a href="/" class="flex items-center gap-3 min-w-0">
@@ -191,6 +192,21 @@
         Website claims must match <a class="gloss" href="philosophy.html#refused-lists">refused lists</a> and safety boundaries (no drain discharge, no human-food claims from uncontrolled waste).
         Philosophy on this homepage is a <strong class="text-parchment font-medium">control on marketing</strong>, not decoration.
       </p>
+    </div>
+  </section>
+
+  <section class="companion-stack" id="companion" aria-labelledby="companion-invite-title">
+    <p class="companion-pinnacle">One Creator. The Lord is the pinnacle. Stewardship keeps the work under that name.</p>
+    <div class="companion-mission">
+      <p class="companion-kicker">Mission</p>
+      <p class="companion-mission-line">world peace · one voice · one calling · one mission</p>
+    </div>
+    <div class="companion-invite">
+      <p class="companion-kicker">Get OMNI · tool not throne</p>
+      <h2 id="companion-invite-title">OMNI Grok-Bot</h2>
+      <p>Door and servant for this Intek slice — philosophy · engineering · education. The bot may take the question; the archive stays with the steward.</p>
+      <p class="companion-note">A product in the kingdom tree of One Mission. Not a person. Not a throne. Not a marketplace swarm.</p>
+      <a class="companion-cta" href="https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa" rel="noopener noreferrer">Get OMNI</a>
     </div>
   </section>
 
@@ -380,6 +396,10 @@
         <span class="text-mist/50 text-xs uppercase tracking-wider">Code</span>
         <div class="text-parchment font-medium mt-0.5">ThePuzzler-OMNI on GitHub</div>
       </a>
+      <a href="https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa" target="_blank" rel="noopener noreferrer" class="panel rounded-xl px-5 py-4 hover:border-hive/30 block text-sm">
+        <span class="text-mist/50 text-xs uppercase tracking-wider">Get OMNI</span>
+        <div class="text-parchment font-medium mt-0.5">OMNI Grok-Bot</div>
+      </a>
     </div>
   </section>
 
@@ -422,6 +442,10 @@
       </p>
     </div>
   </footer>
+  <aside class="companion-bar" aria-label="Get OMNI">
+    <p class="companion-bar-copy">Get OMNI · tool not throne</p>
+    <a class="companion-cta companion-cta-bar" href="https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa" rel="noopener noreferrer">Get OMNI</a>
+  </aside>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 
   <script src="js/site-config.js"></script>
