@@ -21,6 +21,7 @@
       { "href": "education.html", "label": "Education" },
       { "href": "https://onemissionnetworkandinstitute.org/forge.html", "label": "Vision", "external": true },
       { "href": "hive-king.html", "label": "Hive King" },
+      { "href": "store.html", "label": "Store" },
       { "href": "https://onemissionnetworkandinstitute.org/contact.html", "label": "Contact", "external": true }
     ],
     "sister_links": [
@@ -109,6 +110,16 @@
       "subtitle": "Conversion systems",
       "description": "Yard-to-Loop project page.",
       "og_slug": "yard-to-loop",
+      "public": true
+    },
+    {
+      "id": "store",
+      "file": "store.html",
+      "path": "/store",
+      "title": "Store",
+      "subtitle": "A few tools we use",
+      "description": "A few tools we use. Not a catalog. Tool, not throne.",
+      "og_slug": "home",
       "public": true
     }
   ]

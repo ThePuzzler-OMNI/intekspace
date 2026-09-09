@@ -273,6 +273,7 @@
           external: true,
         },
         { href: 'hive-king.html', label: 'Hive King' },
+        { href: 'store.html', label: 'Store' },
         {
           href: 'https://onemissionnetworkandinstitute.org/contact.html',
           label: 'Contact',
