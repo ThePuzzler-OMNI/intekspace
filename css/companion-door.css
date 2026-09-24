@@ -201,6 +201,12 @@
   min-width: 0;
 }
 
+@media (min-width: 640px) {
+  .companion-network-pair {
+    grid-column: 1 / -1;
+  }
+}
+
 .companion-bar {
   display: none;
 }
@@ -299,7 +305,7 @@
 /* Short landscape phones: one compact row so the bar does not cover the page. */
 @media (max-width: 767px) and (orientation: landscape) {
   body.has-companion-bar {
-    --companion-bar-space: 4.6rem;
+    --companion-bar-space: 5rem;
   }
 
   .companion-bar {
@@ -321,8 +327,8 @@
 
   .companion-cta-bar,
   .companion-mirror-bar {
-    min-height: 36px;
-    padding: 0.3rem 0.62rem;
-    font-size: 0.72rem;
+    min-height: 40px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
   }
 }
