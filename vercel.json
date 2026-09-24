@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/forge",
+      "destination": "https://onemissionnetworkandinstitute.org/forge.html?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=forge",
+      "permanent": true
+    },
+    {
+      "source": "/forge.html",
+      "destination": "https://onemissionnetworkandinstitute.org/forge.html?utm_source=intek&utm_medium=referral&utm_campaign=sister_network&utm_content=forge",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/education", "destination": "/education.html" },
     { "source": "/education-apply", "destination": "/education-apply.html" },
