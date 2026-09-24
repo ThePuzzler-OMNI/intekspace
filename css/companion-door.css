@@ -2,12 +2,22 @@
    Order: Lord/Creator (quiet pinnacle) · Mission · invite card.
    Hive gold. Explicit CSS (not Tailwind-only). Tool, not throne. */
 
-.companion-stack {
+.companion-stack,
+.companion-bar,
+.companion-network-pair {
   --companion-hive: var(--hive, #c4a35a);
   --companion-hive-bright: var(--hive-bright, #d4b56a);
   --companion-ink: var(--ink, #0a0f14);
   --companion-parchment: var(--parchment, #e8e4d9);
   --companion-mist: var(--mist, #8b9aab);
+  /* Steel-cyan secondary door. Independent of hive gold so Get OMNI stays primary. */
+  --companion-steel: #7dcfeb;
+  --companion-steel-bright: #e8f8fd;
+  --companion-steel-edge: rgba(125, 207, 235, 0.78);
+  --companion-steel-glow: rgba(125, 207, 235, 0.38);
+}
+
+.companion-stack {
   max-width: var(--page-max, 56rem);
   width: 100%;
   margin: 0 auto;
@@ -107,26 +117,112 @@
   outline-offset: 3px;
 }
 
+.companion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.55rem;
+  max-width: 100%;
+}
+
+.companion-mirror {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: rgba(10, 32, 42, 0.45);
+  color: var(--companion-steel, #7dcfeb);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid var(--companion-steel-edge, rgba(125, 207, 235, 0.78));
+  box-shadow:
+    0 0 0 1px rgba(125, 207, 235, 0.1),
+    0 0 16px var(--companion-steel-glow, rgba(125, 207, 235, 0.38));
+}
+
+.companion-mirror:hover,
+.companion-mirror:focus-visible {
+  color: var(--companion-steel-bright, #e8f8fd);
+  background: rgba(94, 190, 220, 0.16);
+  border-color: #c5eef8;
+  outline: 2px solid #9adff3;
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 1px rgba(183, 231, 246, 0.28),
+    0 0 22px rgba(125, 207, 235, 0.55);
+}
+
+.net-nav-desktop a.companion-mirror,
+#net-mobile-menu a.companion-mirror,
+#is-mobile-menu a.companion-mirror {
+  color: var(--companion-steel, #7dcfeb);
+}
+
+.net-nav-desktop a.companion-mirror:hover,
+.net-nav-desktop a.companion-mirror:focus-visible,
+#net-mobile-menu a.companion-mirror:hover,
+#net-mobile-menu a.companion-mirror:focus-visible,
+#is-mobile-menu a.companion-mirror:hover,
+#is-mobile-menu a.companion-mirror:focus-visible {
+  color: var(--companion-steel-bright, #e8f8fd);
+}
+
+.companion-mirror-nav {
+  min-height: 2.25rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  margin-left: 0.35rem;
+}
+
+#net-mobile-menu a.companion-mirror,
+#is-mobile-menu a.companion-mirror {
+  display: inline-flex;
+  width: auto;
+  margin: 0.35rem 1.25rem 0.85rem;
+  border-bottom: none;
+}
+
+.companion-network-pair {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.companion-network-pair > a.panel {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
 .companion-bar {
   display: none;
 }
 
 @media (max-width: 767px) {
   body.has-companion-bar {
-    padding-bottom: 5.25rem;
+    --companion-bar-space: 7.75rem;
+    padding-bottom: var(--companion-bar-space);
   }
 
   .companion-bar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: 0.5rem 0.75rem;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 30;
-    padding: 0.7rem 1.1rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    padding: 0.65rem 0.9rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
     background: rgba(10, 15, 20, 0.96);
     border-top: 1px solid rgba(196, 163, 90, 0.32);
     backdrop-filter: blur(12px);
@@ -135,20 +231,98 @@
 
   .companion-bar-copy {
     margin: 0;
+    flex: 1 1 8.5rem;
     min-width: 0;
     font-size: 0.75rem;
     line-height: 1.35;
     color: rgba(139, 154, 171, 0.9);
   }
 
-  .companion-cta-bar {
+  .companion-actions-bar {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+  }
+
+  .companion-cta-bar,
+  .companion-mirror-bar {
     flex-shrink: 0;
     min-height: 40px;
-    padding: 0.55rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .companion-mirror-bar:focus-visible {
+    outline-offset: 2px;
   }
 
   body.has-companion-bar #omni-fb-btn {
-    bottom: calc(5.25rem + 0.65rem);
+    bottom: calc(var(--companion-bar-space, 7.75rem) + 0.65rem);
+  }
+}
+
+/* Narrow portrait: keep both chips on one row under the line, still tappable. */
+@media (max-width: 420px) {
+  .companion-stack {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  .companion-invite {
+    padding: 1.15rem 0.95rem 1.25rem;
+  }
+
+  .companion-actions .companion-cta,
+  .companion-actions .companion-mirror {
+    min-height: 44px;
+    padding: 0.5rem 0.72rem;
+    font-size: 0.8rem;
+  }
+
+  body.has-companion-bar {
+    --companion-bar-space: 8.15rem;
+  }
+
+  .companion-bar-copy {
+    flex-basis: 100%;
+  }
+
+  .companion-actions-bar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .companion-network-pair > a.panel {
+    flex-basis: 8.5rem;
+  }
+}
+
+/* Short landscape phones: one compact row so the bar does not cover the page. */
+@media (max-width: 767px) and (orientation: landscape) {
+  body.has-companion-bar {
+    --companion-bar-space: 4.6rem;
+  }
+
+  .companion-bar {
+    flex-wrap: nowrap;
+    padding-top: 0.4rem;
+    padding-bottom: calc(0.4rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .companion-bar-copy {
+    flex: 1 1 auto;
+    font-size: 0.68rem;
+  }
+
+  .companion-actions-bar {
+    width: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .companion-cta-bar,
+  .companion-mirror-bar {
+    min-height: 36px;
+    padding: 0.3rem 0.62rem;
+    font-size: 0.72rem;
   }
 }
