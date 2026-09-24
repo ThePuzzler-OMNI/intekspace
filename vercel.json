@@ -4,6 +4,7 @@
   "rewrites": [
     { "source": "/education", "destination": "/education.html" },
     { "source": "/education-apply", "destination": "/education-apply.html" },
+    { "source": "/forge", "destination": "/forge.html" },
     { "source": "/hive-king", "destination": "/hive-king.html" },
     { "source": "/philosophy", "destination": "/philosophy.html" },
     { "source": "/projects", "destination": "/projects.html" },

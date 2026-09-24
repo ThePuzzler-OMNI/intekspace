@@ -19,6 +19,7 @@
       { "href": "philosophy.html", "label": "Philosophy" },
       { "href": "projects.html", "label": "Projects" },
       { "href": "education.html", "label": "Education" },
+      { "href": "forge.html", "label": "Forge" },
       { "href": "https://onemissionnetworkandinstitute.org/forge.html", "label": "Vision", "external": true },
       { "href": "hive-king.html", "label": "Hive King" },
       { "href": "https://onemissionnetworkandinstitute.org/contact.html", "label": "Contact", "external": true }
@@ -59,6 +60,16 @@
       "subtitle": "Learn by building",
       "description": "Education tracks under Intek Space.",
       "og_slug": "education",
+      "public": true
+    },
+    {
+      "id": "forge",
+      "file": "forge.html",
+      "path": "/forge",
+      "title": "The Forge",
+      "subtitle": "Five pillars in balance",
+      "description": "Public vision for The Forge — education and human organization as Physics, Faith, Family, Finance, and Philosophy.",
+      "og_slug": "forge",
       "public": true
     },
     {

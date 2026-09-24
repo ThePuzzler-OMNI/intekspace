@@ -267,6 +267,7 @@
         { href: 'philosophy.html', label: 'Philosophy' },
         { href: 'projects.html', label: 'Projects' },
         { href: 'education.html', label: 'Education' },
+        { href: 'forge.html', label: 'Forge' },
         {
           href: 'https://onemissionnetworkandinstitute.org/forge.html',
           label: 'Vision',
