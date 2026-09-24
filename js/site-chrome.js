@@ -245,6 +245,84 @@
     });
   }
 
+  var MIRROR_HREF = 'https://omni-mindmap.vercel.app/mirror/soul-time/?door=intek';
+  var MIRROR_TITLE = 'OMNI Mirror Soul-time — live geometry; member maps start fresh';
+
+  function ensureCompanionCss() {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var i = 0; i < links.length; i++) {
+      if ((links[i].getAttribute('href') || '').indexOf('companion-door.css') !== -1) return;
+    }
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/css/companion-door.css';
+    document.head.appendChild(link);
+  }
+
+  function isGetOmniLink(a) {
+    if (!a || a.classList.contains('companion-mirror')) return false;
+    if (a.classList.contains('companion-cta')) return true;
+    var label = (a.textContent || '').replace(/\s+/g, ' ').trim();
+    if (/^get omni$/i.test(label)) return true;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('x.ai/bot/') === -1) return false;
+    var bits = a.querySelectorAll('span, div, strong, p');
+    for (var i = 0; i < bits.length; i++) {
+      var t = (bits[i].textContent || '').replace(/\s+/g, ' ').trim();
+      if (/^get omni$/i.test(t)) return true;
+    }
+    return false;
+  }
+
+  function buildMirrorLink(extraClass) {
+    var m = document.createElement('a');
+    m.className = 'companion-mirror' + (extraClass ? ' ' + extraClass : '');
+    m.href = MIRROR_HREF;
+    m.target = '_blank';
+    m.rel = 'noopener noreferrer';
+    m.title = MIRROR_TITLE;
+    m.textContent = 'Mirror · Soul-time';
+    return m;
+  }
+
+  function ensureMirrorDoor() {
+    var anchors = document.querySelectorAll('a[href]');
+    var placed = false;
+    anchors.forEach(function (a) {
+      if (!isGetOmniLink(a)) return;
+      var parent = a.parentElement;
+      if (!parent || parent.querySelector('.companion-mirror')) return;
+      var extra = '';
+      if (a.classList.contains('companion-cta-bar')) extra = 'companion-mirror-bar';
+      else if (a.closest('nav, #net-mobile-menu, #is-mobile-menu')) extra = 'companion-mirror-nav';
+      var m = buildMirrorLink(extra);
+      if (a.classList.contains('panel')) {
+        var pair = document.createElement('div');
+        pair.className = 'companion-network-pair';
+        parent.insertBefore(pair, a);
+        pair.appendChild(a);
+        pair.appendChild(m);
+      } else if (
+        parent.classList.contains('companion-bar') ||
+        parent.classList.contains('companion-invite')
+      ) {
+        var actions = document.createElement('div');
+        actions.className =
+          'companion-actions' +
+          (parent.classList.contains('companion-bar') ? ' companion-actions-bar' : '');
+        parent.insertBefore(actions, a);
+        actions.appendChild(a);
+        actions.appendChild(m);
+      } else if (a.nextSibling) {
+        parent.insertBefore(m, a.nextSibling);
+      } else {
+        parent.appendChild(m);
+      }
+      placed = true;
+    });
+    if (placed) ensureCompanionCss();
+  }
+
   function apply(reg) {
     ensureCss();
     var chrome = reg.chrome || {};
@@ -254,6 +332,7 @@
     mountHeader(buildHeader(chrome));
     bindMobile();
     mountFooter(buildFooter(chrome));
+    ensureMirrorDoor();
   }
 
   var FALLBACK_CHROME = {
@@ -290,6 +369,7 @@
   };
 
   function boot() {
+    try { ensureMirrorDoor(); } catch (e) {}
     if (document.documentElement.getAttribute('data-site-chrome') === 'skip') return;
     fetch(REG_URL, { credentials: 'same-origin' })
       .then(function (r) {
