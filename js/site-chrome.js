@@ -245,7 +245,7 @@
     });
   }
 
-  var MIRROR_HREF = 'https://omni-mindmap.vercel.app/mirror/soul-time/?door=intek';
+  var MIRROR_HREF = '/forge/mirror';
   var MIRROR_TITLE = 'OMNI Mirror Soul-time — live geometry; member maps start fresh';
 
   function ensureCompanionCss() {

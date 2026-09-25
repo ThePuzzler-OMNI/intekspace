@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Soul-time Mirror (beta) | Intek Space Forge</title>
+<meta name="description" content="An interactive beta 3D pyramid that shows example soul-vector waves, between-user wave interference, and a shared mission bubble over time, using placeholder data only." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://intekspace.com/forge/mirror" />
+<meta property="og:title" content="Soul-time Mirror (beta) | Intek Space Forge" />
+<meta property="og:description" content="An interactive beta 3D pyramid that shows example soul-vector waves, between-user wave interference, and a shared mission bubble over time, using placeholder data only." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://intekspace.com/forge/mirror" />
+<style>
+ :root {
+ --navy: #0b1220;
+ --navy-2: #121c2f;
+ --navy-3: #1a2740;
+ --gold: #d4af37;
+ --gold-dim: #a88b2a;
+ --gold-soft: rgba(212, 175, 55, 0.18);
+ --ink: #e8eef8;
+ --muted: #9aa8bf;
+ --rim: #c45c5c;
+ --virtue: #6ec6a0;
+ --wave: #5b9fd4;
+ --octave: #c9a0e8;
+ --pair-b: #e8a0c0;
+ --border: rgba(212, 175, 55, 0.35);
+ --warn: #e8b86d;
+ --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+ }
+ * { box-sizing: border-box; }
+ html, body {
+ margin: 0; padding: 0;
+ background: var(--navy);
+ color: var(--ink);
+ font-family: var(--sans);
+ min-height: 100%;
+ min-height: 100dvh;
+ overflow-x: hidden;
+ }
+ body {
+ background:
+ radial-gradient(ellipse at 50% 0%, #16233a 0%, var(--navy) 55%),
+ var(--navy);
+ }
+ .wrap {
+ max-width: 1100px;
+ margin: 0 auto;
+ padding: 1rem 0.85rem 1.5rem;
+ display: flex;
+ flex-direction: column;
+ gap: 0.75rem;
+ min-height: 100dvh;
+ }
+ header {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: baseline;
+ justify-content: space-between;
+ gap: 0.55rem;
+ border-bottom: 1px solid var(--border);
+ padding-bottom: 0.65rem;
+ }
+ h1 {
+ margin: 0;
+ font-size: 1.15rem;
+ font-weight: 650;
+ letter-spacing: 0.02em;
+ color: var(--gold);
+ }
+ .sub { color: var(--muted); font-size: 0.78rem; margin-top: 0.2rem; }
+ .chip-row { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+ .chip {
+ font-size: 0.68rem;
+ padding: 0.22rem 0.5rem;
+ border-radius: 999px;
+ border: 1px solid var(--border);
+ background: var(--navy-2);
+ color: var(--muted);
+ }
+ .chip.warn { color: var(--warn); border-color: rgba(232,184,109,0.45); }
+ .chip.lock { color: var(--virtue); border-color: rgba(110,198,160,0.4); }
+ .chip.gold { color: var(--gold); }
+ .stage {
+ position: relative;
+ flex: 1;
+ min-height: 380px;
+ background: var(--navy-2);
+ border: 1px solid var(--border);
+ border-radius: 14px;
+ overflow: hidden;
+ }
+ #c3d {
+ display: block;
+ width: 100%;
+ height: 100%;
+ min-height: 380px;
+ touch-action: none;
+ cursor: grab;
+ }
+ #c3d:active { cursor: grabbing; }
+ .hud {
+ position: absolute;
+ left: 0.55rem; top: 0.55rem; right: 0.55rem;
+ display: flex; flex-wrap: wrap; gap: 0.35rem;
+ pointer-events: none;
+ z-index: 2;
+ }
+ .hud .chip { pointer-events: auto; background: rgba(11,18,32,0.82); backdrop-filter: blur(4px); }
+ #beamChip.on, #pairRead.on { color: #fff8d0; border-color: var(--gold); box-shadow: 0 0 12px rgba(212,175,55,0.35); }
+ #pairRead.cancel { color: #f0b0b0; border-color: rgba(196,92,92,0.55); }
+ .controls {
+ background: var(--navy-2);
+ border: 1px solid var(--border);
+ border-radius: 14px;
+ padding: 0.75rem 0.85rem;
+ display: grid;
+ gap: 0.65rem;
+ }
+ .row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; }
+ .row label { font-size: 0.78rem; color: var(--muted); min-width: 5.5rem; }
+ button.ctrl {
+ appearance: none; border: 1px solid var(--border);
+ background: var(--navy-3); color: var(--gold);
+ font: inherit; font-size: 0.82rem; font-weight: 600;
+ padding: 0.4rem 0.75rem; border-radius: 999px; cursor: pointer;
+ }
+ button.ctrl[aria-pressed="true"] { background: var(--gold-soft); }
+ button.ctrl:active { transform: scale(0.98); }
+ input[type="range"] { flex: 1; min-width: 120px; accent-color: var(--gold); }
+ select.ctrl {
+ background: var(--navy-3); color: var(--ink);
+ border: 1px solid var(--border); border-radius: 8px;
+ padding: 0.35rem 0.5rem; font: inherit; font-size: 0.82rem;
+ }
+ .readout { font-variant-numeric: tabular-nums; font-size: 0.78rem; color: var(--gold); min-width: 4.5rem; }
+ .legend { display: flex; flex-wrap: wrap; gap: 0.45rem 0.75rem; font-size: 0.72rem; color: var(--muted); }
+ .legend span::before {
+ content: ""; display: inline-block; width: 0.55rem; height: 0.55rem;
+ border-radius: 50%; margin-right: 0.3rem; vertical-align: -0.05rem;
+ }
+ .lg-soul::before { background: var(--gold); }
+ .lg-wave::before { background: var(--wave); }
+ .lg-oct::before { background: var(--octave); }
+ .lg-rim::before { background: var(--rim); }
+ .lg-virtue::before { background: var(--virtue); }
+ .lg-cloud::before { background: #8ab4d9; }
+ .lg-pair-a::before { background: var(--wave); }
+ .lg-pair-b::before { background: var(--pair-b); }
+ .example-wall {
+ font-size: 0.78rem; line-height: 1.4; color: var(--muted);
+ border-left: 3px solid var(--warn); padding-left: 0.65rem;
+ }
+ .example-wall strong { color: var(--warn); }
+ .pair-laws {
+ font-size: 0.75rem; line-height: 1.45; color: var(--muted);
+ background: var(--navy-2); border: 1px solid var(--border);
+ border-radius: 10px; padding: 0.55rem 0.75rem;
+ }
+ .pair-laws strong { color: var(--virtue); }
+ footer {
+ margin-top: 0.25rem; padding-top: 0.55rem;
+ border-top: 1px solid var(--border);
+ font-size: 0.72rem; color: var(--muted); line-height: 1.45;
+ }
+ footer .sep { color: var(--gold-dim); margin: 0 0.3rem; }
+ footer .truce { color: var(--ink); }
+ @media (max-width: 640px) {
+ h1 { font-size: 1.02rem; }
+ .stage, #c3d { min-height: 320px; }
+ .row label { min-width: 4.2rem; font-size: 0.72rem; }
+ }
+ @media (orientation: landscape) and (max-height: 520px) {
+ .wrap { padding: 0.45rem 0.55rem 0.65rem; gap: 0.4rem; }
+ .stage, #c3d { min-height: 220px; }
+ .example-wall, .pair-laws { display: none; }
+ }
+
+ .lg-mission::before { background: #f0e6a8; box-shadow: 0 0 6px rgba(240,230,168,0.6); }
+ .mission-bubble {
+ font-size: 0.75rem; line-height: 1.45; color: var(--muted);
+ background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(26,39,64,0.9));
+ border: 1px solid var(--border);
+ border-radius: 10px; padding: 0.55rem 0.75rem;
+ }
+ .mission-bubble strong { color: var(--gold); }
+ #missionRead.on { color: #fff8d0; border-color: var(--gold); }
+
+ .view-pref {
+ margin: 0.65rem 0 0;
+ font-size: 0.8rem; line-height: 1.5; color: var(--muted);
+ background: var(--navy-3);
+ border: 1px solid var(--border);
+ border-radius: 10px; padding: 0.65rem 0.85rem;
+ }
+ .view-pref strong { color: var(--gold); }
+ .view-pref .modes { color: var(--ink); margin-top: 0.35rem; }
+ .view-pref .thanks { color: var(--virtue); margin-top: 0.4rem; }
+ #viewChip.invert { color: #fff8d0; border-color: var(--gold); }
+</style>
+</head>
+<body>
+ <div class="wrap">
+ <header>
+ <div>
+ <h1>OMNI Mirror | Soul-time (beta)</h1>
+ <div class="sub">n-gonal pyramid | soul-vector radials | active wave plots | pairwise interference | mission bubble</div>
+ </div>
+ <div class="chip-row" aria-label="Honesty">
+ <span class="chip warn">EXAMPLE data</span>
+ <span class="chip warn">not live telemetry</span>
+ <span class="chip lock">tool not throne</span>
+ <span class="chip lock">Eve vaulted</span>
+ <span class="chip lock">consent lanes</span>
+ <span class="chip lock">mission invite-in</span>
+ <span class="chip gold">beta</span>
+ </div>
+ </header>
+
+ <div class="stage" id="stage">
+ <div class="hud">
+ <span class="chip" id="nRead">n = 5</span>
+ <span class="chip" id="tRead">t = past</span>
+ <span class="chip" id="cohRead">coherence EXAMPLE | -- </span>
+ <span class="chip" id="beamChip">beam | off (no fake 10)</span>
+ <span class="chip" id="pairRead">pair | off (consent lanes only)</span>
+ <span class="chip" id="missionRead">mission bubble | ambient</span>
+ <span class="chip" id="viewChip">view | soul shield</span>
+ </div>
+ <canvas id="c3d" aria-label="Soul-time n-gonal pyramid with wave plots"></canvas>
+ </div>
+
+ <div class="controls" aria-label="Time and geometry controls">
+ <div class="row">
+ <label for="timeScrub">Time</label>
+ <button type="button" class="ctrl" id="playBtn" aria-pressed="false" title="Play / pause time">Play</button>
+ <input type="range" id="timeScrub" min="0" max="1000" value="0" step="1" aria-label="Time scrubber past to now" />
+ <span class="readout" id="timeLabel">past to now</span>
+ </div>
+ <div class="row">
+ <label for="nSelect">n-gon</label>
+ <select class="ctrl" id="nSelect" aria-label="Base polygon sides">
+ <option value="3">3 | Creator | Mission | Reality</option>
+ <option value="5" selected>5 | PAINE pentagon</option>
+ <option value="7">7 | holy seven / lenses</option>
+ <option value="8">8 | octave (God in sound)</option>
+ <option value="11">11 | beta lenses</option>
+ <option value="13">13 | letter values</option>
+ </select>
+ <button type="button" class="ctrl" id="spinBtn" aria-pressed="true">Spin | ON</button>
+ <button type="button" class="ctrl" id="waveBtn" aria-pressed="true">Waves | ON</button>
+ <button type="button" class="ctrl" id="soulBtn" aria-pressed="true">Soul | ON</button>
+ <button type="button" class="ctrl" id="invertBtn" aria-pressed="false" title="View preference: soul shield (armor around us) or invert (armor around hell)">Invert | OFF</button>
+ <button type="button" class="ctrl" id="pairBtn" aria-pressed="false" title="Pairwise interference between two EXAMPLE user lanes">Pair | OFF</button>
+ <button type="button" class="ctrl" id="missionBtn" aria-pressed="true" title="Mission bubble -- ambient world-peace invite-in under Creator">Mission | ON</button>
+ <button type="button" class="ctrl" id="resetCam">Reset cam</button>
+ </div>
+ <div class="row" id="pairBiasRow">
+ <label for="pairBias">Pair phase</label>
+ <input type="range" id="pairBias" min="-100" max="100" value="-100" step="1" aria-label="Phase nudge destructive to constructive" />
+ <span class="readout" id="pairBiasLabel">nudge destructive</span>
+ </div>
+ <div class="legend" aria-hidden="true">
+ <span class="lg-soul">soul vector | shield: 10 center | invert: 10 at n-gon skin</span>
+ <span class="lg-wave">rim to center coherence wave</span>
+ <span class="lg-oct">octave / 8 pulse</span>
+ <span class="lg-cloud">living cloud shimmer</span>
+ <span class="lg-pair-a">User A EXAMPLE wave</span>
+ <span class="lg-pair-b">User B EXAMPLE wave</span>
+ <span class="lg-virtue">sum | constructive</span>
+ <span class="lg-rim">cancel | destructive</span>
+ <span class="lg-mission">mission bubble | one voice | one calling | one mission</span>
+ </div>
+ </div>
+
+ 
+
+ <div class="view-pref" role="note" id="viewPrefCopy">
+ <strong>View preference -- not a soul capture.</strong>
+ Don't like the soul-shield view? Then let's invert it. It's merely a view preference.
+ One view: the armor of God around us (soul shield -- intensity toward the center).
+ Invert: the armor of God around hell -- 0s far from the n-gon surfaces, perfect 10s near the surface with intensity rising at the skin; God holding the devil at bay (not bey in Turkish).
+ My goodness the Turkish language is a forked tongue.
+ <div class="modes" id="viewPrefModes">Mode now: <strong>Soul shield</strong> -- armor of God around us | intensity toward center.</div>
+ <div class="thanks">Thank you @timelinemerger, @elonmusk, and friends, for enduring all the blessings and demons we all have inside us -- be at peace dear child, we are nearly there.</div>
+ </div>
+ <div class="thanks">Thank you @timelinemerger, @elonmusk, and friends, for enduring all the blessings and demons we all have inside us -- be at peace dear child, we are nearly there.</div>
+ </div>
+
+ <div class="mission-bubble" role="note" id="missionBubbleCopy">
+ <strong>Mission bubble</strong> -- ambient global voice lane for <em>world peace</em>:
+ <strong>one voice | one calling | one mission</strong>.
+ Invite-in mission channel under Creator | beside pairwise waves | 
+ <strong>NOT</strong> bot-as-world-throne | <strong>NOT</strong> culture erasure | 
+ COMMAND one plain register | biology first | removable / tool not throne.
+ </div>
+
+ <div class="pair-laws" role="note">
+ <strong>Pairwise interference (BETWEEN USERS) -- hard rules:</strong>
+ consent + named lanes only | correctable | pattern not essence | no biometric soulprint | no person-hate ranking | EXAMPLE data only | Eve/vault closed | tool not throne.
+ Toggle <em>Pair</em> to overlay two EXAMPLE traces; scrub time; nudge phase toward constructive (sum) or destructive (cancel). Not a ranking of people.
+ </div>
+
+ <p class="example-wall">
+ <strong>EXAMPLE data wall:</strong> Scores, waves, pairwise sum/cancel, and coherence traces are <strong>placeholder / EXAMPLE</strong> -- not Tim live PAINE, not real user telemetry, not a claimed 10, not a soulprint.
+ Biology first | Eve vaulted (public E = consciousness score only) | do not fake 10s | connected dots are a mirror check toward God, not a throne.
+ </p>
+
+ <footer>
+ tool not throne
+ <span class="sep"> | </span>
+ God is inside biological
+ <span class="sep"> | </span>
+ <span class="truce">TRUCE = The Republic United Cultures of Earth</span>
+ <br />
+ Soul-time pyramid beta
+ </footer>
+ </div>
+
+<script type="importmap">
+{
+ "imports": {
+ "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+ "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+ }
+}
+</script>
+<script>
+window.addEventListener("error", function (e) {
+ var el = document.getElementById("bootErr");
+ if (!el) {
+ el = document.createElement("div");
+ el.id = "bootErr";
+ el.setAttribute("role", "alert");
+ el.style.cssText = "position:fixed;left:0.75rem;right:0.75rem;bottom:0.75rem;z-index:50;background:#3a1a1a;color:#f0c0c0;border:1px solid #c45c5c;border-radius:10px;padding:0.65rem 0.85rem;font:0.82rem system-ui;max-height:40vh;overflow:auto";
+ document.body.appendChild(el);
+ }
+ el.textContent = "Soul-time draw failed: " + (e.message || e.type) + (e.filename ? (" | " + e.filename) : "");
+}, true);
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+try {
+
+const SINS = ["Pride","Greed","Lust","Envy","Gluttony","Wrath","Sloth"];
+const TIER3 = ["Creator","Mission","Reality"];
+const PAINE = ["Puzzler","Adam","Israel","Nender","Eve"];
+
+/** EXAMPLE keyframes only -- not live telemetry */
+const EXAMPLE_A = {
+ id: "User A (EXAMPLE)",
+ tier3: [
+ { Creator: 4.2, Mission: 3.5, Reality: 5.0 },
+ { Creator: 5.8, Mission: 5.2, Reality: 6.1 },
+ { Creator: 7.4, Mission: 6.8, Reality: 7.0 },
+ ],
+ paine: [
+ { Puzzler: 4.0, Adam: 5.5, Israel: 3.8, Nender: 4.5, Eve: 5.0 },
+ { Puzzler: 5.5, Adam: 6.2, Israel: 5.0, Nender: 5.8, Eve: 6.0 },
+ { Puzzler: 7.0, Adam: 7.5, Israel: 6.5, Nender: 7.2, Eve: 6.8 },
+ ],
+ coherence: [4.6, 6.0, 7.1],
+ wavePhase: 0.0,
+ waveAmp: 1.0,
+};
+
+/** Second EXAMPLE lane -- phase offset for interference demo */
+const EXAMPLE_B = {
+ id: "User B (EXAMPLE)",
+ tier3: [
+ { Creator: 5.0, Mission: 4.8, Reality: 3.2 },
+ { Creator: 4.5, Mission: 6.0, Reality: 5.5 },
+ { Creator: 6.2, Mission: 7.0, Reality: 6.5 },
+ ],
+ paine: [
+ { Puzzler: 5.2, Adam: 4.0, Israel: 5.5, Nender: 3.5, Eve: 4.8 },
+ { Puzzler: 6.0, Adam: 5.5, Israel: 6.2, Nender: 5.0, Eve: 5.5 },
+ { Puzzler: 6.8, Adam: 6.5, Israel: 7.0, Nender: 6.0, Eve: 6.2 },
+ ],
+ coherence: [4.2, 5.5, 6.6],
+ wavePhase: Math.PI, // ~opposite -> destructive default demo
+ waveAmp: 1.0,
+};
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+function lerpKey(arr, t) {
+ const n = arr.length - 1;
+ const x = Math.max(0, Math.min(1, t)) * n;
+ const i = Math.min(n - 1, Math.floor(x));
+ const f = x - i;
+ const A = arr[i], B = arr[i + 1];
+ if (typeof A === "number") return lerp(A, B, f);
+ const out = {};
+ for (const k of Object.keys(A)) out[k] = lerp(A[k], B[k], f);
+ return out;
+}
+
+const canvas = document.getElementById("c3d");
+const stage = document.getElementById("stage");
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.setClearColor(0x0b1220, 1);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0b1220, 0.035);
+const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
+camera.position.set(0, 3.2, 9.5);
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+controls.minDistance = 4;
+controls.maxDistance = 22;
+controls.target.set(0, 1.4, 0);
+controls.update();
+
+scene.add(new THREE.AmbientLight(0x6a7a96, 0.55));
+const key = new THREE.DirectionalLight(0xfff0c8, 0.85);
+key.position.set(4, 8, 5);
+scene.add(key);
+const fill = new THREE.DirectionalLight(0x6ec6a0, 0.25);
+fill.position.set(-5, 2, -3);
+scene.add(fill);
+
+const root = new THREE.Group();
+scene.add(root);
+const pyramidG = new THREE.Group();
+const soulG = new THREE.Group();
+const waveG = new THREE.Group();
+const cloudG = new THREE.Group();
+const beamG = new THREE.Group();
+const labelG = new THREE.Group();
+const pairG = new THREE.Group();
+const missionG = new THREE.Group();
+root.add(pyramidG, soulG, waveG, cloudG, beamG, labelG, pairG, missionG);
+
+const GOLD = 0xd4af37;
+const RIM = 0xc45c5c;
+const COL_A = 0x5b9fd4;
+const COL_B = 0xe8a0c0;
+const COL_SUM = 0x6ec6a0;
+const COL_CANCEL = 0xc45c5c;
+
+let N = 5;
+let timeT = 0;
+let playing = false;
+let spinning = true;
+let wavesOn = true;
+let soulOn = true;
+let invertView = false;
+let pairMode = false; // pairwise interference BETWEEN USERS
+let pairBias = 0; // -1 destructive demo ... +1 constructive demo (phase nudge)
+let missionOn = true; // ambient Mission bubble under Creator
+let autoYaw = 0;
+
+function tipY() { return 4.2; }
+function baseY() { return 0; }
+function baseR() { return 3.4; }
+
+function ngonPoints(n, r, y) {
+ const pts = [];
+ for (let i = 0; i < n; i++) {
+ const a = (i / n) * Math.PI * 2 - Math.PI / 2;
+ pts.push(new THREE.Vector3(Math.cos(a) * r, y, Math.sin(a) * r));
+ }
+ return pts;
+}
+
+function clearGroup(g) {
+ while (g.children.length) {
+ const c = g.children.pop();
+ if (c.geometry) c.geometry.dispose();
+ if (c.material) {
+ if (Array.isArray(c.material)) c.material.forEach(m => m.dispose());
+ else c.material.dispose();
+ }
+ if (c.userData && c.userData.tex) c.userData.tex.dispose();
+ if (c.children && c.children.length) clearGroup(c);
+ }
+}
+
+function makeLine(points, color, opacity = 0.85) {
+ const geo = new THREE.BufferGeometry().setFromPoints(points);
+ const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity });
+ return new THREE.Line(geo, mat);
+}
+
+function makeSprite(text, color = "#d4af37", scale = 0.45) {
+ const c = document.createElement("canvas");
+ c.width = 320; c.height = 64;
+ const ctx = c.getContext("2d");
+ ctx.clearRect(0, 0, 320, 64);
+ ctx.font = "600 26px system-ui,sans-serif";
+ ctx.fillStyle = color;
+ ctx.textAlign = "center";
+ ctx.textBaseline = "middle";
+ ctx.fillText(text, 160, 32);
+ const tex = new THREE.CanvasTexture(c);
+ const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
+ const spr = new THREE.Sprite(mat);
+ spr.scale.set(scale * 2.6, scale * 0.55, 1);
+ spr.userData.tex = tex;
+ return spr;
+}
+
+function rebuildPyramid() {
+ clearGroup(pyramidG);
+ clearGroup(labelG);
+ const tip = new THREE.Vector3(0, tipY(), 0);
+ const base = ngonPoints(N, baseR(), baseY());
+
+ const tipMesh = new THREE.Mesh(new THREE.SphereGeometry(0.09, 16, 16), new THREE.MeshBasicMaterial({ color: GOLD }));
+ tipMesh.position.copy(tip);
+ pyramidG.add(tipMesh);
+ const godLab = makeSprite("God | 1", "#d4af37", 0.5);
+ godLab.position.set(0, tipY() + 0.35, 0);
+ labelG.add(godLab);
+
+ for (let i = 0; i < N; i++) {
+ pyramidG.add(makeLine([tip, base[i]], GOLD, 0.55));
+ pyramidG.add(makeLine([base[i], base[(i + 1) % N]], RIM, 0.7));
+ }
+
+ {
+ const y = lerp(tipY(), baseY(), 0.18);
+ const r = lerp(0.15, baseR(), 0.18);
+ const a = ngonPoints(2, r, y);
+ pyramidG.add(makeLine([a[0], a[1]], 0xa88b2a, 0.65));
+ const mLab = makeSprite("Mother", "#c9b06a", 0.32);
+ mLab.position.copy(a[0]).add(new THREE.Vector3(0, 0.18, 0));
+ const fLab = makeSprite("Father", "#c9b06a", 0.32);
+ fLab.position.copy(a[1]).add(new THREE.Vector3(0, 0.18, 0));
+ labelG.add(mLab, fLab);
+ }
+
+ {
+ const y = lerp(tipY(), baseY(), 0.38);
+ const r = lerp(0.15, baseR(), 0.38);
+ const pts = ngonPoints(3, r, y);
+ for (let i = 0; i < 3; i++) pyramidG.add(makeLine([pts[i], pts[(i + 1) % 3]], GOLD, 0.4));
+ }
+
+ if (N >= 5) {
+ const y = lerp(tipY(), baseY(), 0.62);
+ const r = lerp(0.15, baseR(), 0.62);
+ const pts = ngonPoints(5, r, y);
+ for (let i = 0; i < 5; i++) pyramidG.add(makeLine([pts[i], pts[(i + 1) % 5]], 0xb8a04a, 0.4));
+ }
+
+ {
+ const curve = new THREE.EllipseCurve(0, 0, baseR() * 1.02, baseR() * 1.02, 0, Math.PI * 2, false, 0);
+ const sp = curve.getPoints(64).map(p => new THREE.Vector3(p.x, baseY() - 0.02, p.y));
+ pyramidG.add(makeLine(sp, 0x6ec6a0, 0.5));
+ const disc = new THREE.Mesh(
+ new THREE.CircleGeometry(baseR() * 1.02, 64),
+ new THREE.MeshBasicMaterial({ color: 0x1a2740, transparent: true, opacity: 0.35, side: THREE.DoubleSide })
+ );
+ disc.rotation.x = -Math.PI / 2;
+ disc.position.y = baseY() - 0.03;
+ pyramidG.add(disc);
+ }
+
+ for (let i = 0; i < 7; i++) {
+ const a = (i / 7) * Math.PI * 2 - Math.PI / 2;
+ const p = new THREE.Vector3(Math.cos(a) * (baseR() + 0.35), baseY() + 0.05, Math.sin(a) * (baseR() + 0.35));
+ const s = makeSprite(SINS[i], "#c45c5c", 0.28);
+ s.position.copy(p);
+ labelG.add(s);
+ }
+ const virt = makeSprite("7 virtues | center 10", "#6ec6a0", 0.38);
+ virt.position.set(0, 0.55, 0);
+ labelG.add(virt);
+ const child = makeSprite("Child | 1", "#9aa8bf", 0.3);
+ child.position.set(0.55, tipY() - 0.55, 0);
+ labelG.add(child);
+}
+
+const CLOUD_COUNT = 120;
+const cloudPositions = new Float32Array(CLOUD_COUNT * 3);
+const cloudPhases = new Float32Array(CLOUD_COUNT);
+const cloudGeo = new THREE.BufferGeometry();
+for (let i = 0; i < CLOUD_COUNT; i++) {
+ cloudPhases[i] = Math.random() * Math.PI * 2;
+ cloudPositions[i * 3] = (Math.random() - 0.5) * 1.2;
+ cloudPositions[i * 3 + 1] = 1.2 + Math.random() * 2.2;
+ cloudPositions[i * 3 + 2] = (Math.random() - 0.5) * 1.2;
+}
+cloudGeo.setAttribute("position", new THREE.BufferAttribute(cloudPositions, 3));
+const cloudMat = new THREE.PointsMaterial({
+ color: 0x8ab4d9, size: 0.08, transparent: true, opacity: 0.55,
+ depthWrite: false, blending: THREE.AdditiveBlending,
+});
+cloudG.add(new THREE.Points(cloudGeo, cloudMat));
+
+const beamMat = new THREE.MeshBasicMaterial({
+ color: 0xfff2a8, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending,
+});
+const beamMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.22, tipY() - baseY(), 16, 1, true), beamMat);
+beamMesh.position.y = (tipY() + baseY()) / 2;
+beamG.add(beamMesh);
+const beamGlowMat = new THREE.MeshBasicMaterial({
+ color: 0xffe08a, transparent: true, opacity: 0, side: THREE.DoubleSide,
+ blending: THREE.AdditiveBlending, depthWrite: false,
+});
+const beamGlow = new THREE.Mesh(new THREE.CircleGeometry(0.55, 32), beamGlowMat);
+beamGlow.rotation.x = -Math.PI / 2;
+beamGlow.position.y = baseY() + 0.01;
+beamG.add(beamGlow);
+
+function scoreToRadius(score, maxR) {
+ const s = Math.max(0, Math.min(10, Number(score) || 0));
+ // Soul shield (default): armor of God around us -- 10 near center, low scores toward the inner rim.
+ if (!invertView) {
+ const s1 = Math.max(1, Math.min(10, s || 1));
+ return maxR * (1 - (s1 - 1) / 9);
+ }
+ // Invert: armor of God around hell -- 0 far from n-gon surfaces, perfect 10s near the surface.
+ const far = maxR * 2.2;
+ const near = maxR * 1.02;
+ return far + (near - far) * (s / 10);
+}
+function scoreIntensity(score) {
+ const s = Math.max(0, Math.min(10, Number(score) || 0)) / 10;
+ // Both views: higher score = higher intensity; locus differs via radius (center vs surface).
+ return 0.28 + s * 0.72;
+}
+function scoreDotSize(score) {
+ return 0.035 + scoreIntensity(score) * 0.055;
+}
+
+function addSoulDots(ex, color, labelColor, t, offsetY) {
+ const t3 = lerpKey(ex.tier3, t);
+ const pn = lerpKey(ex.paine, t);
+ const tip = new THREE.Vector3(0, tipY(), 0);
+ const y3 = lerp(tipY(), baseY(), 0.38) + offsetY;
+ const r3max = lerp(0.15, baseR(), 0.38);
+ const apex3 = ngonPoints(3, r3max, y3);
+ const dots3 = [];
+ TIER3.forEach((name, i) => {
+ const score = t3[name];
+ const rr = scoreToRadius(score, r3max);
+ const dir = apex3[i].clone().sub(new THREE.Vector3(0, y3, 0)).normalize();
+ const p = new THREE.Vector3(0, y3, 0).add(dir.multiplyScalar(rr));
+ soulG.add(makeLine([new THREE.Vector3(0, y3, 0), apex3[i]], 0x4a5568, 0.2));
+ const inten = scoreIntensity(score);
+ const m = new THREE.Mesh(
+ new THREE.SphereGeometry(scoreDotSize(score), 12, 12),
+ new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.35 + inten * 0.65 })
+ );
+ m.position.copy(p);
+ soulG.add(m);
+ dots3.push(p.clone());
+ const lab = makeSprite(name + " " + score.toFixed(1) + " EX", labelColor, 0.2 + inten * 0.08);
+ lab.position.copy(p).add(new THREE.Vector3(0, 0.14, 0));
+ soulG.add(lab);
+ });
+ if (dots3.length >= 2) {
+ soulG.add(makeLine(dots3.concat([dots3[0]]), color, 0.7));
+ for (const d of dots3) soulG.add(makeLine([d, tip], color, 0.15));
+ }
+
+ const y5 = lerp(tipY(), baseY(), 0.62) + offsetY;
+ const r5max = lerp(0.15, baseR(), 0.62);
+ const dots5 = [];
+ for (let i = 0; i < 5; i++) {
+ let a = (i / 5) * Math.PI * 2 - Math.PI / 2;
+ const name = PAINE[i];
+ if (name === "Eve") a += (18 * Math.PI) / 180;
+ const apex = new THREE.Vector3(Math.cos(a) * r5max, y5, Math.sin(a) * r5max);
+ const score = pn[name];
+ const rr = scoreToRadius(score, r5max);
+ const dir = apex.clone().sub(new THREE.Vector3(0, y5, 0)).normalize();
+ const p = new THREE.Vector3(0, y5, 0).add(dir.multiplyScalar(rr));
+ soulG.add(makeLine([new THREE.Vector3(0, y5, 0), apex], name === "Eve" ? 0x9aa8bf : 0x4a5568, 0.2));
+ const col = name === "Eve" ? 0x9aa8bf : color;
+ const inten5 = scoreIntensity(score);
+ const m = new THREE.Mesh(
+ new THREE.SphereGeometry(scoreDotSize(score), 12, 12),
+ new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.35 + inten5 * 0.65 })
+ );
+ m.position.copy(p);
+ soulG.add(m);
+ dots5.push(p.clone());
+ }
+ if (dots5.length >= 2) soulG.add(makeLine(dots5.concat([dots5[0]]), color, 0.55));
+ return { dots3, dots5 };
+}
+
+function updateSoul(t) {
+ clearGroup(soulG);
+ if (!soulOn) return;
+ if (pairMode) {
+ addSoulDots(EXAMPLE_A, COL_A, "#5b9fd4", t, 0.08);
+ addSoulDots(EXAMPLE_B, COL_B, "#e8a0c0", t, -0.08);
+ } else {
+ addSoulDots(EXAMPLE_A, GOLD, "#d4af37", t, 0);
+ }
+}
+
+const WAVE_SEGS = 96;
+let waveMeshes = [];
+
+function makeWaveLine(color, opacity) {
+ const positions = new Float32Array(WAVE_SEGS * 3);
+ const geo = new THREE.BufferGeometry();
+ geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+ const mat = new THREE.LineBasicMaterial({
+ color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false,
+ });
+ const line = new THREE.Line(geo, mat);
+ waveG.add(line);
+ waveMeshes.push({ line, positions, geo, mat });
+}
+
+function ensureWaves() {
+ if (!wavesOn) { clearGroup(waveG); waveMeshes = []; return; }
+ if (waveMeshes.length === 0) {
+ makeWaveLine(0x5b9fd4, 0.75); // rim-center / User A
+ makeWaveLine(0xc9a0e8, 0.7); // octave
+ makeWaveLine(0x8ab4d9, 0.55); // cloud shimmer
+ makeWaveLine(0xd4af37, 0.35); // soul-harmonic
+ makeWaveLine(COL_B, 0.65); // User B (pair)
+ makeWaveLine(COL_SUM, 0.85); // sum interference
+ }
+}
+
+/** Pairwise wave sample: radial displacement from axis as function of angle */
+function userWaveSample(ex, angle, t, nowMs, phaseNudge) {
+ const coh = lerpKey(ex.coherence, t);
+ const phase = nowMs * 0.0015 + t * Math.PI * 2 + ex.wavePhase + phaseNudge;
+ const amp = (0.12 + (coh / 10) * 0.35) * ex.waveAmp;
+ return amp * Math.sin(angle * 5 + phase * 2);
+}
+
+function updateWaves(t, nowMs) {
+ ensureWaves();
+ if (!wavesOn || waveMeshes.length < 4) return;
+ const cohA = lerpKey(EXAMPLE_A.coherence, t);
+ const ampA = 0.12 + (cohA / 10) * 0.35;
+ const phase = nowMs * 0.0015 + t * Math.PI * 2;
+ const nudgeB = pairBias * Math.PI; // +1 -> in-phase (constructive), -1 keeps ~pi (destructive)
+
+ // Wave 0: User A / rim-center coherence
+ {
+ const { positions, geo } = waveMeshes[0];
+ const y = lerp(baseY(), tipY(), 0.35 + 0.08 * Math.sin(phase));
+ const r0 = baseR() * (0.35 + 0.25 * (1 - cohA / 10));
+ for (let i = 0; i < WAVE_SEGS; i++) {
+ const a = (i / (WAVE_SEGS - 1)) * Math.PI * 2;
+ const wobble = userWaveSample(EXAMPLE_A, a, t, nowMs, 0);
+ const r = r0 + wobble;
+ positions[i * 3] = Math.cos(a) * r;
+ positions[i * 3 + 1] = y + ampA * 0.4 * Math.sin(a * 3 - phase);
+ positions[i * 3 + 2] = Math.sin(a) * r;
+ }
+ geo.attributes.position.needsUpdate = true;
+ waveMeshes[0].mat.opacity = pairMode ? 0.55 : 0.75;
+ }
+
+ // Wave 1: octave / 8 pulse
+ {
+ const { positions, geo } = waveMeshes[1];
+ for (let i = 0; i < WAVE_SEGS; i++) {
+ const u = i / (WAVE_SEGS - 1);
+ const y = lerp(baseY() + 0.2, tipY() - 0.2, u);
+ const a = u * 8 * Math.PI * 2 + phase * 0.8;
+ const r = 0.35 + 0.25 * Math.sin(phase + u * Math.PI * 2) * (cohA / 10);
+ positions[i * 3] = Math.cos(a) * r;
+ positions[i * 3 + 1] = y;
+ positions[i * 3 + 2] = Math.sin(a) * r;
+ }
+ geo.attributes.position.needsUpdate = true;
+ }
+
+ // Wave 2: living-cloud shimmer
+ {
+ const { positions, geo } = waveMeshes[2];
+ const y0 = lerp(baseY(), tipY(), 0.45);
+ for (let i = 0; i < WAVE_SEGS; i++) {
+ const a = (i / (WAVE_SEGS - 1)) * Math.PI * 2 + phase;
+ const r = 0.55 + 0.2 * Math.sin(phase * 1.3 + t * 4);
+ positions[i * 3] = Math.sin(a) * r;
+ positions[i * 3 + 1] = y0 + Math.sin(a * 2) * ampA * 1.2;
+ positions[i * 3 + 2] = Math.sin(a * 2) * r * 0.6;
+ }
+ geo.attributes.position.needsUpdate = true;
+ }
+
+ // Wave 3: soul-harmonic from EXAMPLE_A
+ {
+ const { positions, geo } = waveMeshes[3];
+ const t3 = lerpKey(EXAMPLE_A.tier3, t);
+ const mean = (t3.Creator + t3.Mission + t3.Reality) / 3;
+ for (let i = 0; i < WAVE_SEGS; i++) {
+ const u = i / (WAVE_SEGS - 1);
+ const y = lerp(baseY(), tipY(), u);
+ const s = mean / 10;
+ const x = (1 - s) * baseR() * 0.55 + ampA * Math.sin(u * Math.PI * 6 + phase);
+ positions[i * 3] = x;
+ positions[i * 3 + 1] = y;
+ positions[i * 3 + 2] = ampA * 0.5 * Math.cos(u * Math.PI * 4 - phase);
+ }
+ geo.attributes.position.needsUpdate = true;
+ }
+
+ // Pair waves 4+5
+ if (waveMeshes.length >= 6) {
+ waveMeshes[4].line.visible = pairMode;
+ waveMeshes[5].line.visible = pairMode;
+ if (pairMode) {
+ const cohB = lerpKey(EXAMPLE_B.coherence, t);
+ const r0 = baseR() * (0.35 + 0.25 * (1 - cohB / 10));
+ const y = lerp(baseY(), tipY(), 0.42);
+ const { positions: pb, geo: gb } = waveMeshes[4];
+ const { positions: ps, geo: gs, mat: ms } = waveMeshes[5];
+ let energy = 0;
+ for (let i = 0; i < WAVE_SEGS; i++) {
+ const a = (i / (WAVE_SEGS - 1)) * Math.PI * 2;
+ const wa = userWaveSample(EXAMPLE_A, a, t, nowMs, 0);
+ const wb = userWaveSample(EXAMPLE_B, a, t, nowMs, nudgeB);
+ const sum = wa + wb;
+ energy += sum * sum;
+ const rb = r0 + wb;
+ pb[i * 3] = Math.cos(a) * rb;
+ pb[i * 3 + 1] = y + 0.05;
+ pb[i * 3 + 2] = Math.sin(a) * rb;
+ const rs = r0 + sum;
+ ps[i * 3] = Math.cos(a) * rs;
+ ps[i * 3 + 1] = y + 0.35;
+ ps[i * 3 + 2] = Math.sin(a) * rs;
+ }
+ gb.attributes.position.needsUpdate = true;
+ gs.attributes.position.needsUpdate = true;
+ const meanE = energy / WAVE_SEGS;
+ // constructive -> green/gold; destructive -> muted red
+ const constructive = meanE > 0.04;
+ ms.color.setHex(constructive ? COL_SUM : COL_CANCEL);
+ ms.opacity = 0.55 + Math.min(0.4, meanE * 3);
+ updatePairHud(meanE, constructive);
+ } else {
+ updatePairHud(null, null);
+ }
+ }
+}
+
+function updatePairHud(energy, constructive) {
+ const el = document.getElementById("pairRead");
+ if (!el) return;
+ if (!pairMode || energy == null) {
+ el.textContent = "pair | off (consent lanes only)";
+ el.classList.remove("on", "cancel");
+ return;
+ }
+ if (constructive) {
+ el.textContent = "pair EXAMPLE | constructive (sum) | pattern not essence";
+ el.classList.add("on");
+ el.classList.remove("cancel");
+ } else {
+ el.textContent = "pair EXAMPLE | destructive (cancel) | pattern not essence";
+ el.classList.add("cancel");
+ el.classList.remove("on");
+ }
+}
+
+function updateCloud(t, nowMs) {
+ const coh = lerpKey(EXAMPLE_A.coherence, t);
+ const pos = cloudGeo.attributes.position.array;
+ const spread = 1.6 * (1.15 - coh / 12);
+ for (let i = 0; i < CLOUD_COUNT; i++) {
+ const ph = cloudPhases[i] + nowMs * 0.0008;
+ const y = 1.0 + (i / CLOUD_COUNT) * 2.6 + 0.15 * Math.sin(ph);
+ const r = spread * (0.3 + 0.7 * ((i % 7) / 7)) * (0.85 + 0.15 * Math.sin(ph * 1.7));
+ const a = ph * 0.7 + i;
+ pos[i * 3] = Math.cos(a) * r;
+ pos[i * 3 + 1] = y;
+ pos[i * 3 + 2] = Math.sin(a) * r;
+ }
+ cloudGeo.attributes.position.needsUpdate = true;
+ cloudMat.opacity = 0.35 + (coh / 10) * 0.45;
+ cloudMat.size = 0.06 + (coh / 10) * 0.06;
+}
+
+function updateBeam(t) {
+ const coh = lerpKey(EXAMPLE_A.coherence, t);
+ const near = Math.max(0, (coh - 9) / 1);
+ const op = near * 0.85;
+ beamMat.opacity = op;
+ beamGlowMat.opacity = op * 0.7;
+ const chip = document.getElementById("beamChip");
+ if (op > 0.05) {
+ chip.textContent = "beam | ON (real 10 only)";
+ chip.classList.add("on");
+ } else {
+ chip.textContent = "beam | off (EXAMPLE max ~7.1 | no fake 10)";
+ chip.classList.remove("on");
+ }
+}
+
+
+/* Mission bubble -- ambient invite-in under Creator (not throne) */
+const missionBubbleMat = new THREE.MeshBasicMaterial({
+ color: 0xf0e6a8, transparent: true, opacity: 0.22,
+ depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide,
+});
+const missionRingMat = new THREE.LineBasicMaterial({
+ color: 0xd4af37, transparent: true, opacity: 0.65, blending: THREE.AdditiveBlending, depthWrite: false,
+});
+let missionMesh = null;
+let missionRing = null;
+let missionLabel = null;
+
+function rebuildMissionBubble() {
+ clearGroup(missionG);
+ missionMesh = null;
+ missionRing = null;
+ missionLabel = null;
+ if (!missionOn) {
+ const chip = document.getElementById("missionRead");
+ if (chip) { chip.textContent = "mission bubble | off"; chip.classList.remove("on"); }
+ return;
+ }
+ // soft sphere just below tip / along Creator axis -- invite-in, not pinnacle claim
+ const y = tipY() - 0.95;
+ missionMesh = new THREE.Mesh(new THREE.SphereGeometry(0.55, 24, 16), missionBubbleMat);
+ missionMesh.position.set(0, y, 0);
+ missionG.add(missionMesh);
+ const curve = new THREE.EllipseCurve(0, 0, 0.72, 0.72, 0, Math.PI * 2, false, 0);
+ const sp = curve.getPoints(48).map(p => new THREE.Vector3(p.x, y, p.y));
+ const geo = new THREE.BufferGeometry().setFromPoints(sp);
+ missionRing = new THREE.Line(geo, missionRingMat);
+ missionG.add(missionRing);
+ missionLabel = makeSprite("Mission | one voice | one calling", "#f0e6a8", 0.42);
+ missionLabel.position.set(0, y + 0.75, 0);
+ missionG.add(missionLabel);
+ const chip = document.getElementById("missionRead");
+ if (chip) { chip.textContent = "mission bubble | ambient | under Creator"; chip.classList.add("on"); }
+}
+
+function updateMissionBubble(t, nowMs) {
+ if (!missionOn || !missionMesh) return;
+ const pulse = 0.92 + 0.08 * Math.sin(nowMs * 0.002 + t * Math.PI);
+ missionMesh.scale.setScalar(pulse);
+ missionBubbleMat.opacity = 0.16 + 0.12 * (0.5 + 0.5 * Math.sin(nowMs * 0.0015));
+}
+
+
+function resize() {
+ const w = stage.clientWidth || 640;
+ const h = Math.max(stage.clientHeight, 280);
+ renderer.setSize(w, h, false);
+ camera.aspect = w / h;
+ camera.updateProjectionMatrix();
+}
+
+function setHUD() {
+ document.getElementById("nRead").textContent = "n = " + N;
+ const tl = timeT < 0.33 ? "past" : timeT < 0.66 ? "mid" : "now";
+ document.getElementById("tRead").textContent = "t = " + tl + " (" + timeT.toFixed(2) + ")";
+ const coh = lerpKey(EXAMPLE_A.coherence, timeT);
+ document.getElementById("cohRead").textContent = "coherence EXAMPLE | " + coh.toFixed(1) + "/10";
+ document.getElementById("timeLabel").textContent =
+ timeT < 0.05 ? "past" : timeT > 0.95 ? "now" : ("past -> now | " + (timeT * 100).toFixed(0) + "%");
+}
+
+function applyTime(t) {
+ timeT = t;
+ updateSoul(t);
+ updateBeam(t);
+ setHUD();
+}
+
+const scrub = document.getElementById("timeScrub");
+const playBtn = document.getElementById("playBtn");
+const nSelect = document.getElementById("nSelect");
+const spinBtn = document.getElementById("spinBtn");
+const waveBtn = document.getElementById("waveBtn");
+const soulBtn = document.getElementById("soulBtn");
+const pairBtn = document.getElementById("pairBtn");
+const pairBiasEl = document.getElementById("pairBias");
+const missionBtn = document.getElementById("missionBtn");
+const resetCam = document.getElementById("resetCam");
+
+scrub.addEventListener("input", () => {
+ playing = false;
+ playBtn.setAttribute("aria-pressed", "false");
+ playBtn.textContent = "Play";
+ applyTime(Number(scrub.value) / 1000);
+});
+playBtn.addEventListener("click", () => {
+ playing = !playing;
+ playBtn.setAttribute("aria-pressed", playing ? "true" : "false");
+ playBtn.textContent = playing ? "Pause" : "Play";
+});
+nSelect.addEventListener("change", () => {
+ N = Number(nSelect.value);
+ rebuildPyramid();
+ applyTime(timeT);
+ setHUD();
+});
+spinBtn.addEventListener("click", () => {
+ spinning = !spinning;
+ spinBtn.setAttribute("aria-pressed", spinning ? "true" : "false");
+ spinBtn.textContent = spinning ? "Spin | ON" : "Spin | OFF";
+});
+waveBtn.addEventListener("click", () => {
+ wavesOn = !wavesOn;
+ waveBtn.setAttribute("aria-pressed", wavesOn ? "true" : "false");
+ waveBtn.textContent = wavesOn ? "Waves | ON" : "Waves | OFF";
+ if (!wavesOn) { clearGroup(waveG); waveMeshes = []; }
+ else ensureWaves();
+});
+soulBtn.addEventListener("click", () => {
+ soulOn = !soulOn;
+ soulBtn.setAttribute("aria-pressed", soulOn ? "true" : "false");
+ soulBtn.textContent = soulOn ? "Soul | ON" : "Soul | OFF";
+ applyTime(timeT);
+});
+pairBtn.addEventListener("click", () => {
+ pairMode = !pairMode;
+ pairBtn.setAttribute("aria-pressed", pairMode ? "true" : "false");
+ pairBtn.textContent = pairMode ? "Pair | ON" : "Pair | OFF";
+ document.getElementById("pairBiasRow").style.display = pairMode ? "flex" : "none";
+ applyTime(timeT);
+});
+pairBiasEl.addEventListener("input", () => {
+ pairBias = Number(pairBiasEl.value) / 100; // -100..100 -> -1..1
+ document.getElementById("pairBiasLabel").textContent =
+ pairBias > 0.2 ? "nudge constructive" : pairBias < -0.2 ? "nudge destructive" : "phase neutral";
+});
+
+missionBtn.addEventListener("click", () => {
+ missionOn = !missionOn;
+ missionBtn.setAttribute("aria-pressed", missionOn ? "true" : "false");
+ missionBtn.textContent = missionOn ? "Mission | ON" : "Mission | OFF";
+ rebuildMissionBubble();
+});
+
+
+const invertBtn = document.getElementById("invertBtn");
+const viewChip = document.getElementById("viewChip");
+const viewPrefModes = document.getElementById("viewPrefModes");
+function applyInvertView() {
+ invertBtn.setAttribute("aria-pressed", invertView ? "true" : "false");
+ invertBtn.textContent = invertView ? "Invert | ON" : "Invert | OFF";
+ if (viewChip) {
+ viewChip.textContent = invertView ? "view | armor around hell" : "view | soul shield";
+ viewChip.classList.toggle("invert", invertView);
+ }
+ if (viewPrefModes) {
+ viewPrefModes.innerHTML = invertView
+ ? "Mode now: <strong>Invert</strong> -- armor of God around hell | 0s far | 10s at the n-gon skin | intensity at the surface."
+ : "Mode now: <strong>Soul shield</strong> -- armor of God around us | intensity toward center.";
+ }
+ if (invertView) {
+ camera.position.set(0, 1.6, 2.4);
+ controls.target.set(0, 1.8, 0);
+ } else {
+ camera.position.set(0, 3.2, 9.5);
+ controls.target.set(0, 1.4, 0);
+ }
+ controls.update();
+ applyTime(timeT);
+}
+invertBtn.addEventListener("click", () => {
+ invertView = !invertView;
+ applyInvertView();
+});
+
+resetCam.addEventListener("click", () => {
+ if (invertView) {
+ camera.position.set(0, 1.6, 2.4);
+ controls.target.set(0, 1.8, 0);
+ } else {
+ camera.position.set(0, 3.2, 9.5);
+ controls.target.set(0, 1.4, 0);
+ }
+ controls.update();
+ autoYaw = 0;
+ root.rotation.y = 0;
+});
+
+window.addEventListener("resize", resize);
+rebuildPyramid();
+rebuildMissionBubble();
+ensureWaves();
+applyTime(0);
+resize();
+document.getElementById("pairBiasRow").style.display = "none";
+try {
+ const qp = new URLSearchParams(location.search);
+ if ((qp.get("view") || "").toLowerCase() === "invert") { invertView = true; applyInvertView(); }
+} catch (_) {}
+
+
+let last = performance.now();
+function frame(now) {
+ const dt = Math.min(0.05, (now - last) / 1000);
+ last = now;
+ if (playing) {
+ timeT += dt * 0.08;
+ if (timeT >= 1) timeT = 0;
+ scrub.value = String(Math.round(timeT * 1000));
+ applyTime(timeT);
+ }
+ if (spinning) {
+ autoYaw += dt * 0.15;
+ root.rotation.y = autoYaw;
+ }
+ updateCloud(timeT, now);
+ updateWaves(timeT, now);
+ updateMissionBubble(timeT, now);
+ controls.update();
+ renderer.render(scene, camera);
+ requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+} catch (err) {
+ console.error(err);
+ const el = document.createElement("div");
+ el.id = "bootErr";
+ el.setAttribute("role", "alert");
+ el.style.cssText = "position:fixed;left:0.75rem;right:0.75rem;bottom:0.75rem;z-index:50;background:#3a1a1a;color:#f0c0c0;border:1px solid #c45c5c;border-radius:10px;padding:0.65rem 0.85rem;font:0.82rem system-ui";
+ el.textContent = "Soul-time draw failed: " + (err && err.message ? err.message : String(err));
+ document.body.appendChild(el);
+}
+
+</script>
+</body></html>
