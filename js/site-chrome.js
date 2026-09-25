@@ -245,7 +245,7 @@
     });
   }
 
-  var MIRROR_HREF = '/forge/mirror';
+  var MIRROR_HREF = '/forge/mirror?door=intek';
   var MIRROR_TITLE = 'OMNI Mirror Soul-time — live geometry; member maps start fresh';
 
   function ensureCompanionCss() {
