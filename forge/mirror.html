@@ -121,14 +121,17 @@
  }
  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; }
  .row label { font-size: 0.78rem; color: var(--muted); min-width: 5.5rem; }
- button.ctrl {
+ button.ctrl, a.ctrl {
  appearance: none; border: 1px solid var(--border);
  background: var(--navy-3); color: var(--gold);
  font: inherit; font-size: 0.82rem; font-weight: 600;
  padding: 0.4rem 0.75rem; border-radius: 999px; cursor: pointer;
+ text-decoration: none; display: inline-block;
  }
  button.ctrl[aria-pressed="true"] { background: var(--gold-soft); }
- button.ctrl:active { transform: scale(0.98); }
+ a.ctrl:hover { background: var(--gold-soft); }
+ button.ctrl:active, a.ctrl:active { transform: scale(0.98); }
+ .next-step { margin: 0; }
  input[type="range"] { flex: 1; min-width: 120px; accent-color: var(--gold); }
  select.ctrl {
  background: var(--navy-3); color: var(--ink);
@@ -218,6 +221,22 @@
  <span class="chip gold">beta</span>
  </div>
  </header>
+
+ <p class="next-step">
+ <a class="ctrl" id="fourPsNext" href="/forge/four-ps?door=intek">Next: set your Four P's</a>
+ </p>
+ <script>
+ (function () {
+ var link = document.getElementById("fourPsNext");
+ if (!link) return;
+ var door = "intek";
+ try {
+ var raw = new URLSearchParams(window.location.search).get("door");
+ if (raw != null && String(raw).trim() !== "") door = String(raw).trim();
+ } catch (e) {}
+ link.href = "/forge/four-ps?door=" + encodeURIComponent(door);
+ })();
+ </script>
 
  <div class="stage" id="stage">
  <div class="hud">

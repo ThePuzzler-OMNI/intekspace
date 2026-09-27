@@ -10,7 +10,7 @@
   window.__isSiteChrome = true;
 
   var KIT = 'network-template-kit-v1';
-  var REG_URL = 'site-registry.json';
+  var REG_URL = '/site-registry.json';
   var SELF_HOST_MARKERS = ['intekspace.com', 'intek-space'];
 
   function year() {

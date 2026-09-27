@@ -73,6 +73,16 @@
       "public": true
     },
     {
+      "id": "forge-four-ps",
+      "file": "forge/four-ps.html",
+      "path": "/forge/four-ps",
+      "title": "The Four P's of Freedom",
+      "subtitle": "A member One Mission page",
+      "description": "Write a guiding light in your own words, then set goals and checkable objectives in four lanes: Personal, Parental, Professional, and Public.",
+      "og_slug": "forge",
+      "public": true
+    },
+    {
       "id": "projects",
       "file": "projects.html",
       "path": "/projects",

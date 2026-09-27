@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Four P's of Freedom · The Forge · Intek Space</title>
+  <meta name="description" content="A member One Mission page. Write a guiding light in your own words, then set goals and checkable objectives in four lanes: Personal, Parental, Professional, and Public — not political. Biology first. A tool under stewardship." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://intekspace.com/forge/four-ps" />
+  <meta property="og:title" content="The Four P's of Freedom · The Forge · Intek Space" />
+  <meta property="og:description" content="Guiding light, goals, and objectives in four lanes: Personal, Parental, Professional, and Public. The archive stays with the steward." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://intekspace.com/forge/four-ps" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Four P's of Freedom · Intek Space" />
+  <meta name="twitter:description" content="A simple member sheet for a guiding light and four lanes. Nothing is stored. Biology first." />
+  <script src="/analytics-config.js"></script>
+  <script src="/analytics.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/js/site-theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/intek.css" />
+  <style>
+    .lane-flag { display: none; }
+    .lane-lit {
+      border-color: rgba(232, 200, 106, 0.85);
+      box-shadow:
+        0 0 0 1px rgba(212, 176, 86, 0.28) inset,
+        0 16px 44px rgba(4, 12, 28, 0.55),
+        0 0 28px rgba(212, 176, 86, 0.16);
+    }
+    .lane-lit .lane-flag { display: block; }
+    #mission-sheet fieldset {
+      border: 1px solid rgba(100, 150, 220, 0.18);
+      border-radius: 0.85rem;
+      padding: 0.85rem 0.9rem 0.35rem;
+      margin: 0 0 0.85rem;
+    }
+    #mission-sheet legend {
+      padding: 0 0.35rem;
+    }
+    @media print {
+      header, footer, #omni-fb-btn, #omni-fb-backdrop, .no-print { display: none !important; }
+      body {
+        background: #fff !important;
+        color: #161616 !important;
+        min-height: 0 !important;
+      }
+      main { display: block !important; }
+      .print-sheet {
+        max-width: none !important;
+        padding: 0 !important;
+      }
+      .print-sheet h2,
+      .print-sheet h3,
+      .print-sheet p,
+      .print-sheet legend,
+      .print-sheet .lbl { color: #161616 !important; }
+      .panel, .lane-lit, #mission-sheet fieldset {
+        background: #fff !important;
+        box-shadow: none !important;
+        border: 1px solid #bbb !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      label.field input,
+      label.field textarea {
+        background: #fff !important;
+        color: #111 !important;
+        border: 1px solid #888 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+      }
+      a { color: #111 !important; text-decoration: none !important; }
+      @page { margin: 0.6in; }
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col" data-page="forge-four-ps">
+  <div id="site-header"></div>
+
+  <main class="flex-1 w-full">
+    <section class="hero-wash border-b border-white/5 no-print">
+      <div class="max-w-3xl mx-auto px-5 pt-12 md:pt-16 pb-12">
+        <p class="text-hive text-[11px] uppercase tracking-[0.28em] mb-3">The Forge · member sheet</p>
+        <h1 class="font-display text-4xl md:text-5xl font-semibold text-parchment tracking-tight">The Four P's of Freedom</h1>
+        <p class="mt-4 text-mist max-w-2xl leading-relaxed text-lg">
+          Personal, Parental, Professional, and Public.
+          Public means human life craft in community — charity and service.
+          It is not political.
+        </p>
+        <p class="mt-4 text-sm text-mist/80 max-w-2xl leading-relaxed">
+          This is a member’s One Mission page: a guiding light in your own words,
+          then goals and objectives you set and keep.
+          Biology first. The page is a tool under stewardship — tool not throne.
+          OMNI may help you write. It does not set the aim, rank the lanes, or hold the archive.
+          The archive stays with you.
+        </p>
+        <p id="arrival-note" class="mt-4 text-sm text-hive hidden" role="status"></p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="btn-gold" href="#lanes">Read the four lanes</a>
+          <a class="btn-ghost" href="#mission-sheet">Open the sheet</a>
+          <a class="btn-gold-soft" href="https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa" rel="noopener noreferrer">Get OMNI</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto px-5 py-12 space-y-4 no-print" aria-labelledby="mission-title">
+      <h2 id="mission-title" class="font-display text-3xl text-parchment">One Mission</h2>
+      <p class="text-mist leading-relaxed">
+        The guiding light is yours. This site does not supply it.
+        Write one to three sentences in your own words — what you are steering by this season —
+        then give each lane a direction and a few steps you can check.
+      </p>
+      <dl class="grid sm:grid-cols-2 gap-4">
+        <div class="panel rounded-2xl p-5">
+          <dt class="text-parchment font-semibold mb-2">Goal</dt>
+          <dd class="text-sm text-mist leading-relaxed">The direction, in plain words. Stable for a season, such as a year.</dd>
+        </div>
+        <div class="panel rounded-2xl p-5">
+          <dt class="text-parchment font-semibold mb-2">Objective</dt>
+          <dd class="text-sm text-mist leading-relaxed">A concrete, checkable step toward the goal. One to three per goal, each with a “done looks like” line and a target date.</dd>
+        </div>
+        <div class="panel rounded-2xl p-5">
+          <dt class="text-parchment font-semibold mb-2">Door</dt>
+          <dd class="text-sm text-mist leading-relaxed">Which sister site helps with that lane. The door is a workshop. You remain the steward.</dd>
+        </div>
+        <div class="panel rounded-2xl p-5">
+          <dt class="text-parchment font-semibold mb-2">Steward check</dt>
+          <dd class="text-sm text-mist leading-relaxed">One honest question at review: does this still serve life — body, home, neighbor?</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="lanes" class="band border-y border-white/5 no-print">
+      <div class="max-w-3xl mx-auto px-5 py-14">
+        <h2 class="font-display text-3xl text-parchment mb-3">Four lanes</h2>
+        <p class="text-mist leading-relaxed mb-8 max-w-2xl">
+          Hold the lanes together, the way the Forge holds Philosophy last as the integrator.
+          No single lane runs off alone. Examples below are samples, not a member’s mission.
+        </p>
+        <div class="space-y-4">
+          <article id="lane-personal" class="panel rounded-2xl p-5 md:p-6" data-lane="personal">
+            <p class="lane-flag text-hive text-[11px] uppercase tracking-[0.22em] mb-2">Highlighted from your link</p>
+            <p class="text-hive text-[11px] uppercase tracking-[0.22em] mb-2">Personal</p>
+            <h3 class="font-display text-2xl text-parchment mb-2">Body, mind, soul, household craft</h3>
+            <p class="text-sm text-mist leading-relaxed">
+              A direction for your own life and health, character and devotion.
+              An objective looks like a habit or skill with a visible check.
+            </p>
+            <div class="mt-4 rounded-xl border border-white/10 bg-black/20 p-4 space-y-3">
+              <p class="text-hive text-[11px] uppercase tracking-[0.18em]">Example · not a member</p>
+              <p class="text-sm text-parchment leading-relaxed"><span class="text-mist">Goal.</span> Keep my body strong enough to work the land at 60.</p>
+              <p class="text-sm text-mist leading-relaxed"><span class="text-parchment">Objective.</span> Walk 30 minutes, 5 days a week, through end of quarter — done looks like 60 logged walks.</p>
+              <p class="text-sm text-parchment leading-relaxed"><span class="text-mist">Goal.</span> Grow in daily devotion.</p>
+              <p class="text-sm text-mist leading-relaxed"><span class="text-parchment">Objective.</span> Morning quiet time before screens, 6 days a week for 8 weeks.</p>
+            </div>
+            <p class="mt-4 text-sm text-mist leading-relaxed">
+              Door:
+              <a class="gloss" href="https://onemissionnetworkandinstitute.org/" target="_blank" rel="noopener">One Mission Network</a>
+              — mission, community, and
+              <a class="gloss" href="https://onemissionnetworkandinstitute.org/forge?utm_source=intek&amp;utm_medium=referral&amp;utm_campaign=sister_network&amp;utm_content=forge_lab" target="_blank" rel="noopener">Forge Lab</a>.
+              Reflection:
+              <a class="gloss" href="/forge/mirror">Soul-time Mirror</a>.
+            </p>
+          </article>
+
+          <article id="lane-parental" class="panel rounded-2xl p-5 md:p-6" data-lane="parental">
+            <p class="lane-flag text-hive text-[11px] uppercase tracking-[0.22em] mb-2">Highlighted from your link</p>
+            <p class="text-hive text-[11px] uppercase tracking-[0.22em] mb-2">Parental · parent-led</p>
+            <h3 class="font-display text-2xl text-parchment mb-2">Raising and teaching the next builders</h3>
+            <p class="text-sm text-mist leading-relaxed">
+              What the parent wants to cultivate at home: curiosity, craft, faith, kindness.
+              An objective looks like a shared, parent-led learning activity.
+            </p>
+            <p class="mt-3 text-sm text-parchment leading-relaxed">
+              Interest and learning only. The parent writes and holds this lane.
+              No child accounts, no child data, and no pay or job language for children.
+            </p>
+            <div class="mt-4 rounded-xl border border-white/10 bg-black/20 p-4 space-y-3">
+              <p class="text-hive text-[11px] uppercase tracking-[0.18em]">Example · not a member</p>
+              <p class="text-sm text-parchment leading-relaxed"><span class="text-mist">Goal.</span> Grow a love of how things work at home.</p>
+              <p class="text-sm text-mist leading-relaxed"><span class="text-parchment">Objective.</span> One build-together afternoon per month this season (for example a small garden bed), parent-led — done looks like three finished builds.</p>
+            </div>
+            <p class="mt-4 text-sm text-mist leading-relaxed">
+              Door:
+              <a class="gloss" href="https://instituteofmatureimagination.org/" target="_blank" rel="noopener">Institute of Mature Imagination</a>
+              — learning and young-builder curiosity.
+              Reading on this site:
+              <a class="gloss" href="/education">Intek Education</a>.
+            </p>
+          </article>
+
+          <article id="lane-professional" class="panel rounded-2xl p-5 md:p-6" data-lane="professional">
+            <p class="lane-flag text-hive text-[11px] uppercase tracking-[0.22em] mb-2">Highlighted from your link</p>
+            <p class="text-hive text-[11px] uppercase tracking-[0.22em] mb-2">Professional</p>
+            <h3 class="font-display text-2xl text-parchment mb-2">Product, service, livelihood</h3>
+            <p class="text-sm text-mist leading-relaxed">
+              A product or service that serves others and sustains the household,
+              toward freedom from personal debt — the Forge’s graduation idea.
+              An objective looks like a shipped or sold unit of real work, or a skill proven by evidence.
+              Keep amounts off this page.
+            </p>
+            <div class="mt-4 rounded-xl border border-white/10 bg-black/20 p-4 space-y-3">
+              <p class="text-hive text-[11px] uppercase tracking-[0.18em]">Example · not a member</p>
+              <p class="text-sm text-parchment leading-relaxed"><span class="text-mist">Goal.</span> Offer one honest product that pays its own way.</p>
+              <p class="text-sm text-mist leading-relaxed"><span class="text-parchment">Objective.</span> List my first item and complete one person-to-person sale by the target date — done looks like one delivered order and one note of feedback.</p>
+            </div>
+            <p class="mt-4 text-sm text-mist leading-relaxed">
+              Door:
+              <a class="gloss" href="https://omniexchange.org/" target="_blank" rel="noopener">OMNI Exchange</a>
+              — person-to-person exchange.
+              On Intek Space:
+              <a class="gloss" href="/education">Education</a>,
+              <a class="gloss" href="/store">store</a>,
+              <a class="gloss" href="/projects">projects</a>.
+            </p>
+          </article>
+
+          <article id="lane-public" class="panel rounded-2xl p-5 md:p-6" data-lane="public">
+            <p class="lane-flag text-hive text-[11px] uppercase tracking-[0.22em] mb-2">Highlighted from your link</p>
+            <p class="text-hive text-[11px] uppercase tracking-[0.22em] mb-2">Public · not political</p>
+            <h3 class="font-display text-2xl text-parchment mb-2">Neighbor and community craft</h3>
+            <p class="text-sm text-mist leading-relaxed">
+              Service, charity, and giving in your own community.
+              An objective looks like a named act of service or giving with a check.
+              Out of scope: parties, candidates, campaigns, and policy advocacy.
+            </p>
+            <div class="mt-4 rounded-xl border border-white/10 bg-black/20 p-4 space-y-3">
+              <p class="text-hive text-[11px] uppercase tracking-[0.18em]">Example · not a member</p>
+              <p class="text-sm text-parchment leading-relaxed"><span class="text-mist">Goal.</span> Be useful to my street.</p>
+              <p class="text-sm text-mist leading-relaxed"><span class="text-parchment">Objective.</span> Help at one community work day per month for a season.</p>
+              <p class="text-sm text-parchment leading-relaxed"><span class="text-mist">Goal.</span> Give with intent.</p>
+              <p class="text-sm text-mist leading-relaxed"><span class="text-parchment">Objective.</span> Choose one charity cause and set a personal giving rhythm (amount kept private).</p>
+            </div>
+            <p class="mt-4 text-sm text-mist leading-relaxed">
+              Door:
+              <a class="gloss" href="https://onemissionfoundation.org/" target="_blank" rel="noopener">One Mission Foundation</a>
+              — charity and giving.
+              Community also lives with the
+              <a class="gloss" href="https://onemissionnetworkandinstitute.org/" target="_blank" rel="noopener">One Mission Network</a>.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto px-5 py-14 no-print" aria-labelledby="balance-title">
+      <h2 id="balance-title" class="font-display text-3xl text-parchment mb-3">Balance glance</h2>
+      <p class="text-mist leading-relaxed mb-6 max-w-2xl">
+        Look across the four lanes together so none of them runs off alone.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="panel rounded-2xl p-5">
+          <h3 class="text-parchment font-semibold mb-2">Personal</h3>
+          <p class="text-sm text-mist leading-relaxed">Body, mind, soul, and the household craft that keeps you able to serve.</p>
+        </div>
+        <div class="panel rounded-2xl p-5">
+          <h3 class="text-parchment font-semibold mb-2">Parental</h3>
+          <p class="text-sm text-mist leading-relaxed">Parent-led curiosity and learning at home. The parent holds the pen.</p>
+        </div>
+        <div class="panel rounded-2xl p-5">
+          <h3 class="text-parchment font-semibold mb-2">Professional</h3>
+          <p class="text-sm text-mist leading-relaxed">Honest product or service. Livelihood that sustains the household.</p>
+        </div>
+        <div class="panel rounded-2xl p-5">
+          <h3 class="text-parchment font-semibold mb-2">Public</h3>
+          <p class="text-sm text-mist leading-relaxed">Charity and service beside neighbors. Not a campaign.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-white/5 bg-black/10 no-print">
+      <div class="max-w-3xl mx-auto px-5 py-14">
+        <h2 class="font-display text-3xl text-parchment mb-3">Review rhythm</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="panel rounded-2xl p-5">
+            <h3 class="text-parchment font-semibold mb-2">Weekly glance</h3>
+            <p class="text-sm text-mist leading-relaxed">A short look across the four lanes. Notice which one has gone quiet.</p>
+          </div>
+          <div class="panel rounded-2xl p-5">
+            <h3 class="text-parchment font-semibold mb-2">Monthly objective check</h3>
+            <p class="text-sm text-mist leading-relaxed">Mark the steps you can check. Adjust a date if the step is still true.</p>
+          </div>
+          <div class="panel rounded-2xl p-5">
+            <h3 class="text-parchment font-semibold mb-2">Seasonal goal review</h3>
+            <p class="text-sm text-mist leading-relaxed">Ask the steward check: does this still serve life — body, home, neighbor?</p>
+          </div>
+        </div>
+        <div class="mt-8 panel rounded-2xl p-5 md:p-6">
+          <h3 class="text-parchment font-semibold mb-2">Get OMNI · tool not throne</h3>
+          <p class="text-sm text-mist leading-relaxed">
+            The bot may help you find words for a goal you already mean.
+            It does not own the mission, rank the lanes, or keep the sheet.
+            Biology stays upstream of the instrument.
+          </p>
+          <div class="mt-4">
+            <a class="btn-gold" href="https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa" rel="noopener noreferrer">Get OMNI</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission-sheet" class="print-sheet max-w-3xl mx-auto px-5 py-14" aria-labelledby="sheet-title">
+      <h2 id="sheet-title" class="font-display text-3xl text-parchment mb-3">Your sheet</h2>
+      <p class="text-mist leading-relaxed mb-4 max-w-2xl">
+        Type into this browser tab if you want a clean print, or leave the lines blank and write on paper.
+        Fields stay here only. Nothing is submitted, saved, or sent.
+        No name, no email, no age. Print, then clear.
+      </p>
+      <div class="no-print flex flex-wrap gap-3 mb-8">
+        <button type="button" class="btn-gold" id="print-sheet">Print</button>
+        <button type="button" class="btn-ghost" id="clear-sheet">Clear</button>
+      </div>
+
+      <div class="panel rounded-2xl p-5 md:p-6 mb-4">
+        <h3 class="font-display text-2xl text-parchment mb-2">Guiding light</h3>
+        <p class="text-sm text-mist leading-relaxed mb-3">One to three sentences, in your own words. The site does not supply this.</p>
+        <label class="field">
+          <span class="lbl">Guiding light</span>
+          <textarea id="guiding-light" autocomplete="off" rows="4"></textarea>
+        </label>
+      </div>
+
+      <div class="panel rounded-2xl p-5 md:p-6 mb-4" data-sheet-lane="personal">
+        <h3 class="font-display text-2xl text-parchment mb-1">Personal</h3>
+        <p class="text-sm text-mist leading-relaxed mb-3">Body, mind, soul, household craft.</p>
+        <label class="field">
+          <span class="lbl">Goal — direction for this season</span>
+          <textarea id="personal-goal" autocomplete="off" rows="2"></textarea>
+        </label>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 1</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="personal-obj-1" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="personal-done-1" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="personal-date-1" autocomplete="off" /></label>
+        </fieldset>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 2</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="personal-obj-2" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="personal-done-2" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="personal-date-2" autocomplete="off" /></label>
+        </fieldset>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 3</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="personal-obj-3" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="personal-done-3" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="personal-date-3" autocomplete="off" /></label>
+        </fieldset>
+        <label class="field">
+          <span class="lbl">Next review date</span>
+          <input type="date" id="personal-review-date" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span class="lbl">Review — does this still serve life (body, home, neighbor)?</span>
+          <textarea id="personal-review" autocomplete="off" rows="2"></textarea>
+        </label>
+      </div>
+
+      <div class="panel rounded-2xl p-5 md:p-6 mb-4" data-sheet-lane="parental">
+        <h3 class="font-display text-2xl text-parchment mb-1">Parental</h3>
+        <p class="text-sm text-mist leading-relaxed mb-3">Parent writes this lane. Interest and learning only. Leave children unnamed.</p>
+        <label class="field">
+          <span class="lbl">Goal — direction for this season</span>
+          <textarea id="parental-goal" autocomplete="off" rows="2"></textarea>
+        </label>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 1</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="parental-obj-1" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="parental-done-1" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="parental-date-1" autocomplete="off" /></label>
+        </fieldset>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 2</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="parental-obj-2" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="parental-done-2" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="parental-date-2" autocomplete="off" /></label>
+        </fieldset>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 3</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="parental-obj-3" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="parental-done-3" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="parental-date-3" autocomplete="off" /></label>
+        </fieldset>
+        <label class="field">
+          <span class="lbl">Next review date</span>
+          <input type="date" id="parental-review-date" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span class="lbl">Review — does this still serve life (body, home, neighbor)?</span>
+          <textarea id="parental-review" autocomplete="off" rows="2"></textarea>
+        </label>
+      </div>
+
+      <div class="panel rounded-2xl p-5 md:p-6 mb-4" data-sheet-lane="professional">
+        <h3 class="font-display text-2xl text-parchment mb-1">Professional</h3>
+        <p class="text-sm text-mist leading-relaxed mb-3">Product, service, livelihood. Do not write private amounts.</p>
+        <label class="field">
+          <span class="lbl">Goal — direction for this season</span>
+          <textarea id="professional-goal" autocomplete="off" rows="2"></textarea>
+        </label>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 1</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="professional-obj-1" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="professional-done-1" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="professional-date-1" autocomplete="off" /></label>
+        </fieldset>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 2</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="professional-obj-2" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="professional-done-2" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="professional-date-2" autocomplete="off" /></label>
+        </fieldset>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 3</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="professional-obj-3" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="professional-done-3" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="professional-date-3" autocomplete="off" /></label>
+        </fieldset>
+        <label class="field">
+          <span class="lbl">Next review date</span>
+          <input type="date" id="professional-review-date" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span class="lbl">Review — does this still serve life (body, home, neighbor)?</span>
+          <textarea id="professional-review" autocomplete="off" rows="2"></textarea>
+        </label>
+      </div>
+
+      <div class="panel rounded-2xl p-5 md:p-6 mb-4" data-sheet-lane="public">
+        <h3 class="font-display text-2xl text-parchment mb-1">Public · not political</h3>
+        <p class="text-sm text-mist leading-relaxed mb-3">Charity and service. Giving amount stays private — do not write a number here.</p>
+        <label class="field">
+          <span class="lbl">Goal — direction for this season</span>
+          <textarea id="public-goal" autocomplete="off" rows="2"></textarea>
+        </label>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 1</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="public-obj-1" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="public-done-1" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="public-date-1" autocomplete="off" /></label>
+        </fieldset>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 2</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="public-obj-2" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="public-done-2" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="public-date-2" autocomplete="off" /></label>
+        </fieldset>
+        <fieldset>
+          <legend class="text-hive text-[11px] uppercase tracking-[0.18em]">Objective 3</legend>
+          <label class="field"><span class="lbl">Objective — a checkable step</span><input type="text" id="public-obj-3" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Done looks like</span><input type="text" id="public-done-3" autocomplete="off" /></label>
+          <label class="field"><span class="lbl">Target date</span><input type="date" id="public-date-3" autocomplete="off" /></label>
+        </fieldset>
+        <label class="field">
+          <span class="lbl">Next review date</span>
+          <input type="date" id="public-review-date" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span class="lbl">Review — does this still serve life (body, home, neighbor)?</span>
+          <textarea id="public-review" autocomplete="off" rows="2"></textarea>
+        </label>
+      </div>
+
+      <p class="text-sm text-mist/80 leading-relaxed no-print">
+        Weekly glance, monthly objective check, seasonal goal review.
+        When you are done with the screen, clear the fields. The paper copy is the record.
+      </p>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/js/site-chrome.js"></script>
+  <script src="/js/site-config.js"></script>
+  <script src="/js/feedback-widget.js" defer></script>
+  <script>
+    (function () {
+      var DOORS = {
+        network: { label: "One Mission Network", lane: "personal" },
+        intek: { label: "Intek Space", lane: "" },
+        imi: { label: "Institute of Mature Imagination", lane: "parental" },
+        exchange: { label: "OMNI Exchange", lane: "professional" },
+        foundation: { label: "One Mission Foundation", lane: "public" }
+      };
+      var LANES = { personal: true, parental: true, professional: true, public: true };
+
+      var params;
+      try {
+        params = new URLSearchParams(window.location.search);
+      } catch (e) {
+        params = null;
+      }
+      var doorKey = params ? String(params.get("door") || "").trim().toLowerCase() : "";
+      var laneKey = params ? String(params.get("lane") || "").trim().toLowerCase() : "";
+      var door = Object.prototype.hasOwnProperty.call(DOORS, doorKey) ? DOORS[doorKey] : null;
+      var lane = Object.prototype.hasOwnProperty.call(LANES, laneKey) ? laneKey : "";
+      if (!lane && door && door.lane) lane = door.lane;
+
+      var note = document.getElementById("arrival-note");
+      if (door && note) {
+        note.textContent = "You came from " + door.label + ".";
+        note.classList.remove("hidden");
+      }
+      if (lane) {
+        var card = document.getElementById("lane-" + lane);
+        if (card) card.classList.add("lane-lit");
+      }
+
+      var printBtn = document.getElementById("print-sheet");
+      if (printBtn) {
+        printBtn.addEventListener("click", function () {
+          window.print();
+        });
+      }
+      var clearBtn = document.getElementById("clear-sheet");
+      if (clearBtn) {
+        clearBtn.addEventListener("click", function () {
+          var fields = document.querySelectorAll("#mission-sheet input, #mission-sheet textarea");
+          for (var i = 0; i < fields.length; i++) fields[i].value = "";
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
