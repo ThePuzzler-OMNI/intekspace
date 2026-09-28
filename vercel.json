@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/items-sent", "destination": "https://omniexchange.org/items-sent", "permanent": true },
+    { "source": "/video-contracts", "destination": "https://www.instituteofmatureimagination.org/video-contracts", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/education", "destination": "/education.html" },
     { "source": "/education-apply", "destination": "/education-apply.html" },
