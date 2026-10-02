@@ -81,6 +81,9 @@
  color: var(--muted);
  }
  .chip.warn { color: var(--warn); border-color: rgba(232,184,109,0.45); }
+ .your-scores { margin: 0.9rem 0 0.4rem; padding: 0.85rem 1rem; border: 1px solid rgba(232,184,109,0.55); border-radius: 12px; background: rgba(232,184,109,0.08); color: #f3e6c8; font-size: 0.95rem; line-height: 1.45; }
+ .your-scores strong { color: var(--warn); }
+ .your-scores a { color: #ffe9b0; }
  .chip.lock { color: var(--virtue); border-color: rgba(110,198,160,0.4); }
  .chip.gold { color: var(--gold); }
  .stage {
@@ -221,6 +224,14 @@
  <span class="chip gold">beta</span>
  </div>
  </header>
+
+ <div class="your-scores" id="yourScores" role="note" aria-label="Your Soul-time scores">
+ <strong>Your scores: none saved yet.</strong>
+ The pyramid below shows <strong>example</strong> numbers, not yours.
+ To get your own read, run Soul-time in your OMNI-Grok Bot chat (scores run 0 to 9) and keep the bot's reply.
+ Bringing those scores over to your One Mission profile is coming soon. Your Four P's are already saved at
+ <a href="https://onemissionnetworkandinstitute.org/join">onemissionnetworkandinstitute.org/join</a>.
+ </div>
 
  <p class="next-step">
  <a class="ctrl" id="fourPsNext" href="/forge/four-ps?door=intek">Next: set your Four P's</a>
