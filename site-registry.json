@@ -22,7 +22,8 @@
       { "href": "forge.html", "label": "Forge" },
       { "href": "https://onemissionnetworkandinstitute.org/forge.html", "label": "Vision", "external": true },
       { "href": "hive-king.html", "label": "Hive King" },
-      { "href": "https://onemissionnetworkandinstitute.org/contact.html", "label": "Contact", "external": true }
+      { "href": "https://onemissionnetworkandinstitute.org/contact.html", "label": "Contact", "external": true },
+      { "href": "https://onemissionnetworkandinstitute.org/join", "label": "Join", "external": true }
     ],
     "sister_links": [
       { "href": "https://onemissionnetworkandinstitute.org/", "label": "One Mission" },
