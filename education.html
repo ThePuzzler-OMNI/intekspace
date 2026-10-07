@@ -230,13 +230,28 @@
     (window.INTEK_EDU_TRACKS || []).forEach(function (t) {
       if (t.advanced) return;
       var a = document.createElement('a');
+      a.id = 'track-' + t.id;
       a.href = 'education-apply.html?track=' + encodeURIComponent(t.id);
-      a.className = 'panel rounded-2xl p-5 hover:border-mark/40 block transition';
+      a.className = 'panel rounded-2xl p-5 hover:border-mark/40 block transition scroll-mt-28';
       a.innerHTML =
         '<div class="text-[10px] uppercase tracking-wider text-slate-500 mb-1">' + t.short + '</div>' +
         '<div class="font-semibold text-white mb-2">' + t.name + '</div>' +
         '<p class="text-sm text-slate-400 leading-relaxed">' + t.blurb + '</p>' +
         (t.safetyNote ? '<p class="mt-2 text-[11px] text-amber-200/80">' + t.safetyNote + '</p>' : '');
+      if (t.projects && t.projects.length) {
+        var label = document.createElement('p');
+        label.className = 'mt-3 text-[10px] uppercase tracking-wider text-slate-500';
+        label.textContent = 'Projects';
+        var list = document.createElement('ul');
+        list.className = 'mt-1 text-sm text-slate-300 leading-relaxed list-disc list-inside';
+        t.projects.forEach(function (name) {
+          var li = document.createElement('li');
+          li.textContent = name;
+          list.appendChild(li);
+        });
+        a.appendChild(label);
+        a.appendChild(list);
+      }
       root.appendChild(a);
     });
   </script>
