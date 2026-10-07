@@ -32,18 +32,30 @@
     try {
       pre = new URLSearchParams(location.search).get('track') || '';
     } catch (_) {}
+    var matched = false;
     tracks.forEach(function (t) {
       var o1 = document.createElement('option');
       o1.value = t.id;
       o1.textContent = t.name;
-      if (t.id === pre) o1.selected = true;
+      if (t.id === pre) {
+        o1.selected = true;
+        matched = true;
+      }
       primary.appendChild(o1);
       var o2 = document.createElement('option');
       o2.value = t.id;
       o2.textContent = t.name;
       secondary.appendChild(o2);
     });
-    if (!pre && primary.options.length) primary.selectedIndex = 0;
+    if (pre && !matched) {
+      var placeholder = document.createElement('option');
+      placeholder.value = '';
+      placeholder.textContent = 'Choose a track';
+      placeholder.selected = true;
+      primary.insertBefore(placeholder, primary.firstChild);
+    } else if (!pre && primary.options.length) {
+      primary.selectedIndex = 0;
+    }
     updateSafety();
   }
 

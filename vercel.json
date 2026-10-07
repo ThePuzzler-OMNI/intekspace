@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/four-ps", "destination": "/forge/four-ps", "permanent": true },
+    { "source": "/four-ps/", "destination": "/forge/four-ps", "permanent": true },
     { "source": "/items-sent", "destination": "https://omniexchange.org/items-sent", "permanent": true },
     { "source": "/video-contracts", "destination": "https://www.instituteofmatureimagination.org/video-contracts", "permanent": true }
   ],

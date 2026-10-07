@@ -230,8 +230,9 @@
     (window.INTEK_EDU_TRACKS || []).forEach(function (t) {
       if (t.advanced) return;
       var a = document.createElement('a');
+      a.id = 'track-' + t.id;
       a.href = 'education-apply.html?track=' + encodeURIComponent(t.id);
-      a.className = 'panel rounded-2xl p-5 hover:border-mark/40 block transition';
+      a.className = 'panel rounded-2xl p-5 hover:border-mark/40 block transition scroll-mt-28';
       a.innerHTML =
         '<div class="text-[10px] uppercase tracking-wider text-slate-500 mb-1">' + t.short + '</div>' +
         '<div class="font-semibold text-white mb-2">' + t.name + '</div>' +
