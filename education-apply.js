@@ -27,17 +27,30 @@
     return null;
   }
 
+  function canonicalTrackId(raw) {
+    if (!raw) return '';
+    if (trackById(raw)) return raw;
+    for (var i = 0; i < tracks.length; i++) {
+      var ids = tracks[i].applyIds || [];
+      for (var j = 0; j < ids.length; j++) {
+        if (ids[j] === raw) return tracks[i].id;
+      }
+    }
+    return '';
+  }
+
   function fillSelects() {
     var pre = '';
     try {
       pre = new URLSearchParams(location.search).get('track') || '';
     } catch (_) {}
+    var canonical = canonicalTrackId(pre);
     var matched = false;
     tracks.forEach(function (t) {
       var o1 = document.createElement('option');
       o1.value = t.id;
       o1.textContent = t.name;
-      if (t.id === pre) {
+      if (canonical && t.id === canonical) {
         o1.selected = true;
         matched = true;
       }

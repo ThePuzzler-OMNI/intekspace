@@ -95,6 +95,23 @@
       safetyNote: 'Outdoor / organic materials — hygiene protocols required. Hard refusals: no storm-drain fantasy; no human-food claims from uncontrolled residual.',
       guardian: false,
     },
+    {
+      id: 'moral',
+      name: 'Moral track',
+      short: 'Whole person',
+      blurb:
+        'Whole-person stewardship builds stay together on this track rather than splitting into separate branches.',
+      projects: [
+        'Solar charge bank',
+        'OMNIbot',
+        'OMNI Home',
+        'OMNI Vision',
+        'Wearable low tech',
+      ],
+      applyIds: ['solar-charge', 'omnibot', 'omni-home', 'omni-vision', 'wearable-low-tech'],
+      safetyNote: '',
+      guardian: false,
+    },
   ];
 
   global.INTEK_EDU_TRACKS = TRACKS;
