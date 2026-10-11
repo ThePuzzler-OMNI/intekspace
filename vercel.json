@@ -1,6 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/.well-known/appspecific/com.tesla.3p.public-key.pem",
+      "headers": [
+        { "key": "Content-Type", "value": "application/x-pem-file" }
+      ]
+    }
+  ],
   "redirects": [
     { "source": "/items-sent", "destination": "https://omniexchange.org/items-sent", "permanent": true },
     { "source": "/video-contracts", "destination": "https://www.instituteofmatureimagination.org/video-contracts", "permanent": true }
