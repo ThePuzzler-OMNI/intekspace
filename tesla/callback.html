@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Tesla sign-in callback</title>
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;max-width:34rem;margin:2rem auto;padding:0 1rem;line-height:1.5;color:#111}
+textarea{width:100%;height:7rem;font-family:ui-monospace,monospace;font-size:.85rem}
+button{font-size:1rem;padding:.6rem 1rem;margin-top:.5rem}
+.muted{color:#555;font-size:.9rem}
+</style>
+</head>
+<body>
+<h1>Tesla sign-in callback</h1>
+<p id="msg">Copy the full URL below and paste it back to your assistant. It expires in a few minutes.</p>
+<textarea id="out" readonly></textarea><br>
+<button id="copy" type="button">Copy</button>
+<p class="muted">This page is static. It does not send the code anywhere. The code only works with the app secret, which stays off this site.</p>
+<script>
+(function () {
+  var q = new URLSearchParams(window.location.search);
+  var out = document.getElementById("out");
+  var err = q.get("error");
+  if (err) {
+    document.getElementById("msg").textContent = "Tesla returned an error: " + err + " " + (q.get("error_description") || "");
+  }
+  out.value = window.location.href;
+  document.getElementById("copy").onclick = function () {
+    var btn = this;
+    out.focus();
+    out.select();
+    var done = function () { btn.textContent = "Copied"; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(out.value).then(done, function () {
+        document.execCommand("copy");
+        done();
+      });
+    } else {
+      document.execCommand("copy");
+      done();
+    }
+  };
+})();
+</script>
+</body>
+</html>
