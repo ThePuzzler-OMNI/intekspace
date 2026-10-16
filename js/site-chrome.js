@@ -80,12 +80,18 @@
     document.head.appendChild(s);
   }
 
+  function rootHref(href) {
+    var h = String(href || '');
+    if (!h || h.charAt(0) === '/' || h.charAt(0) === '#' || /^[a-z][a-z0-9+.-]*:/i.test(h)) return h;
+    return '/' + h.replace(/^\.\//, '');
+  }
+
   function navLinks(chrome, mobile) {
     return (chrome.nav || [])
       .map(function (item) {
         var ext = item.external ? ' target="_blank" rel="noopener"' : '';
         return (
-          '<a href="' + esc(item.href) + '"' + ext + '>' + esc(item.label) + '</a>'
+          '<a href="' + esc(rootHref(item.href)) + '"' + ext + '>' + esc(item.label) + '</a>'
         );
       })
       .join('');
@@ -95,7 +101,7 @@
     return (
       '<div class="net-bar">' +
       '<a class="net-brand" href="' +
-      esc(chrome.home_href || 'index.html') +
+      esc(rootHref(chrome.home_href || 'index.html')) +
       '" title="Intek Space · Intek Inc.">' +
       '<span class="net-mark">' +
       esc(chrome.mark || 'IS') +
@@ -136,7 +142,7 @@
       })
       .slice(0, 5)
       .map(function (n) {
-        return '<a href="' + esc(n.href) + '">' + esc(n.label) + '</a>';
+        return '<a href="' + esc(rootHref(n.href)) + '">' + esc(n.label) + '</a>';
       })
       .join(' · ');
     return (

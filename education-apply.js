@@ -27,23 +27,48 @@
     return null;
   }
 
+  function canonicalTrackId(raw) {
+    if (!raw) return '';
+    if (trackById(raw)) return raw;
+    for (var i = 0; i < tracks.length; i++) {
+      var ids = tracks[i].applyIds || [];
+      for (var j = 0; j < ids.length; j++) {
+        if (ids[j] === raw) return tracks[i].id;
+      }
+    }
+    return '';
+  }
+
   function fillSelects() {
     var pre = '';
     try {
       pre = new URLSearchParams(location.search).get('track') || '';
     } catch (_) {}
+    var canonical = canonicalTrackId(pre);
+    var matched = false;
     tracks.forEach(function (t) {
       var o1 = document.createElement('option');
       o1.value = t.id;
       o1.textContent = t.name;
-      if (t.id === pre) o1.selected = true;
+      if (canonical && t.id === canonical) {
+        o1.selected = true;
+        matched = true;
+      }
       primary.appendChild(o1);
       var o2 = document.createElement('option');
       o2.value = t.id;
       o2.textContent = t.name;
       secondary.appendChild(o2);
     });
-    if (!pre && primary.options.length) primary.selectedIndex = 0;
+    if (pre && !matched) {
+      var placeholder = document.createElement('option');
+      placeholder.value = '';
+      placeholder.textContent = 'Choose a track';
+      placeholder.selected = true;
+      primary.insertBefore(placeholder, primary.firstChild);
+    } else if (!pre && primary.options.length) {
+      primary.selectedIndex = 0;
+    }
     updateSafety();
   }
 
