@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; form-action 'none'; base-uri 'none'" />
+<meta name="referrer" content="no-referrer" />
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+<meta name="googlebot" content="noindex, nofollow" />
+<meta name="theme-color" content="#f6f1e7" />
+<title>OMNI-Grok Bot Pro · Sandbox</title>
+<meta name="description" content="A private sandbox for designing OMNI Vision Forward View overlays on your own photo. Photos stay on your device." />
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="css/pro-sandbox.css" />
+</head>
+<body>
+<a class="skip" href="#forward-view">Skip to the Forward View module</a>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <p class="eyebrow">Intek Space · OMNI Vision · Sandbox</p>
+    <h1>OMNI-Grok Bot Pro · Sandbox</h1>
+    <p class="lede">A quiet workbench for trying ideas before they become hardware. One module is open today.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="intro-grid">
+  <section class="privacy" aria-labelledby="privacy-h">
+    <h2 id="privacy-h">Your photo stays on this device</h2>
+    <ul class="privacy-list">
+      <li><strong>No upload.</strong> The picture is opened by your browser and never sent anywhere.</li>
+      <li><strong>No server, no account.</strong> Nothing here saves to a cloud or a profile.</li>
+      <li><strong>No analytics, no trackers, no ads.</strong> No outside libraries or fonts are loaded.</li>
+      <li><strong>Location data removed.</strong> Exports are redrawn through a canvas, so camera EXIF and GPS tags are dropped.</li>
+    </ul>
+    <p class="privacy-check" id="net-check" aria-live="polite">Checking outside requests…</p>
+    <p class="fineprint">This page also carries a browser rule (Content-Security-Policy) that blocks network connections from its own script.</p>
+  </section>
+
+  <section class="principle" aria-labelledby="principle-h">
+    <h2 id="principle-h">Trust first</h2>
+    <p>The human is the judge. The bot earns trust. We never divide people or profit from attention. Every design made here is checked against that before it leaves the bench.</p>
+  </section>
+  </div>
+
+  <section id="forward-view" class="module" aria-labelledby="fv-h">
+    <div class="module-head">
+      <p class="eyebrow">Module 1 · OMNI Vision playground</p>
+      <h2 id="fv-h">OMNI Augmented Reality — Forward View</h2>
+      <p>Take or open a photo of the real world, then sketch what a gentle heads-up view could place on top of it.</p>
+    </div>
+
+    <div class="fv-grid">
+      <div class="fv-stage-col">
+        <div class="step capture" aria-labelledby="cap-h">
+          <h3 id="cap-h"><span class="num">1</span> Start with the real world</h3>
+          <div class="btn-row">
+            <label class="btn btn-primary" for="in-camera">Take a photo
+              <input id="in-camera" class="sr-file" type="file" accept="image/*" capture="environment" />
+            </label>
+            <label class="btn" for="in-upload">Upload a photo
+              <input id="in-upload" class="sr-file" type="file" accept="image/*" />
+            </label>
+            <button type="button" class="btn btn-quiet" id="btn-practice">Use a drawn practice scene</button>
+          </div>
+          <p class="fineprint">On a phone, “Take a photo” opens the rear camera. On a computer both buttons open a file picker.</p>
+        </div>
+
+        <div class="stage-wrap">
+          <div class="stage" id="stage" data-empty="true">
+            <img id="photo" alt="" hidden />
+            <div class="overlays" id="overlays" role="group" aria-label="Overlay cards on the photo"></div>
+            <div class="stage-empty" id="stage-empty">
+              <p>Your Forward View appears here.</p>
+              <p class="fineprint">Pick a photo above to begin.</p>
+            </div>
+          </div>
+          <div class="clear-meter" id="clear-meter" data-level="clear" aria-live="polite">
+            <div class="clear-bar" aria-hidden="true"><span id="clear-fill"></span></div>
+            <p id="clear-text"><strong>Keep the view clear:</strong> no overlays yet.</p>
+          </div>
+          <div class="btn-row stage-tools">
+            <button type="button" class="btn btn-small" id="btn-all-toggle" aria-pressed="false">Turn every overlay off</button>
+            <button type="button" class="btn btn-small btn-quiet" id="btn-deselect">Deselect</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="fv-panel-col">
+        <div class="step" aria-labelledby="add-h">
+          <h3 id="add-h"><span class="num">2</span> Add interface cards</h3>
+          <div class="add-grid" id="add-grid">
+            <button type="button" class="add-btn" data-add="label" disabled>Label</button>
+            <button type="button" class="add-btn" data-add="note" disabled>Note</button>
+            <button type="button" class="add-btn" data-add="bubble" disabled>Companion prompt</button>
+            <button type="button" class="add-btn" data-add="ring" disabled>Focus ring</button>
+            <button type="button" class="add-btn" data-add="arrow" disabled>Pathway arrow</button>
+            <button type="button" class="add-btn" data-add="gauge" disabled>Simple gauge</button>
+          </div>
+          <p class="fineprint">Drag a card to move it. Drag its corner to resize. With a card focused, arrow keys move it and Shift + arrow keys resize it.</p>
+        </div>
+
+        <div class="step" id="props" aria-labelledby="props-h">
+          <h3 id="props-h">Selected card</h3>
+          <p class="fineprint" id="props-empty">Tap a card on the photo, or pick one from the layer list.</p>
+          <div id="props-body" hidden>
+            <label class="field">Name in layer list
+              <input type="text" id="p-name" maxlength="40" />
+            </label>
+            <label class="field" id="p-text-wrap">Text
+              <textarea id="p-text" rows="3" maxlength="240"></textarea>
+            </label>
+            <label class="field range">Opacity <output id="p-opacity-out">100%</output>
+              <input type="range" id="p-opacity" min="15" max="100" step="5" />
+            </label>
+            <label class="field range" id="p-size-wrap">Text size <output id="p-size-out">100%</output>
+              <input type="range" id="p-size" min="60" max="160" step="10" />
+            </label>
+            <label class="field range" id="p-angle-wrap">Arrow direction <output id="p-angle-out">0°</output>
+              <input type="range" id="p-angle" min="-180" max="180" step="5" />
+            </label>
+            <label class="field range" id="p-value-wrap">Gauge value <output id="p-value-out">50</output>
+              <input type="range" id="p-value" min="0" max="100" step="1" />
+            </label>
+            <fieldset class="sensors" aria-describedby="sensor-help">
+              <legend><span class="num">4</span> Sensor needs for this card</legend>
+              <p class="fineprint" id="sensor-help">What would the device have to track to make this card live?</p>
+              <div class="sensor-grid" id="sensor-grid"></div>
+              <button type="button" class="btn btn-small btn-quiet" id="btn-suggest">Suggest for this kind of card (you decide)</button>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="step" aria-labelledby="layers-h">
+          <h3 id="layers-h">Layers</h3>
+          <p class="fineprint">Top of the list sits on top of the view. Untick a layer to hide it.</p>
+          <ol class="layers" id="layers"></ol>
+          <p class="fineprint" id="layers-empty">No layers yet.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lower-grid">
+      <div class="step" aria-labelledby="hw-h">
+        <h3 id="hw-h">Hardware requirements note</h3>
+        <p class="fineprint">Built from the sensor needs you mark on each card. It travels with the JSON export.</p>
+        <ul class="hw-list" id="hw-list"><li class="fineprint">Mark sensor needs on a card to see them gathered here.</li></ul>
+      </div>
+
+      <fieldset class="step checklist" aria-describedby="check-help">
+        <legend><span class="num">3</span> Non-manipulation checklist</legend>
+        <p class="fineprint" id="check-help">You are the judge. Tick each line you can honestly stand behind for this design.</p>
+        <div id="checklist"></div>
+        <p class="check-status" id="check-status" aria-live="polite">0 of 7 confirmed.</p>
+      </fieldset>
+    </div>
+
+    <div class="step export" aria-labelledby="exp-h">
+      <h3 id="exp-h"><span class="num">5</span> Export this design</h3>
+      <label class="field">Design name
+        <input type="text" id="design-name" maxlength="60" value="Forward View sketch" />
+      </label>
+      <div class="btn-row">
+        <button type="button" class="btn btn-primary" id="btn-export-json" disabled>Download design (JSON)</button>
+        <button type="button" class="btn btn-primary" id="btn-export-png" disabled>Download flattened picture (PNG)</button>
+        <label class="btn btn-quiet" for="in-json">Load a design JSON
+          <input id="in-json" class="sr-file" type="file" accept="application/json,.json" />
+        </label>
+      </div>
+      <p class="fineprint" id="export-status" aria-live="polite"></p>
+      <div class="train-note">
+        <p><strong>Why export?</strong> Each still design is a small, honest specimen: what a person wanted to see, where it sat, how much of the world it covered, and what the device would have to sense to make it live. Later, with consent on each one, designs like these can help train and specify the Forward View hardware. The person stays the judge of what goes in.</p>
+        <p class="fineprint">The JSON holds the card layout, your checklist, and the sensor note. It holds no photo and no location. The PNG is redrawn from scratch, so it carries no camera metadata. Both files save to this device.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tiers" aria-labelledby="tiers-h">
+    <h2 id="tiers-h">Steward now, members later</h2>
+    <p>These are plans written down, not offers. There is nothing to buy and nothing to sign up for on this page.</p>
+    <ul class="tier-list">
+      <li><strong>Steward · now.</strong> The steward uses this sandbox in the open, on his own device. Designs live in the files he downloads.</li>
+      <li><strong>Members · later (planned).</strong> Save designs to a member profile. This needs a backend and the steward’s yes before it exists.</li>
+      <li><strong>Builders · later (planned).</strong> Share chosen designs with the hardware build, with consent asked for each design.</li>
+    </ul>
+  </section>
+
+  <p class="fineprint noscript-note"><noscript>This sandbox needs JavaScript turned on. It still sends nothing anywhere.</noscript></p>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Preview sandbox · not listed in search · <a href="/">Intek Space home</a></p>
+    <p class="fineprint">One Mission Network and Institute · OMNI</p>
+  </div>
+</footer>
+
+<script src="js/pro-sandbox.js"></script>
+</body>
+</html>
