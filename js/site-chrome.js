@@ -65,6 +65,13 @@
     '.net-foot-row{display:flex;flex-direction:column;gap:0.75rem;}' +
     '.net-foot-sisters{font-size:0.75rem;color:rgba(154,173,200,0.9);margin-top:1rem;}' +
     '.net-foot-note{font-size:0.75rem;color:rgba(154,173,200,0.55);margin-top:0.75rem;}' +
+    '.net-kingdom{margin-top:1.15rem;padding-top:0.85rem;border-top:1px solid rgba(212,176,86,0.28);}' +
+    '.net-kingdom-label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,176,86,0.9);margin-bottom:0.35rem;}' +
+    '.net-kingdom-links{display:flex;flex-wrap:wrap;row-gap:0.2rem;font-size:0.75rem;line-height:1.7;}' +
+    '.net-kingdom-links a{white-space:nowrap;}' +
+    '.net-kingdom-links a:not(:last-child)::after{content:"·";padding:0 0.4rem;}' +
+    '.net-kingdom-links a{color:rgba(234,240,250,0.88);text-decoration:none;}' +
+    '.net-kingdom-links a:hover{color:#e8c86a;}' +
     '@media (min-width:768px){' +
     '.net-nav-desktop{display:flex;}' +
     '.net-nav-toggle{display:inline-flex !important;}' +
@@ -118,6 +125,36 @@
     );
   }
 
+  var KINGDOM_LINKS = [
+    { href: 'https://onemissionnetworkandinstitute.org', label: 'One Mission Network' },
+    { href: 'https://intekspace.com', label: 'Intek' },
+    { href: 'https://www.instituteofmatureimagination.org', label: 'Institute of Mature Imagination' },
+    { href: 'https://onemissionfoundation.org', label: 'One Mission Foundation' },
+    { href: 'https://omniexchange.org', label: 'OMNI Exchange' },
+    { href: 'https://getomni.vercel.app', label: 'Get OMNI' },
+    { href: 'https://x.com/omni_puzzler', label: 'X' },
+  ];
+
+  function kingdomBar() {
+    if (document.querySelector('.net-kingdom, [data-kingdom-bar]')) return '';
+    var links = KINGDOM_LINKS.map(function (s) {
+      return (
+        '<a href="' +
+        esc(s.href) +
+        '" target="_blank" rel="noopener">' +
+        esc(s.label) +
+        '</a>'
+      );
+    }).join('');
+    return (
+      '<nav class="net-kingdom" data-kingdom-bar="ready" aria-label="Kingdom">' +
+      '<div class="net-kingdom-label">Kingdom</div>' +
+      '<div class="net-kingdom-links">' +
+      links +
+      '</div></nav>'
+    );
+  }
+
   function buildFooter(chrome) {
     var sisters = filterSisters(chrome.sister_links)
       .map(function (s) {
@@ -158,6 +195,7 @@
       '<p class="net-foot-note">Analytics may be used to improve the site. · kit ' +
       KIT +
       '</p>' +
+      kingdomBar() +
       '</div>'
     );
   }
@@ -261,6 +299,7 @@
 
   function isGetOmniLink(a) {
     if (!a || a.classList.contains('companion-mirror')) return false;
+    if (a.closest && a.closest('.net-kingdom, [data-kingdom-bar]')) return false;
     if (a.classList.contains('companion-cta')) return true;
     var label = (a.textContent || '').replace(/\s+/g, ' ').trim();
     if (/^get omni$/i.test(label)) return true;
