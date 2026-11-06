@@ -11,14 +11,16 @@
   ],
   "redirects": [
     { "source": "/items-sent", "destination": "https://omniexchange.org/items-sent", "permanent": true },
-    { "source": "/video-contracts", "destination": "https://www.instituteofmatureimagination.org/video-contracts", "permanent": true }
+    { "source": "/video-contracts", "destination": "https://www.instituteofmatureimagination.org/video-contracts", "permanent": true },
+    { "source": "/forge/four-ps", "destination": "/forge/five-ps", "permanent": true },
+    { "source": "/forge/four-ps.html", "destination": "/forge/five-ps", "permanent": true }
   ],
   "rewrites": [
     { "source": "/education", "destination": "/education.html" },
     { "source": "/education-apply", "destination": "/education-apply.html" },
     { "source": "/forge", "destination": "/forge.html" },
     { "source": "/forge/mirror", "destination": "/forge/mirror.html" },
-    { "source": "/forge/four-ps", "destination": "/forge/four-ps.html" },
+    { "source": "/forge/five-ps", "destination": "/forge/five-ps.html" },
     { "source": "/hive-king", "destination": "/hive-king.html" },
     { "source": "/philosophy", "destination": "/philosophy.html" },
     { "source": "/projects", "destination": "/projects.html" },

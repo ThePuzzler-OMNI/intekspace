@@ -23,7 +23,7 @@ It is not a smart-home product pitch and not a mobile/body continuity stack (tha
 - **A humble offer to join OMNI** — in humble honest opinion, OMNI / One Mission is the path toward world peace. That is **opinion and invitation**, never a product deliverable or SKU claim on this page.
 
 ### Secondary
-- Bridge to **personal, parental, professional, political (public), and philosophical** presence.
+- Bridge to **personal, parental, professional, public, pastoral, and philosophical** presence. Public is the outward civic leg (formerly political). Pastoral is how you affect your environment — the inner, shepherding, giving side.
 - Correspondent layer: LLM now, or whatever the next AI thing is called — architecture open (including QM architecture, etc.). The **role** is stable; the **model generation name** is not frozen.
 
 ---
@@ -72,7 +72,7 @@ It is not a smart-home product pitch and not a mobile/body continuity stack (tha
 
 ## Relation (light; mobile assessed later)
 
-- **OMNI Home** = house vault + Atticus + five-fold presence under other goals.
+- **OMNI Home** = house vault + Atticus + the Five P's (personal through pastoral) and philosophical presence under other goals.
 - **OMNIbot** = primary goal; body / mobile command continuity — **not discussed further here**.
 - **Education** = objectives path (apply seat), not a substitute for this goal page.
 - After Home is secured and shipped as needed: discuss mobile, then assess Home / mobile separation.
